@@ -1,25 +1,39 @@
-/// steam key 6DCD8CE742C40D955C67CA739677F104
-// steam id 76561198134108288
+const options = {
+    method: 'GET',
+    headers: {
+        'X-RapidAPI-Key': '',
+        'X-RapidAPI-Host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
+    }
+};
 
-// http://api.steampowered.com/ISteamUser/GetFriendList/v0001/?key=[MY_SECRET_KEY]&steamid=76561197960435530&relationship=friend
+userInput = 'pasta'
+userInput2 = 'italian'
 
-//fetching test for steam
-
-
-let getUserStats = function () {
-    let userSteamID = "https://api.steampowered.com/ISteamUser/GetFriendList/v0001/?key=6DCD8CE742C40D955C67CA739677F104&steamid=76561197960435530&relationship=friend"
-    fetch(userSteamID, { 
-        "Access-Control-Allow-Origin": "",
-        'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE, OPTIONS',
-        'Access-Control-Allow-Headers': '*'
+fetch("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?query=" +userInput+ "&cuisine=%27+userInput2", options)
+    .then(function (response) {
+        return response.json();
     })
-        .then(function (stats) {
-            console.log(stats);
-            return stats.json();
-         })}
-        //  .then(function(bigStats){
-        //     console.log(bigStats);
-        // })
+    .then(function (data) {
+        console.log(data)
+        recipeId = data.results[0].id
+        const set2 = {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Key': '',
+                'X-RapidAPI-Host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
+            }
+        };
 
-getUserStats();
-        
+        fetch('https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/' +recipeId+ '/information', set2)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data)
+        })
+        .catch(err => console.error(err));
+    })
+    .catch(err => console.error(err));
+
+
+    
