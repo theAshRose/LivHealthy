@@ -7,9 +7,10 @@
 
 
 let getUserStats = function () {
-    let userSteamID = "http://api.steampowered.com/ISteamUser/GetFriendList/v0001/?key=6DCD8CE742C40D955C67CA739677F104&steamid=76561197960435530&relationship=friend"
+    let userSteamID = "https://api.steampowered.com/ISteamUser/GetFriendList/v0001/?key=6DCD8CE742C40D955C67CA739677F104&steamid=76561197960435530&relationship=friend"
     fetch(userSteamID, { 
-        
+        "Access-Control-Allow-Origin": "",
+        'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE, OPTIONS',
         'Access-Control-Allow-Headers': '*'
     })
         .then(function (stats) {
