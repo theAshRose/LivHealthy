@@ -15,3 +15,9 @@ fetch(
   .then((response) => response.text())
   .then((result) => console.log(result))
   .catch((error) => console.log("error", error));
+
+
+
+twitch app info:
+client ID: ue4opxhc87trq25vwzpqv7fm488q97
+client secret: enxc3zcpbry2ti09xkmih4i83tzx8u
