@@ -42,19 +42,19 @@ $("#myChart").hide();
 //     .catch(err => console.error(err));
 
 /////////////Chris's test with hardcoded variables"
-// const options = {
-//   method: "GET",
-//   headers: {
-//     "X-RapidAPI-Key": "f6140f9bd5mshf947ce29f8d6a4ap1406e5jsn9e459eb842b0",
-//     "X-RapidAPI-Host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-//   },
-// };
+const options = {
+  method: "GET",
+  headers: {
+    "X-RapidAPI-Key": "f6140f9bd5mshf947ce29f8d6a4ap1406e5jsn9e459eb842b0",
+    "X-RapidAPI-Host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+  },
+};
 
-var title = "pasta";
+var title = "";
 var cuisine = "italian";
-var excludeCuisine = "greek";
-var diet = "vegetarian";
-var intolerances = "gluten";
+var excludeCuisine = "";
+var diet = "";
+var intolerances = "dairy";
 var excludeIng = "eggs";
 var type = "main";
 var maxCarbs = 50;
@@ -99,36 +99,36 @@ fetch(
     maxSugar +
     "",
   options
-);
-//   .then(function (response) {
-//     return response.json();
-//   })
-//   .then(function (data) {
-//     console.log(data);
-//     var recipeId = data.results[0].id;
-//     const set2 = {
-//       method: "GET",
-//       headers: {
-//         "X-RapidAPI-Key": "f6140f9bd5mshf947ce29f8d6a4ap1406e5jsn9e459eb842b0",
-//         "X-RapidAPI-Host":
-//           "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-//       },
-//     };
+)
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    console.log(data);
+    var recipeId = data.results[0].id;
+    const set2 = {
+      method: "GET",
+      headers: {
+        "X-RapidAPI-Key": "f6140f9bd5mshf947ce29f8d6a4ap1406e5jsn9e459eb842b0",
+        "X-RapidAPI-Host":
+          "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+      },
+    };
 
-//     fetch(
-//       "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" +
-//         recipeId +
-//         "/information",
-//       set2
-//     )
-//       .then(function (response) {
-//         return response.json();
-//       })
-//       .then(function (data) {
-//         console.log(data);
-//       })
-//       .catch((err) => console.error(err));
-//   });
+    fetch(
+      "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" +
+        recipeId +
+        "/information",
+      set2
+    )
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        console.log(data);
+      })
+      .catch((err) => console.error(err));
+  });
 //////////////END of chris test//////////////////////
 
 ///////////////////////////////////PARAMETERS INCLUDING IN SEARCH  WITH CODING GUIDELINES/////////////////////////////////////////
