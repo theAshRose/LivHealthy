@@ -252,6 +252,7 @@ var displayRecipeCards = function (data) {
     var cardNutritionBullet9 = $("<li>");
     var cardSave = $("<a>");
 
+    var UniqueCardId = data.results[i].id;
     var foodPic = data.results[i].image;
     var foodTitle = data.results[i].title;
     var recipeLink = data.results[i].sourceUrl;
@@ -274,6 +275,7 @@ var displayRecipeCards = function (data) {
       "Sugar: " + data.results[i].nutrition.nutrients[7].amount + " g";
 
     recipeCol.addClass("col 3");
+    recipeCol.attr("id", UniqueCardId);
     recipeCard.addClass("card");
     recipeCard.attr("id", "foodResult0");
     cardImageContainer.addClass(
