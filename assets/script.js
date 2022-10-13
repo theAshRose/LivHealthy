@@ -70,7 +70,6 @@ $("#myChart").hide();
 //     console.log(data);
 //   });
 
-
 //////////////END of chris test//////////////////////
 
 ///////////////////////////////////PARAMETERS INCLUDING IN SEARCH  WITH CODING GUIDELINES/////////////////////////////////////////
@@ -104,7 +103,6 @@ $("#myChart").hide();
 ////  -ALL NUTRIENTS: data.results[i].nutrition.nutrients[j].amount
 //                    data.results[i].nutrition.nutrients[j].name    (cycle through all) (DV%: data.bad[0].percentOfDailyNeeds [follows same format for every ingredient daily value %])
 
-
 ////////////////////////////////////////////////////////////////////////////////below is healthy quotes! not free, use sparingly///////////////////////////////////////////////////////////////////////////////
 
 // const options = {
@@ -124,18 +122,70 @@ $("#myChart").hide();
 
 //////////////////////////////////////////////////////////below is excercise///////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// const options = {
-// 	method: 'GET',
-// 	headers: {
-// 		'X-RapidAPI-Key': '6e62526b2bmsh6ea8d6b04968f6dp1bf673jsn462c96ed6e67',
-// 		'X-RapidAPI-Host': 'exercises-by-api-ninjas.p.rapidapi.com'
-// 	}
-// };
+const exerciseOptions = {
+  method: "GET",
+  headers: {
+    "X-RapidAPI-Key": "6e62526b2bmsh6ea8d6b04968f6dp1bf673jsn462c96ed6e67",
+    "X-RapidAPI-Host": "exercises-by-api-ninjas.p.rapidapi.com",
+  },
+};
 
-// fetch('https://exercises-by-api-ninjas.p.rapidapi.com/v1/exercises?muscle=biceps', options)
-// 	.then(response => response.json())
-// 	.then(response => console.log(response))
-// 	.catch(err => console.error(err));
+///parameters that will show on page so user can chose which parameers to search by
+//name of excerise
+// muscle group targeted by the exercise. Possible values are:
+//these will al be dropdowns for the user
+// abdominals
+// abductors
+// adductors
+// biceps
+// calves
+// chest
+// forearms
+// glutes
+// hamstrings
+// lats
+// lowerback middleback
+// neck
+// quadriceps
+// traps
+// triceps
+var muscle = "biceps";
+var type = "strength";
+//possible types:
+//cardio
+// olympic_weightlifting
+// plyometrics
+// powerlifting
+// strength
+// stretching
+// strongman
+var difficulty = "beginner";
+//possible difficulties"
+// beginner
+// intermediate
+// expert
+fetch(
+  "https://exercises-by-api-ninjas.p.rapidapi.com/v1/exercises?muscle=" +
+    muscle +
+    "&difficulty=" +
+    difficulty +
+    "&type=" +
+    type +
+    "",
+  exerciseOptions
+)
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    console.log(data[0].instructions);
+  });
+
+// paths to get the data on the screen are below
+data[i].difficulty; //difficulty of exercise
+data[i].name; //name of exercise
+data[i].instructions; //detailed summary of how to do exercise
+data[i].equipment; //equipment the user will need
 
 /////////////////////////////////////chart skeleton just an example:
 
