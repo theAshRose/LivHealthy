@@ -12,6 +12,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <!--Let browser know website is optimized for mobile-->
+  <link rel="style" href="./assets/style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
 </head>
@@ -55,8 +56,33 @@
       <canvas id="myChart">10</canvas>
     </div>
 
-    <div id="conent-wrapper">
-      <section id="home-recipe-content">
+    <div id="homeFavDisplayWrapper" class="row 4">
+      <section id="homeFood">
+        <div class="col 12">
+          <div class="col 6">
+            <h4 id=homeFoodTitle>Chicken Fabioli</h4>
+            <img id="homeFoodImg" class="activator" src="https://spoonacular.com/recipeImages/553758-312x231.jpg">
+            <p><a id="homeFoodLink" href="#"><em>Recipe Source Link</em></a></p>
+          </div>
+          <div class="col 6">
+            <p class="homeServings">Servings: 4</p>
+            <p class="homeHealthscore">Healthscore: 69</p>
+          </div>
+        </div>
+        <ul id="homeNutrients"></ul>
+        <p class="homeCard-nutrients">
+          <sm><em>per serving:</em></sm>
+        </p>
+        <li class="homeCaloriesLi">Calories: 900</li>
+        <li class="homeFatLi">Fat: 200g</li>
+        <li class="homeSatFatLi">Saturated Fat: 500g</li>
+        <li class="homeCarbsLi">Carbohydrates: 600</li>
+        <li class="homeSugarLi">Sugar: 50g</li>
+        <li class="homeCholesterolLi">Cholesterol: 5g</li>
+        <li class="homeSodiumLi">Sodium: 500mg</li>
+        <li class="homeProteinLi">Protein: 20g</li>
+        <li a class="waves-effect blue waves-light btn-large">Eat Me</a></li>
+        <li a class="waves-effect red waves-light btn-large">Delete Me</a></li>
       </section>
       <section id="home-excr-content">
       </section>
@@ -66,24 +92,195 @@
   <!--  ----  -->
   <!------------------------------START OF FOODPAGE-------------------------->
   <div id="foodPage-wrapper" class="row 12">
-    <form id="food-form" class="col 3">
-      <div class="input-field col s12">
-        <select multiple>
-          <option value="" disabled selected>Choose your option</option>
-          <option value="1">Option 1</option>
-          <option value="2">Option 2</option>
-          <option value="3">Option 3</option>
-        </select>
-        <label>Materialize Multiple Select</label>
-      </div>
 
-      <button class="btn waves-effect waves-light" type="submit" name="action">Submit <i
-          class="material-icons right">send</i> </button>
+    <form id="food-form" class="col 3">
+
+      <div class="formWrapper col s12">
+
+        <div class="input-field">
+          <select multiple>
+            <option value="" disabled selected>Choose your style</option>
+            <option value="1">american</option>
+            <option value="2">italian</option>
+            <option value="3">mexican</option>
+            <option value="4">chinese</option>
+            <option value="5">korean</option>
+            <option value="6">french</option>
+            <option value="7">thai</option>
+          </select>
+          <label>Materialize Multiple Select</label>
+        </div>
+
+        <div class="input-field">
+          <select multiple>
+            <option value="" disabled selected>Pick One</option>
+            <option value="1">pescetarian</option>
+            <option value="2">vegan</option>
+            <option value="3">paleo</option>
+            <option value="4">primal</option>
+            <option value="5">vegetarian</option>
+          </select>
+          <label>Diet</label>
+        </div>
+
+        <div class="input-field">
+          <select multiple>
+            <option value="" disabled selected>Intolerances?</option>
+            <option value="1">dairy</option>
+            <option value="2">egg</option>
+            <option value="3">gluten</option>
+            <option value="4">peanut</option>
+            <option value="5">sesame</option>
+            <option value="6">seafood</option>
+            <option value="7">shellfish</option>
+            <option value="8">soy</option>
+            <option value="9">sulfite</option>
+            <option value="10">tree nut</option>
+            <option value="11">wheat</option>
+          </select>
+          <label>Intolerances</label>
+        </div>
+
+        <div class="row">
+          <div class="col s12">
+            Max Carbs?
+            <div class="input-field inline">
+              <input id="maxCarbsInput" type="number" class="validate">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col s12">
+            Min Protein?
+            <div class="input-field inline">
+              <input id="minProteinInput" type="number" class="validate">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col s12">
+            Max Calories?
+            <div class="input-field inline">
+              <input id="maxCaloriesInput" type="number" class="validate">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col s12">
+            Max Fat?
+            <div class="input-field inline">
+              <input id="maxFatInput" type="number" class="validate">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col s12">
+            Max SatFat?
+            <div class="input-field inline">
+              <input id="maxSatFatInput" type="number" class="validate">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col s12">
+            Min Fiber?
+            <div class="input-field inline">
+              <input id="minFiberInput" type="number" class="validate">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col s12">
+            Max Sodium?
+            <div class="input-field inline">
+              <input id="maxSodiumInput" type="number" class="validate">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col s12">
+            Max Sugar?
+            <div class="input-field inline">
+              <input id="maxSugarInput" type="number" class="validate">
+            </div>
+          </div>
+        </div>
+
+        <button class="btn waves-effect waves-light" type="submit" name="action">Submit <i
+            class="material-icons right">send</i> </button>
+      </div>
     </form>
 
-    <section id="food-search-results" class="col 9">
-      <div class="row 3">
+    <section id="food-search-results" class="row 9">
+      <div class="col 3">
 
+        <div class="card" id="foodResult0">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img id="foodCardImage0" class="activator" src="https://spoonacular.com/recipeImages/553758-312x231.jpg">
+          </div>
+          <div class="card-content">
+            <span id="foodCardTitle1-0" class="card-title activator grey-text text-darken-4">Chicken Fabioli<i
+                class="material-icons right">arrow_drop_up</i></span>
+            <p><a id="foodCardLink0" href="#"><em>Recipe Source Link</em></a></p>
+          </div>
+          <div class="card-reveal">
+            <span id="foodCardTitle2-0" class="card-title grey-text text-darken-4">Chicken Fabioli<i
+                class="material-icons right">arrow_drop_down</i></span>
+            <ul id="internalCard0">
+              <li class="servingsCard">Servings: 4</li>
+              <li class="healthscoreCard">Healthscore: 69</li>
+              <p class="card-per-serving">
+                <sm><em>per serving:</em></sm>
+              </p>
+              <li class="caloriesCard">Calories: 900</li>
+              <li class="fatCard">Fat: 200g</li>
+              <li class="satFatCard">Saturated Fat: 500g</li>
+              <li class="carbsCard">Carbohydrates: 600</li>
+              <li class="sugarCard">Sugar: 50g</li>
+              <li class="cholesterolCard">Cholesterol: 5g</li>
+              <li class="sodiumCard">Sodium: 500mg</li>
+              <li class="proteinCard">Protein: 20g</li>
+              <li id="foodCardButton0" a class="waves-effect green waves-light btn-small foodSaveBtn">Save</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="card" id="foodResult0">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img id="foodCardImage0" class="activator" src="https://spoonacular.com/recipeImages/553758-312x231.jpg">
+          </div>
+          <div class="card-content">
+            <span id="foodCardTitle1-0" class="card-title activator grey-text text-darken-4">Chicken Fabioli<i
+                class="material-icons right">arrow_drop_up</i></span>
+            <p><a id="foodCardLink0" href="#"><em>Recipe Source Link</em></a></p>
+          </div>
+          <div class="card-reveal">
+            <span id="foodCardTitle2-0" class="card-title grey-text text-darken-4">Chicken Fabioli<i
+                class="material-icons right">arrow_drop_down</i></span>
+            <ul id="internalCard0">
+              <li class="servingsCard">Servings: 4</li>
+              <li class="healthscoreCard">Healthscore: 69</li>
+              <p class="card-per-serving">
+                <sm><em>per serving:</em></sm>
+              </p>
+              <li class="caloriesCard">Calories: 900</li>
+              <li class="fatCard">Fat: 200g</li>
+              <li class="satFatCard">Saturated Fat: 500g</li>
+              <li class="carbsCard">Carbohydrates: 600</li>
+              <li class="sugarCard">Sugar: 50g</li>
+              <li class="cholesterolCard">Cholesterol: 5g</li>
+              <li class="sodiumCard">Sodium: 500mg</li>
+              <li class="proteinCard">Protein: 20g</li>
+              <li a class="waves-effect green waves-light btn-small">Save</a></li>
+            </ul>
+          </div>
+        </div>
         <div class="card" id="foodResult0">
           <div class="card-image waves-effect waves-block waves-light">
             <img id="foodCardImage0" class="activator" src="https://spoonacular.com/recipeImages/553758-312x231.jpg">
@@ -115,7 +312,289 @@
           </div>
         </div>
 
-      </div> 
+      </div>
+      <div class="col 3">
+
+        <div class="card" id="foodResult0">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img id="foodCardImage0" class="activator" src="https://spoonacular.com/recipeImages/553758-312x231.jpg">
+          </div>
+          <div class="card-content">
+            <span id="foodCardTitle1-0" class="card-title activator grey-text text-darken-4">Chicken Fabioli<i
+                class="material-icons right">arrow_drop_up</i></span>
+            <p><a id="foodCardLink0" href="#"><em>Recipe Source Link</em></a></p>
+          </div>
+          <div class="card-reveal">
+            <span id="foodCardTitle2-0" class="card-title grey-text text-darken-4">Chicken Fabioli<i
+                class="material-icons right">arrow_drop_down</i></span>
+            <ul id="internalCard0">
+              <li class="servingsCard">Servings: 4</li>
+              <li class="healthscoreCard">Healthscore: 69</li>
+              <p class="card-per-serving">
+                <sm><em>per serving:</em></sm>
+              </p>
+              <li class="caloriesCard">Calories: 900</li>
+              <li class="fatCard">Fat: 200g</li>
+              <li class="satFatCard">Saturated Fat: 500g</li>
+              <li class="carbsCard">Carbohydrates: 600</li>
+              <li class="sugarCard">Sugar: 50g</li>
+              <li class="cholesterolCard">Cholesterol: 5g</li>
+              <li class="sodiumCard">Sodium: 500mg</li>
+              <li class="proteinCard">Protein: 20g</li>
+              <li a class="waves-effect green waves-light btn-small">Save</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="card" id="foodResult0">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img id="foodCardImage0" class="activator" src="https://spoonacular.com/recipeImages/553758-312x231.jpg">
+          </div>
+          <div class="card-content">
+            <span id="foodCardTitle1-0" class="card-title activator grey-text text-darken-4">Chicken Fabioli<i
+                class="material-icons right">arrow_drop_up</i></span>
+            <p><a id="foodCardLink0" href="#"><em>Recipe Source Link</em></a></p>
+          </div>
+          <div class="card-reveal">
+            <span id="foodCardTitle2-0" class="card-title grey-text text-darken-4">Chicken Fabioli<i
+                class="material-icons right">arrow_drop_down</i></span>
+            <ul id="internalCard0">
+              <li class="servingsCard">Servings: 4</li>
+              <li class="healthscoreCard">Healthscore: 69</li>
+              <p class="card-per-serving">
+                <sm><em>per serving:</em></sm>
+              </p>
+              <li class="caloriesCard">Calories: 900</li>
+              <li class="fatCard">Fat: 200g</li>
+              <li class="satFatCard">Saturated Fat: 500g</li>
+              <li class="carbsCard">Carbohydrates: 600</li>
+              <li class="sugarCard">Sugar: 50g</li>
+              <li class="cholesterolCard">Cholesterol: 5g</li>
+              <li class="sodiumCard">Sodium: 500mg</li>
+              <li class="proteinCard">Protein: 20g</li>
+              <li a class="waves-effect green waves-light btn-small">Save</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="card" id="foodResult0">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img id="foodCardImage0" class="activator" src="https://spoonacular.com/recipeImages/553758-312x231.jpg">
+          </div>
+          <div class="card-content">
+            <span id="foodCardTitle1-0" class="card-title activator grey-text text-darken-4">Chicken Fabioli<i
+                class="material-icons right">arrow_drop_up</i></span>
+            <p><a id="foodCardLink0" href="#"><em>Recipe Source Link</em></a></p>
+          </div>
+          <div class="card-reveal">
+            <span id="foodCardTitle2-0" class="card-title grey-text text-darken-4">Chicken Fabioli<i
+                class="material-icons right">arrow_drop_down</i></span>
+            <ul id="internalCard0">
+              <li class="servingsCard">Servings: 4</li>
+              <li class="healthscoreCard">Healthscore: 69</li>
+              <p class="card-per-serving">
+                <sm><em>per serving:</em></sm>
+              </p>
+              <li class="caloriesCard">Calories: 900</li>
+              <li class="fatCard">Fat: 200g</li>
+              <li class="satFatCard">Saturated Fat: 500g</li>
+              <li class="carbsCard">Carbohydrates: 600</li>
+              <li class="sugarCard">Sugar: 50g</li>
+              <li class="cholesterolCard">Cholesterol: 5g</li>
+              <li class="sodiumCard">Sodium: 500mg</li>
+              <li class="proteinCard">Protein: 20g</li>
+              <li a class="waves-effect green waves-light btn-small">Save</a></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+      <div class="col 3">
+
+        <div class="card" id="foodResult0">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img id="foodCardImage0" class="activator" src="https://spoonacular.com/recipeImages/553758-312x231.jpg">
+          </div>
+          <div class="card-content">
+            <span id="foodCardTitle1-0" class="card-title activator grey-text text-darken-4">Chicken Fabioli<i
+                class="material-icons right">arrow_drop_up</i></span>
+            <p><a id="foodCardLink0" href="#"><em>Recipe Source Link</em></a></p>
+          </div>
+          <div class="card-reveal">
+            <span id="foodCardTitle2-0" class="card-title grey-text text-darken-4">Chicken Fabioli<i
+                class="material-icons right">arrow_drop_down</i></span>
+            <ul id="internalCard0">
+              <li class="servingsCard">Servings: 4</li>
+              <li class="healthscoreCard">Healthscore: 69</li>
+              <p class="card-per-serving">
+                <sm><em>per serving:</em></sm>
+              </p>
+              <li class="caloriesCard">Calories: 900</li>
+              <li class="fatCard">Fat: 200g</li>
+              <li class="satFatCard">Saturated Fat: 500g</li>
+              <li class="carbsCard">Carbohydrates: 600</li>
+              <li class="sugarCard">Sugar: 50g</li>
+              <li class="cholesterolCard">Cholesterol: 5g</li>
+              <li class="sodiumCard">Sodium: 500mg</li>
+              <li class="proteinCard">Protein: 20g</li>
+              <li a class="waves-effect green waves-light btn-small">Save</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="card" id="foodResult0">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img id="foodCardImage0" class="activator" src="https://spoonacular.com/recipeImages/553758-312x231.jpg">
+          </div>
+          <div class="card-content">
+            <span id="foodCardTitle1-0" class="card-title activator grey-text text-darken-4">Chicken Fabioli<i
+                class="material-icons right">arrow_drop_up</i></span>
+            <p><a id="foodCardLink0" href="#"><em>Recipe Source Link</em></a></p>
+          </div>
+          <div class="card-reveal">
+            <span id="foodCardTitle2-0" class="card-title grey-text text-darken-4">Chicken Fabioli<i
+                class="material-icons right">arrow_drop_down</i></span>
+            <ul id="internalCard0">
+              <li class="servingsCard">Servings: 4</li>
+              <li class="healthscoreCard">Healthscore: 69</li>
+              <p class="card-per-serving">
+                <sm><em>per serving:</em></sm>
+              </p>
+              <li class="caloriesCard">Calories: 900</li>
+              <li class="fatCard">Fat: 200g</li>
+              <li class="satFatCard">Saturated Fat: 500g</li>
+              <li class="carbsCard">Carbohydrates: 600</li>
+              <li class="sugarCard">Sugar: 50g</li>
+              <li class="cholesterolCard">Cholesterol: 5g</li>
+              <li class="sodiumCard">Sodium: 500mg</li>
+              <li class="proteinCard">Protein: 20g</li>
+              <li a class="waves-effect green waves-light btn-small">Save</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="card" id="foodResult0">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img id="foodCardImage0" class="activator" src="https://spoonacular.com/recipeImages/553758-312x231.jpg">
+          </div>
+          <div class="card-content">
+            <span id="foodCardTitle1-0" class="card-title activator grey-text text-darken-4">Chicken Fabioli<i
+                class="material-icons right">arrow_drop_up</i></span>
+            <p><a id="foodCardLink0" href="#"><em>Recipe Source Link</em></a></p>
+          </div>
+          <div class="card-reveal">
+            <span id="foodCardTitle2-0" class="card-title grey-text text-darken-4">Chicken Fabioli<i
+                class="material-icons right">arrow_drop_down</i></span>
+            <ul id="internalCard0">
+              <li class="servingsCard">Servings: 4</li>
+              <li class="healthscoreCard">Healthscore: 69</li>
+              <p class="card-per-serving">
+                <sm><em>per serving:</em></sm>
+              </p>
+              <li class="caloriesCard">Calories: 900</li>
+              <li class="fatCard">Fat: 200g</li>
+              <li class="satFatCard">Saturated Fat: 500g</li>
+              <li class="carbsCard">Carbohydrates: 600</li>
+              <li class="sugarCard">Sugar: 50g</li>
+              <li class="cholesterolCard">Cholesterol: 5g</li>
+              <li class="sodiumCard">Sodium: 500mg</li>
+              <li class="proteinCard">Protein: 20g</li>
+              <li a class="waves-effect green waves-light btn-small">Save</a></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+      <div class="col 3">
+
+        <div class="card" id="foodResult0">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img id="foodCardImage0" class="activator" src="https://spoonacular.com/recipeImages/553758-312x231.jpg">
+          </div>
+          <div class="card-content">
+            <span id="foodCardTitle1-0" class="card-title activator grey-text text-darken-4">Chicken Fabioli<i
+                class="material-icons right">arrow_drop_up</i></span>
+            <p><a id="foodCardLink0" href="#"><em>Recipe Source Link</em></a></p>
+          </div>
+          <div class="card-reveal">
+            <span id="foodCardTitle2-0" class="card-title grey-text text-darken-4">Chicken Fabioli<i
+                class="material-icons right">arrow_drop_down</i></span>
+            <ul id="internalCard0">
+              <li class="servingsCard">Servings: 4</li>
+              <li class="healthscoreCard">Healthscore: 69</li>
+              <p class="card-per-serving">
+                <sm><em>per serving:</em></sm>
+              </p>
+              <li class="caloriesCard">Calories: 900</li>
+              <li class="fatCard">Fat: 200g</li>
+              <li class="satFatCard">Saturated Fat: 500g</li>
+              <li class="carbsCard">Carbohydrates: 600</li>
+              <li class="sugarCard">Sugar: 50g</li>
+              <li class="cholesterolCard">Cholesterol: 5g</li>
+              <li class="sodiumCard">Sodium: 500mg</li>
+              <li class="proteinCard">Protein: 20g</li>
+              <li a class="waves-effect green waves-light btn-small">Save</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="card" id="foodResult0">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img id="foodCardImage0" class="activator" src="https://spoonacular.com/recipeImages/553758-312x231.jpg">
+          </div>
+          <div class="card-content">
+            <span id="foodCardTitle1-0" class="card-title activator grey-text text-darken-4">Chicken Fabioli<i
+                class="material-icons right">arrow_drop_up</i></span>
+            <p><a id="foodCardLink0" href="#"><em>Recipe Source Link</em></a></p>
+          </div>
+          <div class="card-reveal">
+            <span id="foodCardTitle2-0" class="card-title grey-text text-darken-4">Chicken Fabioli<i
+                class="material-icons right">arrow_drop_down</i></span>
+            <ul id="internalCard0">
+              <li class="servingsCard">Servings: 4</li>
+              <li class="healthscoreCard">Healthscore: 69</li>
+              <p class="card-per-serving">
+                <sm><em>per serving:</em></sm>
+              </p>
+              <li class="caloriesCard">Calories: 900</li>
+              <li class="fatCard">Fat: 200g</li>
+              <li class="satFatCard">Saturated Fat: 500g</li>
+              <li class="carbsCard">Carbohydrates: 600</li>
+              <li class="sugarCard">Sugar: 50g</li>
+              <li class="cholesterolCard">Cholesterol: 5g</li>
+              <li class="sodiumCard">Sodium: 500mg</li>
+              <li class="proteinCard">Protein: 20g</li>
+              <li a class="waves-effect green waves-light btn-small">Save</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="card" id="foodResult0">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img id="foodCardImage0" class="activator" src="https://spoonacular.com/recipeImages/553758-312x231.jpg">
+          </div>
+          <div class="card-content">
+            <span id="foodCardTitle1-0" class="card-title activator grey-text text-darken-4">Chicken Fabioli<i
+                class="material-icons right">arrow_drop_up</i></span>
+            <p><a id="foodCardLink0" href="#"><em>Recipe Source Link</em></a></p>
+          </div>
+          <div class="card-reveal">
+            <span id="foodCardTitle2-0" class="card-title grey-text text-darken-4">Chicken Fabioli<i
+                class="material-icons right">arrow_drop_down</i></span>
+            <ul id="internalCard0">
+              <li class="servingsCard">Servings: 4</li>
+              <li class="healthscoreCard">Healthscore: 69</li>
+              <p class="card-per-serving">
+                <sm><em>per serving:</em></sm>
+              </p>
+              <li class="caloriesCard">Calories: 900</li>
+              <li class="fatCard">Fat: 200g</li>
+              <li class="satFatCard">Saturated Fat: 500g</li>
+              <li class="carbsCard">Carbohydrates: 600</li>
+              <li class="sugarCard">Sugar: 50g</li>
+              <li class="cholesterolCard">Cholesterol: 5g</li>
+              <li class="sodiumCard">Sodium: 500mg</li>
+              <li class="proteinCard">Protein: 20g</li>
+              <li a class="waves-effect green waves-light btn-small">Save</a></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
     </section>
 
 
