@@ -4,15 +4,36 @@ $(document).ready(function () {
 $("#myChart").hide();
 
 //----Show-Hide-Sections----
-$("#newQuote").on("click", function(){
-  console.log("New Quote")
+
+//----Home Tag----
+$("#homeTag").on("click", function(){
+  $("#homePage").show();
+  $("#foodPage-wrapper").hide();
+  $("#exercisePage").hide();
 });
+
+$("#headerLogo").on("click", function(){
+  $("#homePage").show();
+  $("#foodPage-wrapper").hide();
+  $("#exercisePage").hide();
+});
+
+//----Recipe Section----
 $("#recipes").on("click", function(){
-  console.log("Recipes")
+  $("#foodPage-wrapper").show();
+  $("#homePage").hide();
+  $("#exercisePage").hide();
 });
+
+//----Exercise Section----
 $("#exercises").on("click", function(){
-  console.log("Exercises")
+  $("#exercisePage").show();
+  $("#foodPage-wrapper").hide();
+  $("#homePage").hide();
 });
+
+//----End Show-Hide----
+
 // $("#foodResult") card id to be modified upon population of data
 
 ///////////////////////////////////PARAMETERS INCLUDING IN SEARCH  WITH CODING GUIDELINES/////////////////////////////////////////

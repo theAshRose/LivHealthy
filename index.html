@@ -24,18 +24,19 @@
     <H1></H1>
     <nav style="background-color:#d3af4d9b">
       <div id="nav-wrapper">
-        <a href="#" class="brand-logo"><img height= 64px, src="./assets/Images/LogoB.png"></a><!--Logo header-->
+        <a id="headerLogo"href="#" class="brand-logo"><img height= 64px, src="./assets/Images/LogoB.png"></a><!--Logo header-->
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li id="newQuote"style="background-color:#002043; margin: 2px; padding: 0px 15px;">New Quote</li>
-          <li id="recipes"style="background-color:#002043; margin: 2px; padding: 0px 15px;">Recipes</li>
-          <li id="exercises"style="background-color:#002043; margin: 2px; padding: 0px 15px;">Exercises</li>
+          <li id="homeTag"style="background-color:#002043; margin: 2px; padding: 0px 15px;"><a>Home</a></li>
+          <li id="newQuote"style="background-color:#002043; margin: 2px; padding: 0px 15px;"><a>New Quote</a></li>
+          <li id="recipes"style="background-color:#002043; margin: 2px; padding: 0px 15px;"><a>Recipes</a></li>
+          <li id="exercises"style="background-color:#002043; margin: 2px; padding: 0px 15px;"><a>Exercises</a></li>
         </ul>
       </div>
     </nav>
   </header>
 
   <!------------------------------START OF HOMEPAGE-------------------------->
-  <div class="display:contents;" id="homePage">
+  <div style="display:contents;" id="homePage">Home Test
 
     <aside id="aside-wrapper">
       <div id="button-header">
@@ -93,7 +94,7 @@
   <!------------------------------END OF HOMEPAGE-------------------------->
   <!--  ----  -->
   <!------------------------------START OF FOODPAGE-------------------------->
-  <div id="foodPage-wrapper" class="row 12; display: none;">
+  <div id="foodPage-wrapper" class="row 12;" style="display:none">
 
     <form id="food-form" class="col 3">
 
@@ -232,11 +233,12 @@
   </div>
   <!------------------------------END OF FOODPAGE-------------------------->
   <!------------------------------START OF EXCRPAGE-------------------------->
-  <div id="excersizePage"></div>
+  <div id="exercisePage" style="display:none">
 
-  <div id="chartWrapper">
-    <!--we may put the chart(with chartwrapper around it in one of the other pages)-->
-    <canvas id="myChart">10</canvas>
+    <div id="chartWrapper">Exercise Test
+      <!--we may put the chart(with chartwrapper around it in one of the other pages)-->
+      <canvas id="myChart">10</canvas>
+    </div>
   </div>
   <!------------------------------END OF EXCRPAGE-------------------------->
   <!--jquery connection-->
