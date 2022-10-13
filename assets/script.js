@@ -5,75 +5,6 @@ $("#myChart").hide();
 
 // $("#foodResult") card id to be modified upon population of data
 
-///////////////////////////////////////////////////////////fetch seperated by long lines like this, below is recipe API(use sparingly, its not free)
-/////////////Chris's test with hardcoded variables"
-// const options = {
-//   method: "GET",
-//   headers: {
-//     "X-RapidAPI-Key": "f6140f9bd5mshf947ce29f8d6a4ap1406e5jsn9e459eb842b0",
-//     "X-RapidAPI-Host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-//   },
-// };
-
-// var title = "";
-// var cuisine = "italian";
-// var excludeCuisine = "";
-// var diet = "";
-// var intolerances = "dairy";
-// var excludeIng = "eggs";
-// var type = "main";
-// var maxCarbs = 50;
-// var minProtein = 10;
-// var maxCalories = 1000;
-// var maxFat = 50;
-// var maxSatFat = 50;
-// var MinFiber = 5;
-// var maxSodium = 100;
-// var maxSugar = 50;
-
-// fetch(
-//   "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?query=" +
-//     title +
-//     "&cuisine=" +
-//     cuisine +
-//     "&excludeCuisine" +
-//     excludeCuisine +
-//     "&diet=" +
-//     diet +
-//     "&intolerances=" +
-//     intolerances +
-//     "& excludeIngredients=" +
-//     excludeIng +
-//     "&type=" +
-//     type +
-//     "&instructionsRequired=true&addRecipeInformation=true&sort=calories&sortDirection=asc&maxCarbs=" +
-//     maxCarbs +
-//     "&minProtein=" +
-//     minProtein +
-//     "&maxCalories=" +
-//     maxCalories +
-//     "&maxFat=" +
-//     maxFat +
-//     "&maxSaturatedFat=" +
-//     maxSatFat +
-//     "&minFiber=" +
-//     MinFiber +
-//     "&maxSodium=" +
-//     maxSodium +
-//     "&maxSugar=" +
-//     maxSugar +
-//     "",
-//   options
-// )
-//   .then(function (response) {
-//     return response.json();
-//   })
-//   .then(function (data) {
-//     console.log(data);
-//   });
-
-//////////////END of chris test//////////////////////
-
 ///////////////////////////////////PARAMETERS INCLUDING IN SEARCH  WITH CODING GUIDELINES/////////////////////////////////////////
 //////
 ////   spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?
@@ -217,123 +148,211 @@ const myChart = new Chart(document.getElementById("myChart"), config);
 // save buttons on search page that delete after pressed
 //
 
+///////////////////////////////////////////////////////////fetch seperated by long lines like this, below is recipe API(use sparingly, its not free)
+/////////////Chris's test with hardcoded variables"
+const options = {
+  method: "GET",
+  headers: {
+    "X-RapidAPI-Key": "f6140f9bd5mshf947ce29f8d6a4ap1406e5jsn9e459eb842b0",
+    "X-RapidAPI-Host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+  },
+};
 
+var title = "";
+var cuisine = "";
+var excludeCuisine = "";
+var diet = "";
+var intolerances = "";
+var excludeIng = "";
+var type = "main";
+var maxCarbs = 50;
+var minProtein = 10;
+var maxCalories = 1000;
+var maxFat = 50;
+var maxSatFat = 50;
+var MinFiber = 5;
+var maxSodium = 100;
+var maxSugar = 50;
 
-
+fetch(
+  "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?query=" +
+    title +
+    "&cuisine=" +
+    cuisine +
+    "&excludeCuisine" +
+    excludeCuisine +
+    "&diet=" +
+    diet +
+    "&intolerances=" +
+    intolerances +
+    "& excludeIngredients=" +
+    excludeIng +
+    "&type=" +
+    type +
+    "&instructionsRequired=true&addRecipeInformation=true&sort=calories&sortDirection=asc&maxCarbs=" +
+    maxCarbs +
+    "&minProtein=" +
+    minProtein +
+    "&maxCalories=" +
+    maxCalories +
+    "&maxFat=" +
+    maxFat +
+    "&maxSaturatedFat=" +
+    maxSatFat +
+    "&minFiber=" +
+    MinFiber +
+    "&maxSodium=" +
+    maxSodium +
+    "&maxSugar=" +
+    maxSugar +
+    "&number=50" +
+    "",
+  options
+)
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    console.log(data);
+    displayRecipeCards(data);
+  });
 
 /////function to dynamically generate recipe cards///
-var foodResultsSection= $("#food-search-results")
+var foodResultsSection = $("#food-search-results");
 ////project psudocode/////////
 var displayRecipeCards = function (data) {
-
-
-  for (i = 0; i < data; i++) {
-    
-      var recipeCol = $("<div>");
-      var recipeCard = $("<div>");
-      var cardImageContainer = $("<div>");
-      var cardRecipeImage = $("<img>");
-      var cardContent = $("<div>");
-      var recipeTitle = $("<span>");
-      var cardArrow = $("<i>");
+  for (i = 0; i < 40; i++) {
+    var recipeCol = $("<div>");
+    var recipeCard = $("<div>");
+    var cardImageContainer = $("<div>");
+    var cardRecipeImage = $("<img>");
+    var cardContent = $("<div>");
+    var recipeTitle = $("<span>");
+    var cardArrow = $("<i>");
     var recipeParagragh = $("<p>");
     var anchorLink = $("<a>");
     var linkFont = $("<em>");
-      var cardReveal = $("<div>");
-      var cardRevealTitle = $("<span>");
-      var cardRevealIcon = $("<i>");
-      var cardRevealList = $("<ul>");
-      var cardRevealBullet = $("<li>");
-      var cardRevealbulletTwo = $("<li>");
-      var cardRevealParagraph = $("<p>");
-      var cardRevealServe = $("<sm>");
-      var cardRevealServeItalic = $("<em>");
-      var cardNutritionBullet1 = $("<li>");
-      var cardNutritionBullet2 = $("<li>");
-      var cardNutritionBullet3 = $("<li>");
-      var cardNutritionBullet4 = $("<li>");
-      var cardNutritionBullet5 = $("<li>");
-      var cardNutritionBullet6 = $("<li>");
-      var cardNutritionBullet7 = $("<li>");
-      var cardNutritionBullet8 = $("<li>");
+    var cardReveal = $("<div>");
+    var cardRevealTitle = $("<span>");
+    var cardRevealIcon = $("<i>");
+    var cardRevealList = $("<ul>");
+    var cardRevealBullet = $("<li>");
+    var cardRevealbulletTwo = $("<li>");
+    var cardRevealParagraph = $("<p>");
+    var cardRevealServe = $("<sm>");
+    var cardRevealServeItalic = $("<em>");
+    var cardNutritionBullet1 = $("<li>");
+    var cardNutritionBullet2 = $("<li>");
+    var cardNutritionBullet3 = $("<li>");
+    var cardNutritionBullet4 = $("<li>");
+    var cardNutritionBullet5 = $("<li>");
+    var cardNutritionBullet6 = $("<li>");
+    var cardNutritionBullet7 = $("<li>");
+    var cardNutritionBullet8 = $("<li>");
     var cardNutritionBullet9 = $("<li>");
-      var cardSave = $("<a>");
-      
-  
-  
+    var cardSave = $("<a>");
 
     var foodPic = data.results[i].image;
     var foodTitle = data.results[i].title;
     var recipeLink = data.results[i].sourceUrl;
     var foodRevealTitle = data.results[i].title;
-    var servings = "Servings:"+data.results[i].servings;
-    var healthscore = "Healthscore:"+ data.results[i].healthScore;
-    var calories = "Calories:"+ data.results[i].nutrition.nutrients[0].amount;
-    var protein = "Protein:"+ data.results[i].nutrition.nutrients[1].amount+"g";
-    var fat = "fat" + data.results[i].nutrition.nutrients[2].amount+ "g";
-    var carbs = "Carbs:"+ data.results[i].nutrition.nutrients[3].amount+"g";
-    var satFat = "Saturated Fat:"+ data.results[i].nutrition.nutrients[4].amount+"g";
-    var fiber = "fiber:"+ data.results[i].nutrition.nutrients[5].amount+"g";
-    var sodium = "Sodium:"+ data.results[i].nutrition.nutrients[6].amount+"g";
-    var sugar = "Sugar:"+ data.results[i].nutrition.nutrients[7].amount+"g";
-  
-    recipeCol.addClass("col 3")
-    recipeCard.addClass("card")
-    recipeCard.attr("id", "foodResult0")
-       cardImageContainer.addClass("card-image waves-effect waves-block waves-light") 
-    cardRecipeImage.addClass("activator") 
-    cardRecipeImage.attr("id", "foodCardImage0")
-    cardRecipeImage.attr("src", foodPic)
-       cardContent.addClass("card-content")
+    var servings = "Servings:" + data.results[i].servings;
+    var healthscore = "Healthscore:" + data.results[i].healthScore;
+    var calories = "Calories:" + data.results[i].nutrition.nutrients[0].amount;
+    var protein =
+      "Protein:" + data.results[i].nutrition.nutrients[1].amount + "g";
+    var fat = "fat" + data.results[i].nutrition.nutrients[2].amount + "g";
+    var carbs = "Carbs:" + data.results[i].nutrition.nutrients[3].amount + "g";
+    var satFat =
+      "Saturated Fat:" + data.results[i].nutrition.nutrients[4].amount + "g";
+    var fiber = "fiber:" + data.results[i].nutrition.nutrients[5].amount + "g";
+    var sodium =
+      "Sodium:" + data.results[i].nutrition.nutrients[6].amount + "g";
+    var sugar = "Sugar:" + data.results[i].nutrition.nutrients[7].amount + "g";
+
+    recipeCol.addClass("col 3");
+    recipeCard.addClass("card");
+    recipeCard.attr("id", "foodResult0");
+    cardImageContainer.addClass(
+      "card-image waves-effect waves-block waves-light"
+    );
+    cardRecipeImage.addClass("activator");
+    cardRecipeImage.attr("id", "foodCardImage0");
+    cardRecipeImage.attr("src", foodPic);
+    cardContent.addClass("card-content");
     recipeTitle.addClass("card-title activator grey-text text-darken-4");
-    recipeTitle.attr("id", "foodCardTitle1-0")
-    cardArrow.addClass("material-icons right") 
-    anchorLink.attr("id", "foodCardLink0")
-    anchorLink.attr("href", recipeLink)
-       cardReveal.addClass("card-reveal") 
-    cardRevealTitle.addClass("card-title grey-text text-darken-4") 
-    cardRevealTitle.attr("id", "foodCardTitle2-0")
-       cardRevealIcon.addClass("material-icons right") 
-       cardRevealList.attr("id", "internalCard0") 
-       cardRevealBullet.addClass("servingsCard") 
-       cardRevealbulletTwo.addClass("healthscoreCard") 
-       cardRevealParagraph.addClass("card-per-serving") 
-       cardNutritionBullet1.addClass("caloriesCard") 
-       cardNutritionBullet2.addClass("fatCard") 
-       cardNutritionBullet3.addClass("satFatCard") 
-       cardNutritionBullet4.addClass("carbsCard") 
-       cardNutritionBullet5.addClass("sugarCard") 
-       cardNutritionBullet6.addClass("sodiumCard") 
-       cardNutritionBullet7.addClass("proteinCard") 
-       cardNutritionBullet8.addClass("fiberCard") 
-     cardSave.addClass("waves-effect green waves-light btn-small") 
+    recipeTitle.attr("id", "foodCardTitle1-0");
+    cardArrow.addClass("material-icons right");
+    anchorLink.attr("id", "foodCardLink0");
+    anchorLink.attr("href", recipeLink);
+    cardReveal.addClass("card-reveal");
+    cardRevealTitle.addClass("card-title grey-text text-darken-4");
+    cardRevealTitle.attr("id", "foodCardTitle2-0", foodRevealTitle);
+    cardRevealIcon.addClass("material-icons right");
+    cardRevealList.attr("id", "internalCard0");
+    cardRevealBullet.addClass("servingsCard");
+    cardRevealbulletTwo.addClass("healthscoreCard");
+    cardRevealParagraph.addClass("card-per-serving");
+    cardNutritionBullet1.addClass("caloriesCard");
+    cardNutritionBullet2.addClass("fatCard");
+    cardNutritionBullet3.addClass("satFatCard");
+    cardNutritionBullet4.addClass("carbsCard");
+    cardNutritionBullet5.addClass("sugarCard");
+    cardNutritionBullet6.addClass("sodiumCard");
+    cardNutritionBullet7.addClass("proteinCard");
+    cardNutritionBullet8.addClass("fiberCard");
+    cardSave.addClass("waves-effect green waves-light btn-small");
 
-    
-    
-     
-      
-      
-     
+    recipeTitle.text(foodTitle);
+    linkFont.text("Recipe Source Link");
+    cardRevealTitle.text(foodTitle);
+    cardRevealBullet.text(servings);
+    cardRevealbulletTwo.text(healthscore);
+    cardRevealServeItalic.text("per serving:");
 
-      recipeTitle.text(foodTitle) 
-      linkFont.text("Recipe Source Link")
-      cardRevealTitle.text(foodTitle) 
-      cardRevealBullet.text(servings)
-      cardRevealbulletTwo.text(healthscore) 
-      cardRevealServeItalic .text("per serving:")
-      
-      cardNutritionBullet1.text(calories) 
-      cardNutritionBullet2.text(fat) 
-      cardNutritionBullet3.text(satFat) 
-      cardNutritionBullet4.text(carbs) 
-      cardNutritionBullet5.text(sugar) 
-      cardNutritionBullet6.text(sodium) 
-     cardNutritionBullet7.text(protein)
-      cardNutritionBullet8.text(fiber)
-      cardSave.text("save") 
-    
-  
-    
-    foodResultsSection
-  }}
-    ///////end off dynamically generated cards//
+    cardNutritionBullet1.text(calories);
+    cardNutritionBullet2.text(fat);
+    cardNutritionBullet3.text(satFat);
+    cardNutritionBullet4.text(carbs);
+    cardNutritionBullet5.text(sugar);
+    cardNutritionBullet6.text(sodium);
+    cardNutritionBullet7.text(protein);
+    cardNutritionBullet8.text(fiber);
+    cardSave.text("save");
+
+    foodResultsSection.append(recipeCol);
+    recipeCol.append(recipeCard);
+    recipeCard.append(cardImageContainer);
+    cardImageContainer.append(cardRecipeImage);
+    cardContent.insertAfter(recipeCard);
+    cardContent.append(recipeTitle);
+    recipeTitle.append(cardArrow);
+    cardArrow.append(recipeParagragh);
+    recipeParagragh.insertAfter(recipeTitle);
+
+    recipeParagragh.append(anchorLink);
+    anchorLink.append(linkFont);
+    cardReveal.insertAfter(cardContent);
+    cardReveal.append(cardRevealTitle);
+    cardRevealTitle.append(cardRevealIcon);
+    cardRevealIcon.append(cardRevealList);
+    cardRevealList.insertAfter(cardRevealTitle);
+
+    cardRevealList.append(cardRevealBullet);
+    cardRevealbulletTwo.insertAfter(cardRevealBullet);
+    cardRevealParagraph.insertAfter(cardRevealbulletTwo);
+    cardRevealParagraph.append(cardRevealServe);
+    cardRevealServe.append(cardRevealServeItalic);
+    cardNutritionBullet1.insertAfter(cardRevealParagraph);
+    cardNutritionBullet2.insertAfter(cardNutritionBullet1);
+    cardNutritionBullet3.insertAfter(cardNutritionBullet2);
+    cardNutritionBullet4.insertAfter(cardNutritionBullet3);
+    cardNutritionBullet5.insertAfter(cardNutritionBullet4);
+    cardNutritionBullet6.insertAfter(cardNutritionBullet5);
+    cardNutritionBullet7.insertAfter(cardNutritionBullet6);
+    cardNutritionBullet8.insertAfter(cardNutritionBullet7);
+    cardNutritionBullet9.insertAfter(cardNutritionBullet8);
+    cardNutritionBullet9.append(cardSave);
+  }
+};
+///////end off dynamically generated cards//
