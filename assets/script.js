@@ -307,6 +307,8 @@ var displayRecipeCards = function (data) {
     cardNutritionBullet7.addClass("proteinCard");
     cardNutritionBullet8.addClass("fiberCard");
     cardSave.addClass("waves-effect green waves-light btn-small");
+    
+    
 
     recipeTitle.text(foodTitle);
     linkFont.text("Recipe Source Link");
@@ -359,6 +361,8 @@ var displayRecipeCards = function (data) {
     cardNutritionBullet9.insertAfter(cardNutritionBullet8);
     cardNutritionBullet9.append(cardSave);
   }
+  
+  
 };
 
-///////end off dynamically generated cards//
+
