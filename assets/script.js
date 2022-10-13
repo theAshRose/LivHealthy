@@ -55,13 +55,13 @@ $("#myChart").hide();
 
 //////////////////////////////////////////////////////////below is excercise///////////////////////////////////////////////////////////////////////////////////////////////////////
 
-const exerciseOptions = {
-  method: "GET",
-  headers: {
-    "X-RapidAPI-Key": "6e62526b2bmsh6ea8d6b04968f6dp1bf673jsn462c96ed6e67",
-    "X-RapidAPI-Host": "exercises-by-api-ninjas.p.rapidapi.com",
-  },
-};
+// const exerciseOptions = {
+//   method: "GET",
+//   headers: {
+//     "X-RapidAPI-Key": "6e62526b2bmsh6ea8d6b04968f6dp1bf673jsn462c96ed6e67",
+//     "X-RapidAPI-Host": "exercises-by-api-ninjas.p.rapidapi.com",
+//   },
+// };
 
 ///parameters that will show on page so user can chose which parameers to search by
 //name of excerise
@@ -82,8 +82,8 @@ const exerciseOptions = {
 // quadriceps
 // traps
 // triceps
-var muscle = "biceps";
-var type = "strength";
+// var muscle = "biceps";
+// var type = "strength";
 //possible types:
 //cardio
 // olympic_weightlifting
@@ -92,33 +92,33 @@ var type = "strength";
 // strength
 // stretching
 // strongman
-var difficulty = "beginner";
+// var difficulty = "beginner";
 //possible difficulties"
 // beginner
 // intermediate
 // expert
-fetch(
-  "https://exercises-by-api-ninjas.p.rapidapi.com/v1/exercises?muscle=" +
-    muscle +
-    "&difficulty=" +
-    difficulty +
-    "&type=" +
-    type +
-    "",
-  exerciseOptions
-)
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    console.log(data[0].instructions);
-  });
+// fetch(
+//   "https://exercises-by-api-ninjas.p.rapidapi.com/v1/exercises?muscle=" +
+//     muscle +
+//     "&difficulty=" +
+//     difficulty +
+//     "&type=" +
+//     type +
+//     "",
+//   exerciseOptions
+// )
+//   .then(function (response) {
+//     return response.json();
+//   })
+//   .then(function (data) {
+//     console.log(data[0].instructions);
+//   });
 
 // paths to get the data on the screen are below
-data[i].difficulty; //difficulty of exercise
-data[i].name; //name of exercise
-data[i].instructions; //detailed summary of how to do exercise
-data[i].equipment; //equipment the user will need
+// data[i].difficulty; //difficulty of exercise
+// data[i].name; //name of exercise
+// data[i].instructions; //detailed summary of how to do exercise
+// data[i].equipment; //equipment the user will need
 
 /////////////////////////////////////chart skeleton just an example:
 
@@ -252,6 +252,7 @@ var displayRecipeCards = function (data) {
     var cardNutritionBullet9 = $("<li>");
     var cardSave = $("<a>");
 
+    var UniqueCardId = data.results[i].id;
     var foodPic = data.results[i].image;
     var foodTitle = data.results[i].title;
     var recipeLink = data.results[i].sourceUrl;
@@ -271,6 +272,7 @@ var displayRecipeCards = function (data) {
     var sugar = "Sugar:" + data.results[i].nutrition.nutrients[7].amount + "g";
 
     recipeCol.addClass("col 3");
+    recipeCol.attr("id", UniqueCardId);
     recipeCard.addClass("card");
     recipeCard.attr("id", "foodResult0");
     cardImageContainer.addClass(
