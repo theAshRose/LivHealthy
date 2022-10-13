@@ -3,6 +3,8 @@ $(document).ready(function () {
 }); //to get dropdowns working for food selection
 $("#myChart").hide();
 
+// $("#foodResult") card id to be modified upon population of data
+
 ///////////////////////////////////////////////////////////fetch seperated by long lines like this, below is recipe API(use sparingly, its not free)
 /////////////Chris's test with hardcoded variables"
 // const options = {
@@ -160,3 +162,7 @@ const config = {
 };
 
 const myChart = new Chart(document.getElementById("myChart"), config);
+
+///////////FEATURES TO ADD AFTER MVP
+// save buttons on search page that delete after pressed
+//
