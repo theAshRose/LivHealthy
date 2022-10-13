@@ -216,3 +216,124 @@ const myChart = new Chart(document.getElementById("myChart"), config);
 ///////////FEATURES TO ADD AFTER MVP
 // save buttons on search page that delete after pressed
 //
+
+
+
+
+
+/////function to dynamically generate recipe cards///
+var foodResultsSection= $("#food-search-results")
+////project psudocode/////////
+var displayRecipeCards = function (data) {
+
+
+  for (i = 0; i < data; i++) {
+    
+      var recipeCol = $("<div>");
+      var recipeCard = $("<div>");
+      var cardImageContainer = $("<div>");
+      var cardRecipeImage = $("<img>");
+      var cardContent = $("<div>");
+      var recipeTitle = $("<span>");
+      var cardArrow = $("<i>");
+    var recipeParagragh = $("<p>");
+    var anchorLink = $("<a>");
+    var linkFont = $("<em>");
+      var cardReveal = $("<div>");
+      var cardRevealTitle = $("<span>");
+      var cardRevealIcon = $("<i>");
+      var cardRevealList = $("<ul>");
+      var cardRevealBullet = $("<li>");
+      var cardRevealbulletTwo = $("<li>");
+      var cardRevealParagraph = $("<p>");
+      var cardRevealServe = $("<sm>");
+      var cardRevealServeItalic = $("<em>");
+      var cardNutritionBullet1 = $("<li>");
+      var cardNutritionBullet2 = $("<li>");
+      var cardNutritionBullet3 = $("<li>");
+      var cardNutritionBullet4 = $("<li>");
+      var cardNutritionBullet5 = $("<li>");
+      var cardNutritionBullet6 = $("<li>");
+      var cardNutritionBullet7 = $("<li>");
+      var cardNutritionBullet8 = $("<li>");
+    var cardNutritionBullet9 = $("<li>");
+      var cardSave = $("<a>");
+      
+    
+  
+
+    var foodPic = data.results[i].image;
+    var foodTitle = data.results[i].title;
+    var recipeLink = data.results[i].sourceUrl;
+    var foodRevealTitle = data.results[i].title;
+    var servings = "Servings:"+data.results[i].servings;
+    var healthscore = "Healthscore:"+ data.results[i].healthScore;
+    var calories = "Calories:"+ data.results[i].nutrition.nutrients[0].amount;
+    var protein = "Protein:"+ data.results[i].nutrition.nutrients[1].amount+"g";
+    var fat = "fat" + data.results[i].nutrition.nutrients[2].amount+ "g";
+    var carbs = "Carbs:"+ data.results[i].nutrition.nutrients[3].amount+"g";
+    var satFat = "Saturated Fat:"+ data.results[i].nutrition.nutrients[4].amount+"g";
+    var fiber = "fiber:"+ data.results[i].nutrition.nutrients[5].amount+"g";
+    var sodium = "Sodium:"+ data.results[i].nutrition.nutrients[6].amount+"g";
+    var sugar = "Sugar:"+ data.results[i].nutrition.nutrients[7].amount+"g";
+  
+    recipeCol.addClass("col 3")
+    recipeCard.addClass("card")
+    recipeCard.attr("id", "foodResult0")
+       cardImageContainer.addClass("card-image waves-effect waves-block waves-light") 
+    cardRecipeImage.addClass("activator") 
+    cardRecipeImage.attr("id", "foodCardImage0")
+    cardRecipeImage.attr("src", foodPic)
+       cardContent.addClass("card-content")
+    recipeTitle.addClass("card-title activator grey-text text-darken-4");
+    recipeTitle.attr("id", "foodCardTitle1-0")
+    cardArrow.addClass("material-icons right") 
+    anchorLink.attr("id", "foodCardLink0")
+    anchorLink.attr("href", recipeLink)
+       cardReveal.addClass("card-reveal") 
+    cardRevealTitle.addClass("card-title grey-text text-darken-4") 
+    cardRevealTitle.attr("id", "foodCardTitle2-0")
+       cardRevealIcon.addClass("material-icons right") 
+       cardRevealList.attr("id", "internalCard0") 
+       cardRevealBullet.addClass("servingsCard") 
+       cardRevealbulletTwo.addClass("healthscoreCard") 
+       cardRevealParagraph.addClass("card-per-serving") 
+       cardNutritionBullet1.addClass("caloriesCard") 
+       cardNutritionBullet2.addClass("fatCard") 
+       cardNutritionBullet3.addClass("satFatCard") 
+       cardNutritionBullet4.addClass("carbsCard") 
+       cardNutritionBullet5.addClass("sugarCard") 
+       cardNutritionBullet6.addClass("sodiumCard") 
+       cardNutritionBullet7.addClass("proteinCard") 
+       cardNutritionBullet8.addClass("fiberCard") 
+     cardSave.addClass("waves-effect green waves-light btn-small") 
+
+    
+    
+     
+      
+      
+     
+
+      recipeTitle.text(foodTitle) 
+      linkFont.text("Recipe Source Link")
+      cardRevealTitle.text(foodTitle) 
+      cardRevealBullet.text(servings)
+      cardRevealbulletTwo.text(healthscore) 
+      cardRevealServeItalic .text("per serving:")
+      
+      cardNutritionBullet1.text(calories) 
+      cardNutritionBullet2.text(fat) 
+      cardNutritionBullet3.text(satFat) 
+      cardNutritionBullet4.text(carbs) 
+      cardNutritionBullet5.text(sugar) 
+      cardNutritionBullet6.text(sodium) 
+     cardNutritionBullet7.text(protein)
+      cardNutritionBullet8.text(fiber)
+      cardSave.text("save") 
+    
+    
+    
+    foodResultsSection
+    
+    ///////end off dynamically generated cards//
