@@ -259,7 +259,7 @@ var displayRecipeCards = function (data) {
     var cardNutritionBullet9 = $("<li>");
       var cardSave = $("<a>");
       
-    
+  
   
 
     var foodPic = data.results[i].image;
@@ -332,8 +332,8 @@ var displayRecipeCards = function (data) {
       cardNutritionBullet8.text(fiber)
       cardSave.text("save") 
     
-    
+  
     
     foodResultsSection
-    
+  }}
     ///////end off dynamically generated cards//
