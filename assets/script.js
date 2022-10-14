@@ -361,6 +361,8 @@ var displayRecipeCards = function (data) {
     cardNutritionBullet7.addClass("proteinCard");
     cardNutritionBullet8.addClass("fiberCard");
     cardSave.addClass("waves-effect green waves-light btn-small");
+    
+    
 
     recipeTitle.text(foodTitle);
     linkFont.text("Recipe Source Link");
@@ -413,7 +415,13 @@ var displayRecipeCards = function (data) {
     cardNutritionBullet9.insertAfter(cardNutritionBullet8);
     cardNutritionBullet9.append(cardSave);
   }
+  
+  
 };
+<<<<<<< HEAD
+
+
+=======
 ///////end off dynamically generated cards//
 
 //////////event listener for search button/////
@@ -484,3 +492,4 @@ searchButton.on("click", function (event) {
     maxSugar
   );
 });
+>>>>>>> c64ee4d8fc01209285023229517ace3a9c3353cf
