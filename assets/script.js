@@ -68,22 +68,36 @@ $("#exercises").on("click", function () {
 //                    data.results[i].nutrition.nutrients[j].name    (cycle through all) (DV%: data.bad[0].percentOfDailyNeeds [follows same format for every ingredient daily value %])
 
 ////////////////////////////////////////////////////////////////////////////////below is healthy quotes! not free, use sparingly///////////////////////////////////////////////////////////////////////////////
+var displayQuote = $("#quote");
+var displayAuthor = $("#author");
+const optionsQ = {
+  method: "POST",
+  headers: {
+    "content-type": "application/json",
+    "X-RapidAPI-Key": "6e62526b2bmsh6ea8d6b04968f6dp1bf673jsn462c96ed6e67",
+    "X-RapidAPI-Host": "pquotes.p.rapidapi.com",
+  },
+  body: '{"topic":"health"}',
+};
+/*
+fetch("https://pquotes.p.rapidapi.com/api/quote", optionsQ)
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    console.log(data);
+    console.log(data.quote);
 
-// const options = {
-// 	method: 'POST',
-// 	headers: {
-// 		'content-type': 'application/json',
-// 		'X-RapidAPI-Key': '',
-// 		'X-RapidAPI-Host': 'pquotes.p.rapidapi.com'
-// 	},
-// 	body: '{"topic":"health"}'
-// };
+    displayQuote.text(data.quote);
+
+    displayAuthor.text("-" + data.by);
+  });
 
 // fetch('https://pquotes.p.rapidapi.com/api/quote', options)
 // 	.then(response => response.json())
 // 	.then(response => console.log(response.quote +" by " +response.by)) //response.quote is the quote, response.by is the author
 // 	.catch(err => console.error(err));
-
+*/
 //////////////////////////////////////////////////////////below is excercise///////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // const exerciseOptions = {
@@ -180,7 +194,7 @@ const myChart = new Chart(document.getElementById("myChart"), config);
 //
 
 //////////////////////////////////////////////////////////fetch seperated by long lines like this, below is recipe API(use sparingly, its not free)
-
+/*
 function getRecipeAPI(
   cuisine,
   diet,
@@ -261,7 +275,7 @@ function getRecipeAPI(
       console.log(data);
       displayRecipeCards(data);
     });
-}
+}*/
 /////function to dynamically generate recipe cards///
 var foodResultsSection = $("#food-search-results");
 ////project psudocode/////////
@@ -297,25 +311,24 @@ var displayRecipeCards = function (data) {
     var cardNutritionBullet9 = $("<li>");
     var cardSave = $("<a>");
 
+    var UniqueCardId = data.results[i].id;
     var foodPic = data.results[i].image;
     var foodTitle = data.results[i].title;
     var recipeLink = data.results[i].sourceUrl;
     var foodRevealTitle = data.results[i].title;
-    var servings = "Servings:" + data.results[i].servings;
-    var healthscore = "Healthscore:" + data.results[i].healthScore;
-    var calories = "Calories:" + data.results[i].nutrition.nutrients[0].amount;
-    var protein =
-      "Protein:" + data.results[i].nutrition.nutrients[1].amount + "g";
-    var fat = "fat" + data.results[i].nutrition.nutrients[2].amount + "g";
-    var carbs = "Carbs:" + data.results[i].nutrition.nutrients[3].amount + "g";
-    var satFat =
-      "Saturated Fat:" + data.results[i].nutrition.nutrients[4].amount + "g";
-    var fiber = "fiber:" + data.results[i].nutrition.nutrients[5].amount + "g";
-    var sodium =
-      "Sodium:" + data.results[i].nutrition.nutrients[6].amount + "g";
-    var sugar = "Sugar:" + data.results[i].nutrition.nutrients[7].amount + "g";
+    var servings = "Servings: " + data.results[i].servings;
+    var healthscore = "Healthscore: " + data.results[i].healthScore;
+    var calories = data.results[i].nutrition.nutrients[0].amount + " Calories";
+    var protein = data.results[i].nutrition.nutrients[1].amount + "g Protein";
+    var fat = data.results[i].nutrition.nutrients[2].amount + "g Fat";
+    var carbs = data.results[i].nutrition.nutrients[3].amount + "g Carbohydrates";
+    var satFat = data.results[i].nutrition.nutrients[4].amount + "g Saturated Fat";
+    var fiber = data.results[i].nutrition.nutrients[5].amount + "g Fiber";
+    var sodium = data.results[i].nutrition.nutrients[6].amount + "g Sodium";
+    var sugar = data.results[i].nutrition.nutrients[7].amount + " g Sugar";
 
     recipeCol.addClass("col 3");
+    recipeCol.attr("id", UniqueCardId);
     recipeCard.addClass("card");
     recipeCard.attr("id", "foodResult0");
     cardImageContainer.addClass(
@@ -347,6 +360,8 @@ var displayRecipeCards = function (data) {
     cardNutritionBullet7.addClass("proteinCard");
     cardNutritionBullet8.addClass("fiberCard");
     cardSave.addClass("waves-effect green waves-light btn-small");
+    
+    
 
     recipeTitle.text(foodTitle);
     linkFont.text("Recipe Source Link");
@@ -399,7 +414,11 @@ var displayRecipeCards = function (data) {
     cardNutritionBullet9.insertAfter(cardNutritionBullet8);
     cardNutritionBullet9.append(cardSave);
   }
+  
+  
 };
+
+
 ///////end off dynamically generated cards//
 
 //////////event listener for search button/////
@@ -469,4 +488,30 @@ searchButton.on("click", function (event) {
     maxSodium,
     maxSugar
   );
+});
+
+$("#food-search-results").on("click", ".btn-small", function (event) {
+  event.preventDefault();
+  let clickedButton = $(event.target)
+  let savedRecipe = {
+      img: clickedButton.closest(".col").children().eq(0).children().eq(0)[0].firstElementChild.currentSrc,
+      title: clickedButton.closest(".col").children().eq(1).children().eq(0).text(),
+      recipeLink: clickedButton.closest(".col").children().eq(1).children().eq(1).children().eq(0)[0].href,
+      servings: clickedButton.parents().eq(1).children().eq(0).text().replace(/[^0-9]/g, ""),
+      healthScore: clickedButton.parents().eq(1).children().eq(1).text().replace(/[^0-9]/g, ""),
+      calories: parseInt(clickedButton.parents().eq(1).children().eq(3).text()),
+      fat: parseInt(clickedButton.parents().eq(1).children().eq(4).text()),
+      satFat: parseInt(clickedButton.parents().eq(1).children().eq(5).text()),
+      carbs: parseInt(clickedButton.parents().eq(1).children().eq(6).text()),
+      sugar: parseInt(clickedButton.parents().eq(1).children().eq(7).text()),
+      sodium: parseInt(clickedButton.parents().eq(1).children().eq(8).text()),
+      protein: parseInt(clickedButton.parents().eq(1).children().eq(9).text()),
+      fiber: parseInt(clickedButton.parents().eq(1).children().eq(10).text()),
+  }
+  localStorage.setItem("" + clickedButton.closest(".col").attr("id"), JSON.stringify(savedRecipe))
+  let favFoodBtn = $("<li></li>")
+  favFoodBtn.text(clickedButton.closest(".col").children().eq(1).children().eq(0).text())
+  favFoodBtn.attr("id", clickedButton.closest(".col").attr("id"))
+  favFoodBtn.addClass("waves-effect waves-light green btn-large")
+  $("#fav-food-btns").append(favFoodBtn)
 });
