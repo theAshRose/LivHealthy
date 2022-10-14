@@ -3,6 +3,37 @@ $(document).ready(function () {
 }); //to get dropdowns working for food selection
 $("#myChart").hide();
 
+//----Show-Hide-Sections----
+
+//----Home Tag----
+$("#homeTag").on("click", function(){
+  $("#homePage").show();
+  $("#foodPage-wrapper").hide();
+  $("#exercisePage").hide();
+});
+
+$("#headerLogo").on("click", function(){
+  $("#homePage").show();
+  $("#foodPage-wrapper").hide();
+  $("#exercisePage").hide();
+});
+
+//----Recipe Section----
+$("#recipes").on("click", function(){
+  $("#foodPage-wrapper").show();
+  $("#homePage").hide();
+  $("#exercisePage").hide();
+});
+
+//----Exercise Section----
+$("#exercises").on("click", function(){
+  $("#exercisePage").show();
+  $("#foodPage-wrapper").hide();
+  $("#homePage").hide();
+});
+
+//----End Show-Hide----
+
 // $("#foodResult") card id to be modified upon population of data
 
 ///////////////////////////////////PARAMETERS INCLUDING IN SEARCH  WITH CODING GUIDELINES/////////////////////////////////////////
@@ -174,7 +205,7 @@ var MinFiber = 5;
 var maxSodium = 100;
 var maxSugar = 50;
 
-fetch(
+/*fetch(
   "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?query=" +
     title +
     "&cuisine=" +
@@ -362,3 +393,4 @@ var displayRecipeCards = function (data) {
 };
 
 ///////end off dynamically generated cards//
+*/
