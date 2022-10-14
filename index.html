@@ -127,9 +127,17 @@
     <form id="food-form" class="col s12">
 
       <!-- <div class="formWrapper col s12"> -->
+        <form class="col s2">
+          <div class="row">
+            <div class="input-field col s6">
+              <input placeholder="chicken fabioli" id="foodName" type="text" class="validate">
+              <label for="title">Search recipe:</label>
+            </div>
 
+            <div>
+            </form>
         <div class="input-field col s2">
-          <select id="#cuisine-dropdown">
+          <select id="cuisine-dropdown">
             <option value="" disabled selected>Choose your option</option>
             <option value="American">American</option>
             <option value="Italian">Italian</option>
@@ -143,7 +151,7 @@
         </div>
 
         <div class="input-field col s2">
-          <select id="#diet-dropdown">
+          <select id="diet-dropdown">
             <option value="" disabled selected>Choose your option</option>
             <option value="Pescetarian">Pescetarian</option>
             <option value="Vegan">Vegan</option>
@@ -155,7 +163,7 @@
         </div>
 
         <div class="input-field col s2">
-          <select id="#allergy-dropdown">
+          <select id="allergy-dropdown">
             <option value="" disabled selected>Choose your option</option>
             <option value="Dairy">Dairy</option>
             <option value="Eggs">Eggs</option>
@@ -171,6 +179,10 @@
         </div>
 
         <!-- <div class="row"> -->
+          <div class = "col s2">
+              <p><em>nutrition values returned in grams</em></p>
+          </div>
+        
           <div class="col s2">
             Max Carbs?
             <div class="input-field inline">
@@ -241,6 +253,13 @@
             </div>
           </div>
         <!-- </div> -->
+
+        <div class="col s2">
+          How many results would you like (less than 50)?
+          <div class="input-field inline">
+            <input id="resultsNumber" type="number" class="validate">
+          </div>
+        </div>
 
         <button class="btn waves-effect waves-light" type="submit" name="action" id="searchButtonLeft">Submit <i
             class="material-icons right">send</i> </button>
