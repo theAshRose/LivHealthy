@@ -321,13 +321,16 @@ var displayRecipeCards = function (data) {
     var calories = data.results[i].nutrition.nutrients[0].amount + " Calories";
     var protein = data.results[i].nutrition.nutrients[1].amount + "g Protein";
     var fat = data.results[i].nutrition.nutrients[2].amount + "g Fat";
-    var carbs = data.results[i].nutrition.nutrients[3].amount + "g Carbohydrates";
-    var satFat = data.results[i].nutrition.nutrients[4].amount + "g Saturated Fat";
+    var carbs =
+      data.results[i].nutrition.nutrients[3].amount + "g Carbohydrates";
+    var satFat =
+      data.results[i].nutrition.nutrients[4].amount + "g Saturated Fat";
     var fiber = data.results[i].nutrition.nutrients[5].amount + "g Fiber";
     var sodium = data.results[i].nutrition.nutrients[6].amount + "g Sodium";
     var sugar = data.results[i].nutrition.nutrients[7].amount + " g Sugar";
 
     recipeCol.addClass("col 3");
+    recipeCol.attr("id", UniqueCardId);
     recipeCard.addClass("card");
     recipeCard.attr("id", "foodResult0");
     cardImageContainer.addClass(
@@ -359,8 +362,6 @@ var displayRecipeCards = function (data) {
     cardNutritionBullet7.addClass("proteinCard");
     cardNutritionBullet8.addClass("fiberCard");
     cardSave.addClass("waves-effect green waves-light btn-small");
-    
-    
 
     recipeTitle.text(foodTitle);
     linkFont.text("Recipe Source Link");
@@ -413,10 +414,7 @@ var displayRecipeCards = function (data) {
     cardNutritionBullet9.insertAfter(cardNutritionBullet8);
     cardNutritionBullet9.append(cardSave);
   }
-  
-  
 };
-
 
 ///////end off dynamically generated cards//
 
@@ -490,27 +488,58 @@ searchButton.on("click", function (event) {
 });
 
 $("#food-search-results").on("click", ".btn-small", function (event) {
-  alert("working")
-  let clickedButton = $(event.target)
+  alert("working");
+  let clickedButton = $(event.target);
   let savedRecipe = {
-      img: clickedButton.closest(".col").children().eq(0).children().eq(0)[0].firstElementChild.currentSrc,
-      title: clickedButton.closest(".col").children().eq(1).children().eq(0).text(),
-      recipeLink: clickedButton.closest(".col").children().eq(1).children().eq(1).children().eq(0)[0].href,
-      servings: clickedButton.parents().eq(1).children().eq(0).text().replace(/[^0-9]/g, ""),
-      healthScore: clickedButton.parents().eq(1).children().eq(1).text().replace(/[^0-9]/g, ""),
-      calories: parseInt(clickedButton.parents().eq(1).children().eq(3).text()),
-      fat: parseInt(clickedButton.parents().eq(1).children().eq(4).text()),
-      satFat: parseInt(clickedButton.parents().eq(1).children().eq(5).text()),
-      carbs: parseInt(clickedButton.parents().eq(1).children().eq(6).text()),
-      sugar: parseInt(clickedButton.parents().eq(1).children().eq(7).text()),
-      sodium: parseInt(clickedButton.parents().eq(1).children().eq(8).text()),
-      protein: parseInt(clickedButton.parents().eq(1).children().eq(9).text()),
-      fiber: parseInt(clickedButton.parents().eq(1).children().eq(10).text()),
-  }
-  localStorage.setItem("" + clickedButton.closest(".col").attr("id"), JSON.stringify(savedRecipe))
-  let favFoodBtn = $("<li></li>")
-  favFoodBtn.text(clickedButton.closest(".col").children().eq(1).children().eq(0).text())
-  favFoodBtn.attr("id", clickedButton.closest(".col").attr("id"))
-  favFoodBtn.addClass("waves-effect waves-light green btn-large")
-  $("#fav-food-btns").append(favFoodBtn)
+    img: clickedButton.closest(".col").children().eq(0).children().eq(0)[0]
+      .firstElementChild.currentSrc,
+    title: clickedButton
+      .closest(".col")
+      .children()
+      .eq(1)
+      .children()
+      .eq(0)
+      .text(),
+    recipeLink: clickedButton
+      .closest(".col")
+      .children()
+      .eq(1)
+      .children()
+      .eq(1)
+      .children()
+      .eq(0)[0].href,
+    servings: clickedButton
+      .parents()
+      .eq(1)
+      .children()
+      .eq(0)
+      .text()
+      .replace(/[^0-9]/g, ""),
+    healthScore: clickedButton
+      .parents()
+      .eq(1)
+      .children()
+      .eq(1)
+      .text()
+      .replace(/[^0-9]/g, ""),
+    calories: parseInt(clickedButton.parents().eq(1).children().eq(3).text()),
+    fat: parseInt(clickedButton.parents().eq(1).children().eq(4).text()),
+    satFat: parseInt(clickedButton.parents().eq(1).children().eq(5).text()),
+    carbs: parseInt(clickedButton.parents().eq(1).children().eq(6).text()),
+    sugar: parseInt(clickedButton.parents().eq(1).children().eq(7).text()),
+    sodium: parseInt(clickedButton.parents().eq(1).children().eq(8).text()),
+    protein: parseInt(clickedButton.parents().eq(1).children().eq(9).text()),
+    fiber: parseInt(clickedButton.parents().eq(1).children().eq(10).text()),
+  };
+  localStorage.setItem(
+    "" + clickedButton.closest(".col").attr("id"),
+    JSON.stringify(savedRecipe)
+  );
+  let favFoodBtn = $("<li></li>");
+  favFoodBtn.text(
+    clickedButton.closest(".col").children().eq(1).children().eq(0).text()
+  );
+  favFoodBtn.attr("id", clickedButton.closest(".col").attr("id"));
+  favFoodBtn.addClass("waves-effect waves-light green btn-large");
+  $("#fav-food-btns").append(favFoodBtn);
 });
