@@ -98,49 +98,41 @@
     <form id="food-form" class="col 3">
 
       <div class="formWrapper col s12">
-
-        <div class="input-field">
-          <select multiple>
-            <option value="" disabled selected>Choose your style</option>
+        <div class="input-field col s12">
+          <select id = cuisine-dropdown>
+            <option value="" disabled selected>Choose your option</option>
             <option value="1">american</option>
             <option value="2">italian</option>
             <option value="3">mexican</option>
-            <option value="4">chinese</option>
-            <option value="5">korean</option>
-            <option value="6">french</option>
-            <option value="7">thai</option>
+            <option value="3">chinese</option>
+            <option value="3">korean</option>
+            <option value="3">french</option>
+            <option value="3">thai</option>
           </select>
-          <label>Materialize Multiple Select</label>
+          <label>Cuisine</label>
         </div>
+     </div>
 
-        <div class="input-field">
-          <select multiple>
-            <option value="" disabled selected>Pick One</option>
-            <option value="1">pescetarian</option>
+        <div class="input-field col s12">
+          <select id="diet-dropdown">
+            <option value="" disabled selected>Choose your option</option>
+            <option value="1">Pescetarian</option>
             <option value="2">vegan</option>
             <option value="3">paleo</option>
-            <option value="4">primal</option>
-            <option value="5">vegetarian</option>
+            <option value="3">vegetarian</option>
           </select>
           <label>Diet</label>
         </div>
 
-        <div class="input-field">
-          <select multiple>
-            <option value="" disabled selected>Intolerances?</option>
+        <div class="input-field col s12">
+          <select id ="allergy-dropdown">
+            <option value="" disabled selected>Choose your option</option>
             <option value="1">dairy</option>
-            <option value="2">egg</option>
-            <option value="3">gluten</option>
-            <option value="4">peanut</option>
-            <option value="5">sesame</option>
-            <option value="6">seafood</option>
-            <option value="7">shellfish</option>
-            <option value="8">soy</option>
-            <option value="9">sulfite</option>
-            <option value="10">tree nut</option>
-            <option value="11">wheat</option>
+            <option value="2">gluten</option>
+            <option value="3">peanut</option>
+            <option value="3">shellfish</option>
           </select>
-          <label>Intolerances</label>
+          <label>Allergy</label>
         </div>
 
         <div class="row">
@@ -215,7 +207,7 @@
           </div>
         </div>
 
-        <button class="btn waves-effect waves-light" type="submit" name="action">Submit <i
+        <button class="btn waves-effect waves-light" type="submit" name="action" id="searchButtonLeft">Submit <i
             class="material-icons right">send</i> </button>
       </div>
     </form>

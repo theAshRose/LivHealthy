@@ -55,13 +55,13 @@ $("#myChart").hide();
 
 //////////////////////////////////////////////////////////below is excercise///////////////////////////////////////////////////////////////////////////////////////////////////////
 
-const exerciseOptions = {
-  method: "GET",
-  headers: {
-    "X-RapidAPI-Key": "6e62526b2bmsh6ea8d6b04968f6dp1bf673jsn462c96ed6e67",
-    "X-RapidAPI-Host": "exercises-by-api-ninjas.p.rapidapi.com",
-  },
-};
+// const exerciseOptions = {
+//   method: "GET",
+//   headers: {
+//     "X-RapidAPI-Key": "6e62526b2bmsh6ea8d6b04968f6dp1bf673jsn462c96ed6e67",
+//     "X-RapidAPI-Host": "exercises-by-api-ninjas.p.rapidapi.com",
+//   },
+// };
 
 ///parameters that will show on page so user can chose which parameers to search by
 //name of excerise
@@ -82,8 +82,8 @@ const exerciseOptions = {
 // quadriceps
 // traps
 // triceps
-var muscle = "biceps";
-var type = "strength";
+// var muscle = "biceps";
+// var type = "strength";
 //possible types:
 //cardio
 // olympic_weightlifting
@@ -92,131 +92,145 @@ var type = "strength";
 // strength
 // stretching
 // strongman
-var difficulty = "beginner";
+// var difficulty = "beginner";
 //possible difficulties"
 // beginner
 // intermediate
 // expert
-fetch(
-  "https://exercises-by-api-ninjas.p.rapidapi.com/v1/exercises?muscle=" +
-    muscle +
-    "&difficulty=" +
-    difficulty +
-    "&type=" +
-    type +
-    "",
-  exerciseOptions
-)
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    console.log(data[0].instructions);
-  });
+// fetch(
+//   "https://exercises-by-api-ninjas.p.rapidapi.com/v1/exercises?muscle=" +
+//     muscle +
+//     "&difficulty=" +
+//     difficulty +
+//     "&type=" +
+//     type +
+//     "",
+//   exerciseOptions
+// )
+//   .then(function (response) {
+//     return response.json();
+//   })
+//   .then(function (data) {
+//     console.log(data[0].instructions);
+//   });
 
 // paths to get the data on the screen are below
-data[i].difficulty; //difficulty of exercise
-data[i].name; //name of exercise
-data[i].instructions; //detailed summary of how to do exercise
-data[i].equipment; //equipment the user will need
+// data[i].difficulty; //difficulty of exercise
+// data[i].name; //name of exercise
+// data[i].instructions; //detailed summary of how to do exercise
+// data[i].equipment; //equipment the user will need
 
 /////////////////////////////////////chart skeleton just an example:
 
-const labels = ["January", "February", "March", "April", "May", "June"];
+// const labels = ["January", "February", "March", "April", "May", "June"];
 
-const data = {
-  labels: labels,
-  datasets: [
-    {
-      label: "My First dataset",
-      backgroundColor: "rgb(255, 99, 132)",
-      borderColor: "rgb(255, 99, 132)",
-      data: [0, 10, 5, 2, 20, 30, 45],
-    },
-  ],
-};
+// const data = {
+//   labels: labels,
+//   datasets: [
+//     {
+//       label: "My First dataset",
+//       backgroundColor: "rgb(255, 99, 132)",
+//       borderColor: "rgb(255, 99, 132)",
+//       data: [0, 10, 5, 2, 20, 30, 45],
+//     },
+//   ],
+// };
 
-const config = {
-  type: "line",
-  data: data,
-  options: {},
-};
+// const config = {
+//   type: "line",
+//   data: data,
+//   options: {},
+// };
 
-const myChart = new Chart(document.getElementById("myChart"), config);
+// const myChart = new Chart(document.getElementById("myChart"), config);
 
 ///////////FEATURES TO ADD AFTER MVP
 // save buttons on search page that delete after pressed
 //
 
 ///////////////////////////////////////////////////////////fetch seperated by long lines like this, below is recipe API(use sparingly, its not free)
-/////////////Chris's test with hardcoded variables"
-const options = {
-  method: "GET",
-  headers: {
-    "X-RapidAPI-Key": "f6140f9bd5mshf947ce29f8d6a4ap1406e5jsn9e459eb842b0",
-    "X-RapidAPI-Host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-  },
-};
 
-var title = "";
-var cuisine = "";
-var excludeCuisine = "";
-var diet = "";
-var intolerances = "";
-var excludeIng = "";
-var type = "main";
-var maxCarbs = 50;
-var minProtein = 10;
-var maxCalories = 1000;
-var maxFat = 50;
-var maxSatFat = 50;
-var MinFiber = 5;
-var maxSodium = 100;
-var maxSugar = 50;
+function getRecipeAPI(
+  cuisine,
+  diet,
+  intolerances,
+  maxCarbs,
+  minProtein,
+  maxCalories,
+  maxFat,
+  maxSatFat,
+  MinFiber,
+  maxSodium,
+  maxSugar
+) {
+  const options = {
+    method: "GET",
+    headers: {
+      "X-RapidAPI-Key": "6e62526b2bmsh6ea8d6b04968f6dp1bf673jsn462c96ed6e67",
+      "X-RapidAPI-Host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+    },
+  };
 
-fetch(
-  "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?query=" +
-    title +
-    "&cuisine=" +
-    cuisine +
-    "&excludeCuisine" +
-    excludeCuisine +
-    "&diet=" +
-    diet +
-    "&intolerances=" +
-    intolerances +
-    "& excludeIngredients=" +
-    excludeIng +
-    "&type=" +
-    type +
-    "&instructionsRequired=true&addRecipeInformation=true&sort=calories&sortDirection=asc&maxCarbs=" +
-    maxCarbs +
-    "&minProtein=" +
-    minProtein +
-    "&maxCalories=" +
-    maxCalories +
-    "&maxFat=" +
-    maxFat +
-    "&maxSaturatedFat=" +
-    maxSatFat +
-    "&minFiber=" +
-    MinFiber +
-    "&maxSodium=" +
-    maxSodium +
-    "&maxSugar=" +
-    maxSugar +
-    "&number=50" +
-    "",
-  options
-)
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    console.log(data);
-    displayRecipeCards(data);
-  });
+  var cuisine;
+  var diet;
+  var intolerances;
+  var maxCarbs;
+  var minProtein;
+  var maxCalories;
+  var maxFat;
+  var maxSatFat;
+  var MinFiber;
+  var maxSodium;
+  var maxSugar;
+  var title = "";
+  console.log(cuisine);
+  console.log(diet);
+  console.log(intolerances);
+  console.log(maxCarbs);
+  console.log(minProtein);
+  console.log(maxCalories);
+  console.log(maxFat);
+  console.log(maxSatFat);
+  console.log(maxSodium);
+  console.log(maxSugar);
 
+  fetch(
+    "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?query=" +
+      title +
+      "&cuisine=" +
+      cuisine +
+      "&diet=" +
+      diet +
+      "&intolerances=" +
+      intolerances +
+      "&instructionsRequired=true&addRecipeInformation=true&sort=calories&sortDirection=asc&maxCarbs=" +
+      maxCarbs +
+      "&minProtein=" +
+      minProtein +
+      "&maxCalories=" +
+      maxCalories +
+      "&maxFat=" +
+      maxFat +
+      "&maxSaturatedFat=" +
+      maxSatFat +
+      "&minFiber=" +
+      MinFiber +
+      "&maxSodium=" +
+      maxSodium +
+      "&maxSugar=" +
+      maxSugar +
+      "&number=50" +
+      "",
+    options
+  )
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+      displayRecipeCards(data);
+    });
+}
 /////function to dynamically generate recipe cards///
 var foodResultsSection = $("#food-search-results");
 ////project psudocode/////////
@@ -356,3 +370,74 @@ var displayRecipeCards = function (data) {
   }
 };
 ///////end off dynamically generated cards//
+
+//////////event listener for search button/////
+var searchButton = $("#searchButtonLeft");
+searchButton.on("click", function (event) {
+  event.preventDefault();
+  // cityInput = cityName.value.trim();
+  console.log("button pressed");
+
+  ///extraction users cuisine selection and putting it into the cuisine variable
+  var cuisineInput = $("#cuisine-dropdown");
+  cuisine = cuisineInput.find(":selected").text();
+  console.log(cuisine);
+  ///extraction users diet selection and putting it into the diet variable
+  var dietInput = $("#diet-dropdown");
+  diet = dietInput.find(":selected").text();
+  console.log(diet);
+  ///extraction users diet selection and putting it into the diet variable
+  var intolerancesInput = $("#allergy-dropdown");
+  intolerances = intolerancesInput.find(":selected").text();
+  console.log(intolerances);
+
+  ///extraction users carb selection and putting it into the maxCarbs variable
+  var carbsInput = $("#maxCarbsInput");
+  maxCarbs = carbsInput.val();
+  console.log(maxCarbs);
+  ///extraction users protien selection and putting it into the minprotein variable
+  var proteinInput = $("#minProteinInput");
+  minProtein = proteinInput.val();
+  console.log(minProtein);
+
+  ///extraction users protien selection and putting it into the minprotein variable
+  var calorieInput = $("#maxCaloriesInput");
+  maxCalories = calorieInput.val();
+  console.log(maxCalories);
+
+  ///extraction users maxFatInput selection and putting it into the maxFat variable
+  var maxFatInput = $("#maxFatInput");
+  maxFat = maxFatInput.val();
+  console.log(maxFat);
+  ///extraction users satfat selection and putting it into the satfat variable
+  var satFatInput = $("#maxSatFatInput");
+  maxSatFat = satFatInput.val();
+  console.log(maxSatFat);
+  ///extraction users fiber selection and putting it into the minfiber variable
+  var fiberInput = $("#minFiberInput");
+  MinFiber = fiberInput.val();
+  console.log(MinFiber);
+  ///extraction users sodium selection and putting it into the sodium variable
+  var sodiumInput = $("#maxSodiumInput");
+  maxSodium = sodiumInput.val();
+  console.log(maxSodium);
+  ///extraction users sugar selection and putting it into the maxsugar variable
+  var sugarInput = $("#maxSugarInput");
+  maxSugar = sugarInput.val();
+  console.log(maxSugar);
+  getRecipeAPI(
+    cuisine,
+    diet,
+    intolerances,
+    maxCarbs,
+    minProtein,
+    maxCalories,
+    maxFat,
+    maxSatFat,
+    MinFiber,
+    maxSodium,
+    maxSugar
+  );
+});
+
+// var text = e.options[e.selectedIndex].text;
