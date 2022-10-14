@@ -79,7 +79,7 @@ const optionsQ = {
   },
   body: '{"topic":"health"}',
 };
-
+/*
 fetch("https://pquotes.p.rapidapi.com/api/quote", optionsQ)
   .then(function (response) {
     return response.json();
@@ -92,7 +92,7 @@ fetch("https://pquotes.p.rapidapi.com/api/quote", optionsQ)
 
     displayAuthor.text("-" + data.by);
   });
-
+*/
 // fetch('https://pquotes.p.rapidapi.com/api/quote', options)
 // 	.then(response => response.json())
 // 	.then(response => console.log(response.quote +" by " +response.by)) //response.quote is the quote, response.by is the author
@@ -238,7 +238,7 @@ function getRecipeAPI(
   console.log(maxSatFat);
   console.log(maxSodium);
   console.log(maxSugar);
-
+/*
   fetch(
     "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?query=" +
       title +
@@ -274,7 +274,7 @@ function getRecipeAPI(
     .then(function (data) {
       console.log(data);
       displayRecipeCards(data);
-    });
+    });*/
 }
 /////function to dynamically generate recipe cards///
 var foodResultsSection = $("#food-search-results");
