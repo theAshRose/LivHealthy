@@ -6,27 +6,27 @@ $("#myChart").hide();
 //----Show-Hide-Sections----
 
 //----Home Tag----
-$("#homeTag").on("click", function(){
+$("#homeTag").on("click", function () {
   $("#homePage").show();
   $("#foodPage-wrapper").hide();
   $("#exercisePage").hide();
 });
 
-$("#headerLogo").on("click", function(){
+$("#headerLogo").on("click", function () {
   $("#homePage").show();
   $("#foodPage-wrapper").hide();
   $("#exercisePage").hide();
 });
 
 //----Recipe Section----
-$("#recipes").on("click", function(){
+$("#recipes").on("click", function () {
   $("#foodPage-wrapper").show();
   $("#homePage").hide();
   $("#exercisePage").hide();
 });
 
 //----Exercise Section----
-$("#exercises").on("click", function(){
+$("#exercises").on("click", function () {
   $("#exercisePage").show();
   $("#foodPage-wrapper").hide();
   $("#homePage").hide();
@@ -179,75 +179,89 @@ const myChart = new Chart(document.getElementById("myChart"), config);
 // save buttons on search page that delete after pressed
 //
 
-///////////////////////////////////////////////////////////fetch seperated by long lines like this, below is recipe API(use sparingly, its not free)
-/////////////Chris's test with hardcoded variables"
-const options = {
-  method: "GET",
-  headers: {
-    "X-RapidAPI-Key": "f6140f9bd5mshf947ce29f8d6a4ap1406e5jsn9e459eb842b0",
-    "X-RapidAPI-Host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-  },
-};
+//////////////////////////////////////////////////////////fetch seperated by long lines like this, below is recipe API(use sparingly, its not free)
 
-var title = "";
-var cuisine = "";
-var excludeCuisine = "";
-var diet = "";
-var intolerances = "";
-var excludeIng = "";
-var type = "main";
-var maxCarbs = 50;
-var minProtein = 10;
-var maxCalories = 1000;
-var maxFat = 50;
-var maxSatFat = 50;
-var MinFiber = 5;
-var maxSodium = 100;
-var maxSugar = 50;
+function getRecipeAPI(
+  cuisine,
+  diet,
+  intolerances,
+  maxCarbs,
+  minProtein,
+  maxCalories,
+  maxFat,
+  maxSatFat,
+  MinFiber,
+  maxSodium,
+  maxSugar
+) {
+  const options = {
+    method: "GET",
+    headers: {
+      "X-RapidAPI-Key": "6e62526b2bmsh6ea8d6b04968f6dp1bf673jsn462c96ed6e67",
+      "X-RapidAPI-Host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+    },
+  };
 
-/*fetch(
-  "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?query=" +
-    title +
-    "&cuisine=" +
-    cuisine +
-    "&excludeCuisine" +
-    excludeCuisine +
-    "&diet=" +
-    diet +
-    "&intolerances=" +
-    intolerances +
-    "& excludeIngredients=" +
-    excludeIng +
-    "&type=" +
-    type +
-    "&instructionsRequired=true&addRecipeInformation=true&sort=calories&sortDirection=asc&maxCarbs=" +
-    maxCarbs +
-    "&minProtein=" +
-    minProtein +
-    "&maxCalories=" +
-    maxCalories +
-    "&maxFat=" +
-    maxFat +
-    "&maxSaturatedFat=" +
-    maxSatFat +
-    "&minFiber=" +
-    MinFiber +
-    "&maxSodium=" +
-    maxSodium +
-    "&maxSugar=" +
-    maxSugar +
-    "&number=50" +
-    "",
-  options
-)
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    console.log(data);
-    displayRecipeCards(data);
-  });
+  var cuisine;
+  var diet;
+  var intolerances;
+  var maxCarbs;
+  var minProtein;
+  var maxCalories;
+  var maxFat;
+  var maxSatFat;
+  var MinFiber;
+  var maxSodium;
+  var maxSugar;
+  var title = "";
+  console.log(cuisine);
+  console.log(diet);
+  console.log(intolerances);
+  console.log(maxCarbs);
+  console.log(minProtein);
+  console.log(maxCalories);
+  console.log(maxFat);
+  console.log(maxSatFat);
+  console.log(maxSodium);
+  console.log(maxSugar);
 
+  fetch(
+    "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?query=" +
+      title +
+      "&cuisine=" +
+      cuisine +
+      "&diet=" +
+      diet +
+      "&intolerances=" +
+      intolerances +
+      "&instructionsRequired=true&addRecipeInformation=true&sort=calories&sortDirection=asc&maxCarbs=" +
+      maxCarbs +
+      "&minProtein=" +
+      minProtein +
+      "&maxCalories=" +
+      maxCalories +
+      "&maxFat=" +
+      maxFat +
+      "&maxSaturatedFat=" +
+      maxSatFat +
+      "&minFiber=" +
+      MinFiber +
+      "&maxSodium=" +
+      maxSodium +
+      "&maxSugar=" +
+      maxSugar +
+      "&number=50" +
+      "",
+    options
+  )
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+      displayRecipeCards(data);
+    });
+}
 /////function to dynamically generate recipe cards///
 var foodResultsSection = $("#food-search-results");
 ////project psudocode/////////
@@ -283,30 +297,25 @@ var displayRecipeCards = function (data) {
     var cardNutritionBullet9 = $("<li>");
     var cardSave = $("<a>");
 
-    var UniqueCardId = data.results[i].id;
     var foodPic = data.results[i].image;
     var foodTitle = data.results[i].title;
     var recipeLink = data.results[i].sourceUrl;
     var foodRevealTitle = data.results[i].title;
-    var servings = "Servings: " + data.results[i].servings;
-    var healthscore = "Healthscore: " + data.results[i].healthScore;
-    var calories = "Calories: " + data.results[i].nutrition.nutrients[0].amount;
+    var servings = "Servings:" + data.results[i].servings;
+    var healthscore = "Healthscore:" + data.results[i].healthScore;
+    var calories = "Calories:" + data.results[i].nutrition.nutrients[0].amount;
     var protein =
-      "Protein: " + data.results[i].nutrition.nutrients[1].amount + " g";
-    var fat = "fat " + data.results[i].nutrition.nutrients[2].amount + " g";
-    var carbs =
-      "Carbs: " + data.results[i].nutrition.nutrients[3].amount + " g";
+      "Protein:" + data.results[i].nutrition.nutrients[1].amount + "g";
+    var fat = "fat" + data.results[i].nutrition.nutrients[2].amount + "g";
+    var carbs = "Carbs:" + data.results[i].nutrition.nutrients[3].amount + "g";
     var satFat =
-      "Saturated Fat: " + data.results[i].nutrition.nutrients[4].amount + " g";
-    var fiber =
-      "fiber: " + data.results[i].nutrition.nutrients[5].amount + " g";
+      "Saturated Fat:" + data.results[i].nutrition.nutrients[4].amount + "g";
+    var fiber = "fiber:" + data.results[i].nutrition.nutrients[5].amount + "g";
     var sodium =
-      "Sodium: " + data.results[i].nutrition.nutrients[6].amount + " g";
-    var sugar =
-      "Sugar: " + data.results[i].nutrition.nutrients[7].amount + " g";
+      "Sodium:" + data.results[i].nutrition.nutrients[6].amount + "g";
+    var sugar = "Sugar:" + data.results[i].nutrition.nutrients[7].amount + "g";
 
     recipeCol.addClass("col 3");
-    recipeCol.attr("id", UniqueCardId);
     recipeCard.addClass("card");
     recipeCard.attr("id", "foodResult0");
     cardImageContainer.addClass(
@@ -391,6 +400,73 @@ var displayRecipeCards = function (data) {
     cardNutritionBullet9.append(cardSave);
   }
 };
-
 ///////end off dynamically generated cards//
-*/
+
+//////////event listener for search button/////
+var searchButton = $("#searchButtonLeft");
+searchButton.on("click", function (event) {
+  event.preventDefault();
+  // cityInput = cityName.value.trim();
+  console.log("button pressed");
+
+  ///extraction users cuisine selection and putting it into the cuisine variable
+  var cuisineInput = $("#cuisine-dropdown");
+  cuisine = cuisineInput.find(":selected").text();
+  console.log(cuisine);
+  ///extraction users diet selection and putting it into the diet variable
+  var dietInput = $("#diet-dropdown");
+  diet = dietInput.find(":selected").text();
+  console.log(diet);
+  ///extraction users diet selection and putting it into the diet variable
+  var intolerancesInput = $("#allergy-dropdown");
+  intolerances = intolerancesInput.find(":selected").text();
+  console.log(intolerances);
+
+  ///extraction users carb selection and putting it into the maxCarbs variable
+  var carbsInput = $("#maxCarbsInput");
+  maxCarbs = carbsInput.val();
+  console.log(maxCarbs);
+  ///extraction users protien selection and putting it into the minprotein variable
+  var proteinInput = $("#minProteinInput");
+  minProtein = proteinInput.val();
+  console.log(minProtein);
+
+  ///extraction users protien selection and putting it into the minprotein variable
+  var calorieInput = $("#maxCaloriesInput");
+  maxCalories = calorieInput.val();
+  console.log(maxCalories);
+
+  ///extraction users maxFatInput selection and putting it into the maxFat variable
+  var maxFatInput = $("#maxFatInput");
+  maxFat = maxFatInput.val();
+  console.log(maxFat);
+  ///extraction users satfat selection and putting it into the satfat variable
+  var satFatInput = $("#maxSatFatInput");
+  maxSatFat = satFatInput.val();
+  console.log(maxSatFat);
+  ///extraction users fiber selection and putting it into the minfiber variable
+  var fiberInput = $("#minFiberInput");
+  MinFiber = fiberInput.val();
+  console.log(MinFiber);
+  ///extraction users sodium selection and putting it into the sodium variable
+  var sodiumInput = $("#maxSodiumInput");
+  maxSodium = sodiumInput.val();
+  console.log(maxSodium);
+  ///extraction users sugar selection and putting it into the maxsugar variable
+  var sugarInput = $("#maxSugarInput");
+  maxSugar = sugarInput.val();
+  console.log(maxSugar);
+  getRecipeAPI(
+    cuisine,
+    diet,
+    intolerances,
+    maxCarbs,
+    minProtein,
+    maxCalories,
+    maxFat,
+    maxSatFat,
+    MinFiber,
+    maxSodium,
+    maxSugar
+  );
+});
