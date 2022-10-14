@@ -39,24 +39,24 @@
   </header>
 
   <!------------------------------START OF HOMEPAGE-------------------------->
-  <div style="display:contents;" class="row 12" id="homePage">Home Test
+  <div style="display:contents;" class="row" id="homePage"><!--Whole Page Box-->
 
-    <aside class="col 2" id="aside-wrapper">
+    <aside class="col s3" id="aside-wrapper"><!--Left Column-->
       <div id="button-header">
       </div>
 
       <div id="fav-btn-wrapper">
-        <div id="fav-excr-btns-wrapper">
+        <div class="col s6" id="fav-excr-btns-wrapper"><!--Row One-->
           <ul id="fav-excr-btns">
-            <li class="waves-effect waves-light pink btn-large">Chicken Fabioli</li>
-            <li class="waves-effect waves-light pink btn-large">Chicken Fabioli</li>
-            <li class="waves-effect waves-light pink btn-large">Chicken Fabioli</li>
-            <li class="waves-effect waves-light pink btn-large">Chicken Fabioli</li>
-            <li class="waves-effect waves-light pink btn-large">Chicken Fabioli</li>
-            <li class="waves-effect waves-light pink btn-large">Chicken Fabioli</li>
+            <li class="waves-effect waves-light pink btn-large">Run Around</li>
+            <li class="waves-effect waves-light pink btn-large">Run Around</li>
+            <li class="waves-effect waves-light pink btn-large">Run Around</li>
+            <li class="waves-effect waves-light pink btn-large">Run Around</li>
+            <li class="waves-effect waves-light pink btn-large">Run Around</li>
+            <li class="waves-effect waves-light pink btn-large">Run Around</li>
           </ul>
         </div>
-        <div id="fav-food-btns-wrapper">
+        <div class="col s6" id="fav-food-btns-wrapper">
           <ul id="fav-food-btns">
             <li class="waves-effect waves-light green btn-large">Chicken Fabioli</li>
             <li class="waves-effect waves-light green btn-large">Chicken Fabioli</li>
@@ -69,54 +69,66 @@
       </div>
 
     </aside>
-    <div class="col 10">
-      <div id="chartWrapper">
-        <canvas id="myChart">10</canvas>
+    <div class="col s9"><!--Right Column-->
+      <div class="row"><!--Calorie Counter-->
+        <div id="chartWrapper" class="col s12" >
+          <canvas id="myChart">10</canvas>
+        </div>
       </div>
-
-      <div id="homeFavDisplayWrapper" class="row 4">
-        <section id="homeFood">
-          <div class="col 12">
-            <div class="col 6">
-              <h4 id=homeFoodTitle>Chicken Fabioli</h4>
-              <img id="homeFoodImg" class="activator" src="https://spoonacular.com/recipeImages/553758-312x231.jpg">
-              <p><a id="homeFoodLink" href="#"><em>Recipe Source Link</em></a></p>
-            </div>
-            <div class="col 6">
-              <p class="homeServings">Servings: 4</p>
-              <p class="homeHealthscore">Healthscore: 69</p>
-            </div>
-          </div>
-          <ul id="homeNutrients"></ul>
-          <p class="homeCard-nutrients">
-            <sm><em>per serving:</em></sm>
-          </p>
-          <li class="homeCaloriesLi">Calories: 900</li>
-          <li class="homeFatLi">Fat: 200g</li>
-          <li class="homeSatFatLi">Saturated Fat: 500g</li>
-          <li class="homeCarbsLi">Carbohydrates: 600</li>
-          <li class="homeSugarLi">Sugar: 50g</li>
-          <li class="homeCholesterolLi">Cholesterol: 5g</li>
-          <li class="homeSodiumLi">Sodium: 500mg</li>
-          <li class="homeProteinLi">Protein: 20g</li>
-          <li a class="waves-effect blue waves-light btn-large">Eat Me</a></li>
-          <li a class="waves-effect red waves-light btn-large">Delete Me</a></li>
-        </section>
-        <section id="home-excr-content">
-        </section>
-      </div>
+      <div class="row"><!--Recipe-->
+        <div id="homeFavDisplayWrapper" class="col s8" ><!--Card Section-->
+          <section id="homeFood" >
+            <div id="homeFood" class="col s12" >
+              <div class="col s12" >
+                <h4 id=homeFoodTitle></h4>
+                <div class="card"><!--Materialize Card-->
+                  <div class="card-image waves-effect waves-block waves-light">
+                    <img id="homeFoodImg" class="activator" src="https://spoonacular.com/recipeImages/553758-312x231.jpg">
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Chicken Fabioli<i class="material-icons right">more_vert</i></span> 
+                    <p><a id="homeFoodLink" href="#"><em>Recipe Source Link</em></a></p> 
+                  </div> 
+                  <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">Chicken Fabioli<i class="material-icons right">close</i></span>
+                    <ul id="homeNutrients">
+                      <li class="homeHealthscore">Healthscore: 69</li>
+                      <li class="homeServings">Servings: 4</li>
+                      <li class="homeCard-nutrients"><sm><em>per serving:</em></sm></li>
+                      <li class="homeCaloriesLi">Calories: 900</li>
+                      <li class="homeFatLi">Fat: 200g</li>
+                      <li class="homeSatFatLi">Saturated Fat: 500g</li>
+                      <li class="homeCarbsLi">Carbohydrates: 600</li>
+                      <li class="homeSugarLi">Sugar: 50g</li>
+                      <li class="homeCholesterolLi">Cholesterol: 5g</li>
+                      <li class="homeSodiumLi">Sodium: 500mg</li>
+                      <li class="homeProteinLi">Protein: 20g</li>
+                      <li a class="waves-effect blue waves-light btn-large">Eat Me</a></li>
+                      <li a class="waves-effect red waves-light btn-large">Delete Me</a></li>
+                  </ul>
+                  </div> 
+                </div><!--End Materialize Card-->  
+              </div>
+            </div>  
+          </section>
+          <section id="home-excr-content">
+          </section>
+        </div>
+        <div class="col s4">
+        </div>
+      </div> 
     </div>
   </div>
   <!------------------------------END OF HOMEPAGE-------------------------->
-  <!--  ----  -->
+ 
   <!------------------------------START OF FOODPAGE-------------------------->
   <div id="foodPage-wrapper" class="row 12;" style="display:none">
 
-    <form id="food-form" class="col 3">
+    <form id="food-form" class="col s12">
 
-      <div class="formWrapper col s12">
+      <!-- <div class="formWrapper col s12"> -->
 
-        <div class="input-field col s12">
+        <div class="input-field col s2">
           <select id="#cuisine-dropdown">
             <option value="" disabled selected>Choose your option</option>
             <option value="1">American</option>
@@ -130,7 +142,7 @@
           <label>Cuisine</label>
         </div>
 
-        <div class="input-field col s12">
+        <div class="input-field col s2">
           <select id="#diet-dropdown">
             <option value="" disabled selected>Choose your option</option>
             <option value="1">pescetarian</option>
@@ -142,7 +154,7 @@
           <label>Materialize Select</label>
         </div>
 
-        <div class="input-field col s12">
+        <div class="input-field col s2">
           <select id="#allergy-dropdown">
             <option value="" disabled selected>Choose your option</option>
             <option value="1">Dairy</option>
@@ -158,77 +170,77 @@
           <label>Allergy</label>
         </div>
 
-        <div class="row">
-          <div class="col s12">
+        <!-- <div class="row"> -->
+          <div class="col s2">
             Max Carbs?
             <div class="input-field inline">
               <input id="maxCarbsInput" type="number" class="validate">
             </div>
           </div>
-        </div>
+        <!-- </div> -->
 
-        <div class="row">
-          <div class="col s12">
+        <!-- <div class="row"> -->
+          <div class="col s2">
             Min Protein?
             <div class="input-field inline">
               <input id="minProteinInput" type="number" class="validate">
             </div>
           </div>
-        </div>
+        <!-- </div> -->
 
-        <div class="row">
-          <div class="col s12">
+        <!-- <div class="row"> -->
+          <div class="col s2">
             Max Calories?
             <div class="input-field inline">
               <input id="maxCaloriesInput" type="number" class="validate">
             </div>
           </div>
-        </div>
+        <!-- </div> -->
 
-        <div class="row">
-          <div class="col s12">
+        <!-- <div class="row"> -->
+          <div class="col s2">
             Max Fat?
             <div class="input-field inline">
               <input id="maxFatInput" type="number" class="validate">
             </div>
           </div>
-        </div>
+        <!-- </div> -->
 
-        <div class="row">
-          <div class="col s12">
+        <!-- <div class="row"> -->
+          <div class="col s2">
             Max SatFat?
             <div class="input-field inline">
               <input id="maxSatFatInput" type="number" class="validate">
             </div>
           </div>
-        </div>
+        <!-- </div> -->
 
-        <div class="row">
-          <div class="col s12">
+        <!-- <div class="row"> -->
+          <div class="col s2">
             Min Fiber?
             <div class="input-field inline">
               <input id="minFiberInput" type="number" class="validate">
             </div>
           </div>
-        </div>
+        <!-- </div> -->
 
-        <div class="row">
-          <div class="col s12">
+        <!-- <div class="row"> -->
+          <div class="col s2">
             Max Sodium?
             <div class="input-field inline">
               <input id="maxSodiumInput" type="number" class="validate">
             </div>
           </div>
-        </div>
+        <!-- </div> -->
 
-        <div class="row">
-          <div class="col s12">
+        <!-- <div class="row"> -->
+          <div class="col s2">
             Max Sugar?
             <div class="input-field inline">
               <input id="maxSugarInput" type="number" class="validate">
             </div>
           </div>
-        </div>
+        <!-- </div> -->
 
         <button class="btn waves-effect waves-light" type="submit" name="action" id="searchButtonLeft">Submit <i
             class="material-icons right">send</i> </button>
