@@ -10,3 +10,9 @@ div.row {
 header {
     background-color: green;
 } */
+
+
+#quote,#author{
+    text-align: center;
+    font-size: 20px;
+}
