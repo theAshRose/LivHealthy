@@ -68,16 +68,32 @@ $("#exercises").on("click", function () {
 //                    data.results[i].nutrition.nutrients[j].name    (cycle through all) (DV%: data.bad[0].percentOfDailyNeeds [follows same format for every ingredient daily value %])
 
 ////////////////////////////////////////////////////////////////////////////////below is healthy quotes! not free, use sparingly///////////////////////////////////////////////////////////////////////////////
+var displayQuote = $("#quote")
+var displayAuthor = $("#author")
+const optionsQ = {
+	method: 'POST',
+	headers: {
+		'content-type': 'application/json',
+		'X-RapidAPI-Key': '6e62526b2bmsh6ea8d6b04968f6dp1bf673jsn462c96ed6e67',
+		'X-RapidAPI-Host': 'pquotes.p.rapidapi.com'
+	},
+	body: '{"topic":"health"}'
+};
 
-// const options = {
-// 	method: 'POST',
-// 	headers: {
-// 		'content-type': 'application/json',
-// 		'X-RapidAPI-Key': '',
-// 		'X-RapidAPI-Host': 'pquotes.p.rapidapi.com'
-// 	},
-// 	body: '{"topic":"health"}'
-// };
+fetch('https://pquotes.p.rapidapi.com/api/quote', optionsQ) 
+.then(function (response) {
+  return response.json();
+})
+.then(function (data) {
+  console.log(data);
+  console.log(data.quote)
+  
+  
+
+  displayQuote.text(data.quote )
+  
+  displayAuthor.text("-"+data.by)
+});
 
 // fetch('https://pquotes.p.rapidapi.com/api/quote', options)
 // 	.then(response => response.json())
