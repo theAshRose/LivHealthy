@@ -491,7 +491,7 @@ searchButton.on("click", function (event) {
 });
 
 $("#food-search-results").on("click", ".btn-small", function (event) {
-  alert("working")
+  event.preventDefault();
   let clickedButton = $(event.target)
   let savedRecipe = {
       img: clickedButton.closest(".col").children().eq(0).children().eq(0)[0].firstElementChild.currentSrc,

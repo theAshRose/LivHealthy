@@ -27,70 +27,84 @@
     </div>
     <nav style="background-color:#d3af4d9b">
       <div id="nav-wrapper">
-        <a id="headerLogo"href="#" class="brand-logo"><img height= 64px, src="./assets/Images/LogoB.png"></a><!--Logo header-->
+        <a id="headerLogo" href="#" class="brand-logo"><img height=64px, src="./assets/Images/LogoB.png"></a>
+        <!--Logo header-->
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li id="homeTag"style="background-color:#002043; margin: 2px; padding: 0px 15px;"><a>Home</a></li>
-          <li id="recipes"style="background-color:#002043; margin: 2px; padding: 0px 15px;"><a>Recipes</a></li>
-          <li id="exercises"style="background-color:#002043; margin: 2px; padding: 0px 15px;"><a>Exercises</a></li>
+          <li id="homeTag" style="background-color:#002043; margin: 2px; padding: 0px 15px;"><a>Home</a></li>
+          <li id="recipes" style="background-color:#002043; margin: 2px; padding: 0px 15px;"><a>Recipes</a></li>
+          <li id="exercises" style="background-color:#002043; margin: 2px; padding: 0px 15px;"><a>Exercises</a></li>
         </ul>
       </div>
     </nav>
   </header>
 
   <!------------------------------START OF HOMEPAGE-------------------------->
-  <div style="display:contents;" id="homePage">Home Test
+  <div style="display:contents;" class="row 12" id="homePage">Home Test
 
-    <aside id="aside-wrapper">
+    <aside class="col 2" id="aside-wrapper">
       <div id="button-header">
       </div>
 
       <div id="fav-btn-wrapper">
         <div id="fav-excr-btns-wrapper">
           <ul id="fav-excr-btns">
+            <li class="waves-effect waves-light pink btn-large">Chicken Fabioli</li>
+            <li class="waves-effect waves-light pink btn-large">Chicken Fabioli</li>
+            <li class="waves-effect waves-light pink btn-large">Chicken Fabioli</li>
+            <li class="waves-effect waves-light pink btn-large">Chicken Fabioli</li>
+            <li class="waves-effect waves-light pink btn-large">Chicken Fabioli</li>
+            <li class="waves-effect waves-light pink btn-large">Chicken Fabioli</li>
           </ul>
         </div>
         <div id="fav-food-btns-wrapper">
           <ul id="fav-food-btns">
+            <li class="waves-effect waves-light green btn-large">Chicken Fabioli</li>
+            <li class="waves-effect waves-light green btn-large">Chicken Fabioli</li>
+            <li class="waves-effect waves-light green btn-large">Chicken Fabioli</li>
+            <li class="waves-effect waves-light green btn-large">Chicken Fabioli</li>
+            <li class="waves-effect waves-light green btn-large">Chicken Fabioli</li>
+            <li class="waves-effect waves-light green btn-large">Chicken Fabioli</li>
           </ul>
         </div>
       </div>
 
     </aside>
+    <div class="col 10">
+      <div id="chartWrapper">
+        <canvas id="myChart">10</canvas>
+      </div>
 
-    <div id="chartWrapper">
-      <canvas id="myChart">10</canvas>
-    </div>
-
-    <div id="homeFavDisplayWrapper" class="row 4">
-      <section id="homeFood">
-        <div class="col 12">
-          <div class="col 6">
-            <h4 id=homeFoodTitle>Chicken Fabioli</h4>
-            <img id="homeFoodImg" class="activator" src="https://spoonacular.com/recipeImages/553758-312x231.jpg">
-            <p><a id="homeFoodLink" href="#"><em>Recipe Source Link</em></a></p>
+      <div id="homeFavDisplayWrapper" class="row 4">
+        <section id="homeFood">
+          <div class="col 12">
+            <div class="col 6">
+              <h4 id=homeFoodTitle>Chicken Fabioli</h4>
+              <img id="homeFoodImg" class="activator" src="https://spoonacular.com/recipeImages/553758-312x231.jpg">
+              <p><a id="homeFoodLink" href="#"><em>Recipe Source Link</em></a></p>
+            </div>
+            <div class="col 6">
+              <p class="homeServings">Servings: 4</p>
+              <p class="homeHealthscore">Healthscore: 69</p>
+            </div>
           </div>
-          <div class="col 6">
-            <p class="homeServings">Servings: 4</p>
-            <p class="homeHealthscore">Healthscore: 69</p>
-          </div>
-        </div>
-        <ul id="homeNutrients"></ul>
-        <p class="homeCard-nutrients">
-          <sm><em>per serving:</em></sm>
-        </p>
-        <li class="homeCaloriesLi">Calories: 900</li>
-        <li class="homeFatLi">Fat: 200g</li>
-        <li class="homeSatFatLi">Saturated Fat: 500g</li>
-        <li class="homeCarbsLi">Carbohydrates: 600</li>
-        <li class="homeSugarLi">Sugar: 50g</li>
-        <li class="homeCholesterolLi">Cholesterol: 5g</li>
-        <li class="homeSodiumLi">Sodium: 500mg</li>
-        <li class="homeProteinLi">Protein: 20g</li>
-        <li a class="waves-effect blue waves-light btn-large">Eat Me</a></li>
-        <li a class="waves-effect red waves-light btn-large">Delete Me</a></li>
-      </section>
-      <section id="home-excr-content">
-      </section>
+          <ul id="homeNutrients"></ul>
+          <p class="homeCard-nutrients">
+            <sm><em>per serving:</em></sm>
+          </p>
+          <li class="homeCaloriesLi">Calories: 900</li>
+          <li class="homeFatLi">Fat: 200g</li>
+          <li class="homeSatFatLi">Saturated Fat: 500g</li>
+          <li class="homeCarbsLi">Carbohydrates: 600</li>
+          <li class="homeSugarLi">Sugar: 50g</li>
+          <li class="homeCholesterolLi">Cholesterol: 5g</li>
+          <li class="homeSodiumLi">Sodium: 500mg</li>
+          <li class="homeProteinLi">Protein: 20g</li>
+          <li a class="waves-effect blue waves-light btn-large">Eat Me</a></li>
+          <li a class="waves-effect red waves-light btn-large">Delete Me</a></li>
+        </section>
+        <section id="home-excr-content">
+        </section>
+      </div>
     </div>
   </div>
   <!------------------------------END OF HOMEPAGE-------------------------->
@@ -223,7 +237,7 @@
 
     <section id="food-search-results" class="row 9">
       <!--dynamically generated recipe cards to be generatered within this section teg-->
-      
+
     </section>
     <aside id="food-temp-btn-container">
       <ul id="food-temp-btns">
