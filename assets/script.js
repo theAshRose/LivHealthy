@@ -195,19 +195,7 @@ const myChart = new Chart(document.getElementById("myChart"), config);
 
 //////////////////////////////////////////////////////////fetch seperated by long lines like this, below is recipe API(use sparingly, its not free)
 
-function getRecipeAPI(
-  cuisine,
-  diet,
-  intolerances,
-  maxCarbs,
-  minProtein,
-  maxCalories,
-  maxFat,
-  maxSatFat,
-  MinFiber,
-  maxSodium,
-  maxSugar
-) {
+function getRecipeAPI(userFinalInput) {
   const options = {
     method: "GET",
     headers: {
@@ -215,57 +203,7 @@ function getRecipeAPI(
       "X-RapidAPI-Host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
     },
   };
-
-  var cuisine;
-  var diet;
-  var intolerances;
-  var maxCarbs;
-  var minProtein;
-  var maxCalories;
-  var maxFat;
-  var maxSatFat;
-  var MinFiber;
-  var maxSodium;
-  var maxSugar;
-  var title = "";
-  console.log(cuisine);
-  console.log(diet);
-  console.log(intolerances);
-  console.log(maxCarbs);
-  console.log(minProtein);
-  console.log(maxCalories);
-  console.log(maxFat);
-  console.log(maxSatFat);
-  console.log(maxSodium);
-  console.log(maxSugar);
-
-  fetch(
-    "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?query=" +
-      title +
-      "&cuisine=" +
-      cuisine +
-      "&diet=" +
-      diet +
-      "&intolerances=" +
-      intolerances +
-      "&instructionsRequired=true&addRecipeInformation=true&sort=calories&sortDirection=asc&maxCarbs=" +
-      maxCarbs +
-      "&minProtein=" +
-      minProtein +
-      "&maxCalories=" +
-      maxCalories +
-      "&maxFat=" +
-      maxFat +
-      "&maxSaturatedFat=" +
-      maxSatFat +
-      "&minFiber=" +
-      MinFiber +
-      "&maxSodium=" +
-      maxSodium +
-      "&maxSugar=" +
-      maxSugar +
-      "&number=50" +
-      "",
+  fetch(userFinalInput,
     options
   )
     .then(function (response) {
@@ -323,8 +261,8 @@ var displayRecipeCards = function (data) {
     var fat = data.results[i].nutrition.nutrients[2].amount + "g Fat";
     var carbs = data.results[i].nutrition.nutrients[3].amount + "g Carbohydrates";
     var satFat = data.results[i].nutrition.nutrients[4].amount + "g Saturated Fat";
-    var fiber = data.results[i].nutrition.nutrients[5].amount + "g Fiber";
-    var sodium = data.results[i].nutrition.nutrients[6].amount + "g Sodium";
+    var fiber = data.results[i].nutrition.nutrients[5].amount + " g Fiber";
+    var sodium = data.results[i].nutrition.nutrients[6].amount + " g Sodium";
     var sugar = data.results[i].nutrition.nutrients[7].amount + " g Sugar";
 
     recipeCol.addClass("col 3");
@@ -414,80 +352,155 @@ var displayRecipeCards = function (data) {
     cardNutritionBullet9.insertAfter(cardNutritionBullet8);
     cardNutritionBullet9.append(cardSave);
   }
-  
-  
 };
+let userQuery = []
+let finalQuery = ["https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?query="+userQuery+"&instructionsRequired=true&addRecipeInformation=true&sort=calories&sortDirection=asc"]
 
 
-///////end off dynamically generated cards//
-
-//////////event listener for search button/////
 var searchButton = $("#searchButtonLeft");
 searchButton.on("click", function (event) {
   event.preventDefault();
-  // cityInput = cityName.value.trim();
+
   console.log("button pressed");
+  let userQuery = []
+ 
 
-  ///extraction users cuisine selection and putting it into the cuisine variable
-  var cuisineInput = $("#cuisine-dropdown");
-  cuisine = cuisineInput.find(":selected").text();
-  console.log(cuisine);
-  ///extraction users diet selection and putting it into the diet variable
-  var dietInput = $("#diet-dropdown");
-  diet = dietInput.find(":selected").text();
-  console.log(diet);
-  ///extraction users diet selection and putting it into the diet variable
-  var intolerancesInput = $("#allergy-dropdown");
-  intolerances = intolerancesInput.find(":selected").text();
-  console.log(intolerances);
+let recipeName = $("#foodName").val()
+if (recipeName) {
+  userQuery += recipeName
+}
 
-  ///extraction users carb selection and putting it into the maxCarbs variable
-  var carbsInput = $("#maxCarbsInput");
-  maxCarbs = carbsInput.val();
-  console.log(maxCarbs);
-  ///extraction users protien selection and putting it into the minprotein variable
-  var proteinInput = $("#minProteinInput");
-  minProtein = proteinInput.val();
-  console.log(minProtein);
+ let cuisine =  $("#cuisine-dropdown").val();
+ if(cuisine) {
+  userQuery += ("&cuisine="+ cuisine)
+  console.log(userQuery)
+ } 
 
-  ///extraction users protien selection and putting it into the minprotein variable
-  var calorieInput = $("#maxCaloriesInput");
-  maxCalories = calorieInput.val();
-  console.log(maxCalories);
+ let diet =  $("#diet-dropdown").val();
+ if(diet) {
+  userQuery += ("&diet="+diet)
+  console.log(userQuery)
+ }
 
-  ///extraction users maxFatInput selection and putting it into the maxFat variable
-  var maxFatInput = $("#maxFatInput");
-  maxFat = maxFatInput.val();
-  console.log(maxFat);
-  ///extraction users satfat selection and putting it into the satfat variable
-  var satFatInput = $("#maxSatFatInput");
-  maxSatFat = satFatInput.val();
-  console.log(maxSatFat);
-  ///extraction users fiber selection and putting it into the minfiber variable
-  var fiberInput = $("#minFiberInput");
-  MinFiber = fiberInput.val();
-  console.log(MinFiber);
-  ///extraction users sodium selection and putting it into the sodium variable
-  var sodiumInput = $("#maxSodiumInput");
-  maxSodium = sodiumInput.val();
-  console.log(maxSodium);
-  ///extraction users sugar selection and putting it into the maxsugar variable
-  var sugarInput = $("#maxSugarInput");
-  maxSugar = sugarInput.val();
-  console.log(maxSugar);
-  getRecipeAPI(
-    cuisine,
-    diet,
-    intolerances,
-    maxCarbs,
-    minProtein,
-    maxCalories,
-    maxFat,
-    maxSatFat,
-    MinFiber,
-    maxSodium,
-    maxSugar
-  );
+ let intolerances =  $("#allergy-dropdown").val();
+ if(intolerances) {
+  userQuery += ("&intolerances="+intolerances)
+  console.log(userQuery)
+ }
+
+ let carbs =  $("#maxCarbsInput").val();
+ if(carbs && !NaN) {
+  userQuery += ("&maxCarbs="+carbs)
+  console.log(userQuery)
+ } else (userQuery += "&maxCarbs=9999")
+
+ let protein =  $("#minProteinInput").val();
+ if(protein && !NaN) {
+  userQuery += ("&minProtein="+protein)
+  console.log(userQuery)
+ } else (userQuery += "&minProtein=0")
+
+ let cal =  $("#maxCaloriesInput").val();
+ if(cal && !NaN) {
+  userQuery += ("&maxCalories="+cal)
+  console.log(userQuery)
+ } else (userQuery += "&maxCalories=9999")
+
+ let fat =  $("#maxFatInput").val();
+ if(fat && !NaN) {
+  userQuery += ("&maxFat="+fat)
+  console.log(userQuery)
+ } else (userQuery += "&maxFat=9999")
+
+ let satFat =  $("#maxSatFatInput").val();
+ if(satFat && !NaN) {
+  userQuery += ("&maxSaturedFat="+satFat)
+  console.log(userQuery)
+ } else (userQuery += "&maxSaturatedFat=9999")
+
+ let fiber =  $("#minFiberInput").val();
+ if(fiber && !NaN) {
+  userQuery += ("&minFiber="+fiber)
+  console.log(userQuery)
+ } else (userQuery += "&minFiber=0")
+
+ let sodium =  $("#maxSodiumInput").val();
+ if(sodium && !NaN) {
+  userQuery += ("&maxSodium="+sodium)
+  console.log(userQuery)
+ } else (userQuery += "&maxSodium=9999")
+
+ let sugar =  $("#maxSugarInput").val();
+ if(sugar && !NaN) {
+  userQuery += ("&maxSugar="+sugar)
+  console.log(userQuery)
+ } else (userQuery += "&maxSugar=400")
+
+ let resultNumber =  $("#resultsNumber").val();
+ if(resultNumber < 50 && !NaN) {
+  userQuery += ("&number="+resultNumber)
+  console.log(userQuery)
+ } else (userQuery += "&number=50")
+
+ let finalQuery = ["https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?query="+userQuery+"&instructionsRequired=true&addRecipeInformation=true&sort=calories&sortDirection=asc"]
+
+ getRecipeAPI(finalQuery)
+  // ///extraction users diet selection and putting it into the diet variable
+  // var dietInput = $("#diet-dropdown");
+  // diet = dietInput.find(":selected").text();
+  // console.log(diet);
+  // ///extraction users diet selection and putting it into the diet variable
+  // var intolerancesInput = $("#allergy-dropdown");
+  // intolerances = intolerancesInput.find(":selected").text();
+  // console.log(intolerances);
+
+  // ///extraction users carb selection and putting it into the maxCarbs variable
+  // var carbsInput = $("#maxCarbsInput");
+  // maxCarbs = carbsInput.val();
+  // console.log(maxCarbs);
+  // ///extraction users protien selection and putting it into the minprotein variable
+  // var proteinInput = $("#minProteinInput");
+  // minProtein = proteinInput.val();
+  // console.log(minProtein);
+
+  // ///extraction users protien selection and putting it into the minprotein variable
+  // var calorieInput = $("#maxCaloriesInput");
+  // maxCalories = calorieInput.val();
+  // console.log(maxCalories);
+
+  // ///extraction users maxFatInput selection and putting it into the maxFat variable
+  // var maxFatInput = $("#maxFatInput");
+  // maxFat = maxFatInput.val();
+  // console.log(maxFat);
+  // ///extraction users satfat selection and putting it into the satfat variable
+  // var satFatInput = $("#maxSatFatInput");
+  // maxSatFat = satFatInput.val();
+  // console.log(maxSatFat);
+  // ///extraction users fiber selection and putting it into the minfiber variable
+  // var fiberInput = $("#minFiberInput");
+  // MinFiber = fiberInput.val();
+  // console.log(MinFiber);
+  // ///extraction users sodium selection and putting it into the sodium variable
+  // var sodiumInput = $("#maxSodiumInput");
+  // maxSodium = sodiumInput.val();
+  // console.log(maxSodium);
+  // ///extraction users sugar selection and putting it into the maxsugar variable
+  // var sugarInput = $("#maxSugarInput");
+  // maxSugar = sugarInput.val();
+  // console.log(maxSugar);
+  // getRecipeAPI(
+  //   cuisine,
+  //   diet,
+  //   intolerances,
+  //   maxCarbs,
+  //   minProtein,
+  //   maxCalories,
+  //   maxFat,
+  //   maxSatFat,
+  //   MinFiber,
+  //   maxSodium,
+  //   maxSugar
+  // );
 });
 
 $("#food-search-results").on("click", ".btn-small", function (event) {
