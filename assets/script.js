@@ -328,6 +328,7 @@ var displayRecipeCards = function (data) {
     var sugar = data.results[i].nutrition.nutrients[7].amount + " g Sugar";
 
     recipeCol.addClass("col 3");
+    recipeCol.attr("id", UniqueCardId);
     recipeCard.addClass("card");
     recipeCard.attr("id", "foodResult0");
     cardImageContainer.addClass(
