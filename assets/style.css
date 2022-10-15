@@ -43,6 +43,6 @@ p {
  font-size:20px
 }
 
-#difficultyType {
-  
+#difficultyType,#equipmentType{
+  font-size:30px;
 }
