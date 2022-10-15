@@ -76,145 +76,134 @@ fetch("https://pquotes.p.rapidapi.com/api/quote", optionsQ)
 
 //////////////////////////////////////////////////////////below is excercise///////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// let userQuery = [];
+// let finalQuery = [
+//   "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?query=" +
+//     userQuery +
+//     "&instructionsRequired=true&addRecipeInformation=true&sort=calories&sortDirection=asc",
+// ];
 
-$("#searchButton").on("click",masonsFunction)
+// var searchButton = $("#searchButtonLeft");
+// searchButton.on("click", function (event) {
+//   event.preventDefault();
 
-var exerciseSelection = $("#exercise-search-result")
+//   console.log("button pressed");
+//   let userQuery = [];
 
-function masonsFunction(event){
-  event.preventDefault();
-const exerciseOptions = { 
-  method: "GET",
-  headers: {
-    "X-RapidAPI-Key": "6e62526b2bmsh6ea8d6b04968f6dp1bf673jsn462c96ed6e67",
-    "X-RapidAPI-Host": "exercises-by-api-ninjas.p.rapidapi.com",
-  },
-};
+var exerciseSelection = $("#exercise-search-result");
 
-///parameters that will show on page so user can chose which parameers to search by
-//name of excerise
-// muscle group targeted by the exercise. Possible values are:
-//these will al be dropdowns for the user
-// abdominals
-// abductors
-// adductors
-// biceps
-// calves
-// chest
-// forearms
-// glutes
-// hamstrings
-// lats
-// lowerback middleback
-// neck
-// quadriceps
-// traps
-// triceps
-// var muscle = "biceps";
-// var type = "strength";
-//possible types:
-//cardio
-// olympic_weightlifting
-// plyometrics
-// powerlifting
-// strength
-// stretching
-// strongman
-// var difficulty = "beginner";
-//possible difficulties"
-// beginner
-// intermediate
-// expert
-var muscle = "biceps";
-var type ="strength";
-var difficulty = "beginner";
- //fetching exercise API
-fetch(
-  "https://exercises-by-api-ninjas.p.rapidapi.com/v1/exercises?muscle=" +
-    muscle +
-    "&difficulty=" +
-    difficulty +
-    "&type=" +
-    type +
-    "",
-  exerciseOptions
-)
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-   
-    console.log(data[0].instructions);
-    displayExerciseCards(data)
-    console.log(data)
-  })
-  
-function displayExerciseCards (data){
-  console.log(data)
-  for(i=0; i < data.length; i++ ){
-    var exerciseCol = $("<div>")
-    var exerciseCard = $("<div>")
-    var exerciseBackground = $("<div>")
-    var exerciseTextColor = $("<div>")
-    var exerciseTitle = $("<span>")
-    var  exerciseListParent = $("<ul>")
-    var exerciseInstruction = $("<p>")
-    var exerciseListChildren = $("<li>")
-    var children1 = $("<li>")
-    var children2 = $("<li>")
-    
+function getExerciseApi(muscle, difficulty, type) {
+  const exerciseOptions = {
+    method: "GET",
+    headers: {
+      "X-RapidAPI-Key": "6e62526b2bmsh6ea8d6b04968f6dp1bf673jsn462c96ed6e67",
+      "X-RapidAPI-Host": "exercises-by-api-ninjas.p.rapidapi.com",
+    },
+  };
 
+  var muscle;
+  var type;
+  var difficulty;
+  //fetching exercise API
+  fetch(
+    "https://exercises-by-api-ninjas.p.rapidapi.com/v1/exercises?muscle=" +
+      muscle +
+      "&difficulty=" +
+      difficulty +
+      "&type=" +
+      type +
+      "",
+    exerciseOptions
+  )
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      // console.log(data[0].instructions);
+      displayExerciseCards(data);
+      console.log(data);
+    });
 
-    var exerciseDifficulty  = data[i].difficulty;
-    var exerciseName = data[i].name; 
-    var exerciseInstructions = data[i].instructions;
-    var exerciseEquipment = data[i].equipment;
+  function displayExerciseCards(data) {
+    console.log(data);
+    for (i = 0; i < data.length; i++) {
+      var exerciseCol = $("<div>");
+      var exerciseCard = $("<div>");
+      var exerciseBackground = $("<div>");
+      var exerciseTextColor = $("<div>");
+      var exerciseTitle = $("<span>");
+      var exerciseListParent = $("<ul>");
+      var exerciseInstruction = $("<p>");
+      var exerciseListChildren = $("<li>");
+      var children1 = $("<li>");
+      var children2 = $("<li>");
 
+      var exerciseDifficulty = data[i].difficulty;
+      var exerciseName = data[i].name;
+      var exerciseInstructions = data[i].instructions;
+      var exerciseEquipment = data[i].equipment;
 
-  
+      exerciseCol.addClass("row");
+      exerciseCard.addClass("col s12 m6");
+      exerciseBackground.addClass("card blue-grey darken-1");
+      exerciseTextColor.addClass("card-content white-text");
+      exerciseTitle.addClass("card-title");
+      exerciseInstruction.attr("id", "instructionCard");
+      exerciseListParent.attr("id", "exrCardList");
+      exerciseListChildren.addClass("exerciseLi");
 
+      exerciseSelection.append(exerciseCol);
+      exerciseCol.append(exerciseCard);
+      exerciseCard.append(exerciseBackground);
+      exerciseBackground.append(exerciseTextColor);
+      exerciseTextColor.append(exerciseTitle);
+      exerciseTitle.append(exerciseListParent);
 
-    exerciseCol.addClass("row")
-    exerciseCard.addClass("col s12 m6")
-    exerciseBackground.addClass("card blue-grey darken-1")
-    exerciseTextColor.addClass("card-content white-text")
-    exerciseTitle.addClass("card-title")
-    exerciseInstruction.attr( "id","instructionCard")
-    exerciseListParent.attr("id", "exrCardList")
-    exerciseListChildren.addClass("exerciseLi")
-
-
-    exerciseSelection.append(exerciseCol)
-    exerciseCol.append(exerciseCard)
-    exerciseCard.append(exerciseBackground)
-    exerciseBackground.append(exerciseTextColor)
-    exerciseTextColor.append(exerciseTitle)
-    exerciseTitle.append(exerciseListParent)
-
-    // we start list here :p
-    exerciseListParent.append(exerciseListChildren)
-    exerciseListParent.append(children1)
-    exerciseListParent.append(children2)
-    exerciseListParent.append(exerciseInstruction)
-    exerciseListParent.children().eq(0).text(data[i].name)
-    exerciseListParent.children().eq(1).text("difficulty: " + data[i].difficulty)
-    exerciseListParent.children().eq(2).text("equipment: " + data[i].equipment)
-    exerciseInstruction.text(data[i].instructions);
-
-
-    
-
-    
-
-
-
-
-
+      // we start list here :p
+      exerciseListParent.append(exerciseListChildren);
+      exerciseListParent.append(children1);
+      exerciseListParent.append(children2);
+      exerciseListParent.append(exerciseInstruction);
+      exerciseListParent.children().eq(0).text(exerciseName);
+      exerciseListParent
+        .children()
+        .eq(1)
+        .text("difficulty: " + exerciseDifficulty);
+      exerciseListParent
+        .children()
+        .eq(2)
+        .text("equipment: " + exerciseEquipment);
+      exerciseInstruction.text(exerciseInstructions);
+    }
   }
 }
-}
 
+$("#searchButton").on("click", function (event) {
+  event.preventDefault();
+  var muscle = $("#muscle-dropdown").val();
+  if (muscle) {
+    muscle;
+  } else {
+    muscle = "chest";
+  }
+  var type = $("#type-dropdown").val();
+  if (type) {
+    type;
+  } else {
+    type = "strength";
+  }
+  var difficulty = $("#difficulty-dropdown").val();
+  if (difficulty) {
+    difficulty;
+  } else {
+    difficulty = "beginner";
+  }
 
+  console.log(type);
+  console.log(difficulty);
+  console.log(muscle);
+  getExerciseApi(muscle, difficulty, type);
+});
 
 // }
 // paths to get the data on the screen are below
