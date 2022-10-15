@@ -72,20 +72,6 @@ fetch("https://pquotes.p.rapidapi.com/api/quote", optionsQ)
 
 //////////////////////////////////////////////////////////below is excercise///////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// let userQuery = [];
-// let finalQuery = [
-//   "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?query=" +
-//     userQuery +
-//     "&instructionsRequired=true&addRecipeInformation=true&sort=calories&sortDirection=asc",
-// ];
-
-// var searchButton = $("#searchButtonLeft");
-// searchButton.on("click", function (event) {
-//   event.preventDefault();
-
-//   console.log("button pressed");
-//   let userQuery = [];
-
 var exerciseSelection = $("#exercise-search-result");
 
 function getExerciseApi(muscle, difficulty, type) {
@@ -121,55 +107,62 @@ function getExerciseApi(muscle, difficulty, type) {
     });
 
   function displayExerciseCards(data) {
-    console.log(data);
-    for (i = 0; i < data.length; i++) {
-      var exerciseCol = $("<div>");
-      var exerciseCard = $("<div>");
-      var exerciseBackground = $("<div>");
-      var exerciseTextColor = $("<div>");
-      var exerciseTitle = $("<span>");
-      var exerciseListParent = $("<ul>");
-      var exerciseInstruction = $("<p>");
-      var exerciseListChildren = $("<li>");
-      var children1 = $("<li>");
-      var children2 = $("<li>");
+    if (exerciseSelection.html) {
+      exerciseSelection.empty();
 
-      var exerciseDifficulty = data[i].difficulty;
-      var exerciseName = data[i].name;
-      var exerciseInstructions = data[i].instructions;
-      var exerciseEquipment = data[i].equipment;
+      for (i = 0; i < data.length; i++) {
+        var exerciseCol = $("<div>");
+        var exerciseCard = $("<div>");
+        var exerciseBackground = $("<div>");
+        var exerciseTextColor = $("<div>");
+        var exerciseTitle = $("<span>");
+        var exerciseListParent = $("<ul>");
+        var exerciseInstruction = $("<p>");
+        var exerciseListChildren = $("<li>");
+        var children1 = $("<li>");
+        var children2 = $("<li>");
+        var exerciseCardSave = $("<a>");
 
-      exerciseCol.addClass("row");
-      exerciseCard.addClass("col s12 m6");
-      exerciseBackground.addClass("card blue-grey darken-1");
-      exerciseTextColor.addClass("card-content white-text");
-      exerciseTitle.addClass("card-title");
-      exerciseInstruction.attr("id", "instructionCard");
-      exerciseListParent.attr("id", "exrCardList");
-      exerciseListChildren.addClass("exerciseLi");
+        var exerciseDifficulty = data[i].difficulty;
+        var exerciseName = data[i].name;
+        var exerciseInstructions = data[i].instructions;
+        var exerciseEquipment = data[i].equipment;
 
-      exerciseSelection.append(exerciseCol);
-      exerciseCol.append(exerciseCard);
-      exerciseCard.append(exerciseBackground);
-      exerciseBackground.append(exerciseTextColor);
-      exerciseTextColor.append(exerciseTitle);
-      exerciseTitle.append(exerciseListParent);
+        exerciseCol.addClass("row");
+        exerciseCard.addClass("col s12 m6");
+        exerciseBackground.addClass("card blue-grey darken-1");
+        exerciseTextColor.addClass("card-content white-text");
+        exerciseTitle.addClass("card-title");
+        exerciseInstruction.attr("id", "instructionCard");
+        exerciseListParent.attr("id", "exrCardList");
+        exerciseListChildren.addClass("exerciseLi");
+        exerciseCardSave.addClass("waves-effect green waves-light btn-small");
 
-      // we start list here :p
-      exerciseListParent.append(exerciseListChildren);
-      exerciseListParent.append(children1);
-      exerciseListParent.append(children2);
-      exerciseListParent.append(exerciseInstruction);
-      exerciseListParent.children().eq(0).text(exerciseName);
-      exerciseListParent
-        .children()
-        .eq(1)
-        .text("difficulty: " + exerciseDifficulty);
-      exerciseListParent
-        .children()
-        .eq(2)
-        .text("equipment: " + exerciseEquipment);
-      exerciseInstruction.text(exerciseInstructions);
+        exerciseSelection.append(exerciseCol);
+        exerciseCol.append(exerciseCard);
+        exerciseCard.append(exerciseBackground);
+        exerciseBackground.append(exerciseTextColor);
+        exerciseTextColor.append(exerciseTitle);
+        exerciseTitle.append(exerciseListParent);
+
+        // we start list here :p
+        exerciseListParent.append(exerciseListChildren);
+        exerciseListParent.append(children1);
+        exerciseListParent.append(children2);
+        exerciseListParent.append(exerciseInstruction);
+        exerciseListParent.append(exerciseCardSave);
+        exerciseListParent.children().eq(0).text(exerciseName);
+        exerciseListParent
+          .children()
+          .eq(1)
+          .text("difficulty: " + exerciseDifficulty);
+        exerciseListParent
+          .children()
+          .eq(2)
+          .text("equipment: " + exerciseEquipment);
+        exerciseInstruction.text(exerciseInstructions);
+        exerciseCardSave.text("save");
+      }
     }
   }
 }
@@ -201,37 +194,6 @@ $("#searchButton").on("click", function (event) {
   getExerciseApi(muscle, difficulty, type);
 });
 
-// }
-// paths to get the data on the screen are below
-// data[i].difficulty; //difficulty of exercise
-// data[i].name; //name of exercise
-// data[i].instructions; //detailed summary of how to do exercise
-// data[i].equipment; //equipment the user will need
-
-/////////////////////////////////////chart skeleton just an example:
-
-// const labels = ["January", "February", "March", "April", "May", "June"];
-
-// const data = {
-//   labels: labels,
-//   datasets: [
-//     {
-//       label: "My First dataset",
-//       backgroundColor: "rgb(255, 99, 132)",
-//       borderColor: "rgb(255, 99, 132)",
-//       data: [0, 10, 5, 2, 20, 30, 45],
-//     },
-//   ],
-// };
-
-// const config = {
-//   type: "line",
-//   data: data,
-//   options: {},
-// };
-
-// const myChart = new Chart(document.getElementById("myChart"), config);
-
 ///////////FEATURES TO ADD AFTER MVP
 // save buttons on search page that delete after pressed
 //
@@ -259,6 +221,9 @@ function getRecipeAPI(userFinalInput) {
 var foodResultsSection = $("#food-search-results");
 ////project psudocode/////////
 var displayRecipeCards = function (data) {
+  if (foodResultsSection.html) {
+    foodResultsSection.empty();
+  }
   for (i = 0; i < 40; i++) {
     var recipeCol = $("<div>");
     var recipeCard = $("<div>");
@@ -642,5 +607,41 @@ const myChart = new Chart(document.getElementById("myChart"), config);
 function updateChart(option) {
   console.log(option.value);
   myChart.data.datasets[0].parsing.yAxisKey = `nutritionalValues.${option.value}`;
+  myChart.data.datasets[0].label = `nutritionalValues.${option.value}`;
   myChart.update();
 }
+
+// //function to save history buttin for exercise
+
+// // function makeExercisebuttons
+// function makeExercisebuttons() {
+//   // if (historyButtons.innerHTML) {
+//   //   historyButtons.innerHTML = "";
+// }
+// for (var i = 0; i < exerNoDuplicates.length; i++) {
+//   window.searchHistoryBtn = $("<button>");
+//   window.searchHistoryBtn.setAttribute("type", "button");
+//   window.searchHistoryBtn.setAttribute("aria-controls", "exercise saved");
+//   window.searchHistoryBtn.addClass(
+//     "Exercise-history-btn",
+//     "btn-history",
+//     "waves-effect waves-light pink btn-large"
+//   );
+//   window.searchHistoryBtn.attr("data-search", exerNoDuplicates[i]);
+
+//   searchHistoryBtn.text(exerNoDuplicates[i]);
+//   $("#fav-excr-btns").append(searchHistoryBtn);
+//   searchHistoryBtn.on("click", searchHistoryClick);
+// }
+
+// //function to link the history button to the event that triggered it(ie the exercise value)
+// function exerciseHistoryClick(e) {
+//   if (!e.target.matches(".btn-history")) {
+//     return;
+//   }
+//   var btn = e.target;
+//   var search = btn.getAttribute("data-search");
+//   console.log(search);
+//   getWeatherApi(search);
+//   console.log("button pressed");
+// }
