@@ -46,7 +46,7 @@
       </div>
 
       <div id="fav-btn-wrapper">
-        <div class="col s6" id="fav-excr-btns-wrapper"><!--Row One-->
+        <div class="row s6" id="fav-excr-btns-wrapper"><!--Row One-->
           <ul id="fav-excr-btns">
             <li class="waves-effect waves-light pink btn-large">Run Around</li>
             <li class="waves-effect waves-light pink btn-large">Run Around</li>
@@ -56,14 +56,8 @@
             <li class="waves-effect waves-light pink btn-large">Run Around</li>
           </ul>
         </div>
-        <div class="col s6" id="fav-food-btns-wrapper">
+        <div class="row 6" id="fav-food-btns-wrapper">
           <ul id="fav-food-btns">
-            <li class="waves-effect waves-light green btn-large">Chicken Fabioli</li>
-            <li class="waves-effect waves-light green btn-large">Chicken Fabioli</li>
-            <li class="waves-effect waves-light green btn-large">Chicken Fabioli</li>
-            <li class="waves-effect waves-light green btn-large">Chicken Fabioli</li>
-            <li class="waves-effect waves-light green btn-large">Chicken Fabioli</li>
-            <li class="waves-effect waves-light green btn-large">Chicken Fabioli</li>
           </ul>
         </div>
       </div>
@@ -77,40 +71,35 @@
       </div>
       <div class="row"><!--Recipe-->
         <div id="homeFavDisplayWrapper" class="col s8" ><!--Card Section-->
-          <section id="homeFood" >
-            <div id="homeFood" class="col s12" >
-              <div class="col s12" >
+              <div id = "homeFoodShowcase" class="col s12">
                 <h4 id=homeFoodTitle></h4>
                 <div class="card"><!--Materialize Card-->
                   <div class="card-image waves-effect waves-block waves-light">
-                    <img id="homeFoodImg" class="activator" src="https://spoonacular.com/recipeImages/553758-312x231.jpg">
+                    <img id="homeFoodImg" class="activator" src="">
                   </div>
                   <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4">Chicken Fabioli<i class="material-icons right">more_vert</i></span> 
-                    <p><a id="homeFoodLink" href="#"><em>Recipe Source Link</em></a></p> 
+                    <span id = "homeFoodTitle1" class="card-title activator grey-text text-darken-4"><i class="material-icons right">more_vert</i></span> 
+                    <p><a id="homeFoodLink" href="#"><em></em></a></p> 
                   </div> 
                   <div class="card-reveal">
-                    <span class="card-title grey-text text-darken-4">Chicken Fabioli<i class="material-icons right">close</i></span>
+                    <span id = "homeFoodTitle2" class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
                     <ul id="homeNutrients">
-                      <li class="homeHealthscore">Healthscore: 69</li>
-                      <li class="homeServings">Servings: 4</li>
-                      <li class="homeCard-nutrients"><sm><em>per serving:</em></sm></li>
-                      <li class="homeCaloriesLi">Calories: 900</li>
-                      <li class="homeFatLi">Fat: 200g</li>
-                      <li class="homeSatFatLi">Saturated Fat: 500g</li>
-                      <li class="homeCarbsLi">Carbohydrates: 600</li>
-                      <li class="homeSugarLi">Sugar: 50g</li>
-                      <li class="homeCholesterolLi">Cholesterol: 5g</li>
-                      <li class="homeSodiumLi">Sodium: 500mg</li>
-                      <li class="homeProteinLi">Protein: 20g</li>
-                      <li a class="waves-effect blue waves-light btn-large">Eat Me</a></li>
-                      <li a class="waves-effect red waves-light btn-large">Delete Me</a></li>
+                      <li id="homeHealthScore"></li>
+                      <li id="homeServings"></li>
+                      <li id="homeCard-nutrients"><sm><em></em></sm></li>
+                      <li id="homeCaloriesLi"></li>
+                      <li id="homeFatLi"></li>
+                      <li id="homeSatFatLi"></li>
+                      <li id="homeCarbsLi"></li>
+                      <li id="homeSugarLi"></li>
+                      <li id="homeSodiumLi"></li>
+                      <li id="homeProteinLi"></li>
+                      <li class="waves-effect blue waves-light btn-large">Eat Me</a></li>
+                      <li class="waves-effect red waves-light btn-large">Delete Me</a></li>
                   </ul>
                   </div> 
                 </div><!--End Materialize Card-->  
               </div>
-            </div>  
-          </section>
           <section id="home-excr-content">
           </section>
         </div>

@@ -1,4 +1,7 @@
+let homeFoodList = $("#fav-food-btns")
+let homeFoodImg = $("#homeFoodImg")
 $(document).ready(function () {
+  $("#homeFoodShowcase").hide()
   $("select").formSelect();
 }); //to get dropdowns working for food selection
 $("#myChart").hide();
@@ -36,36 +39,6 @@ $("#exercises").on("click", function () {
 
 // $("#foodResult") card id to be modified upon population of data
 
-///////////////////////////////////PARAMETERS INCLUDING IN SEARCH  WITH CODING GUIDELINES/////////////////////////////////////////
-//////
-////   spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?
-//  query=pasta ///user text input
-// &cuisine=italian  ///dropdowns need possible options list stat
-// &excludeCuisine=greek //same as above line
-// &diet=vegetarian //row of checkboxes/dropdown
-// &intolerances=gluten ///row of checkboxes/dropdown
-// &type=main%20course // dropdown
-// &instructionsRequired=true //no perameters, include in every search
-// &addRecipeInformation=true //no perameters, include in every search
-// &maxCarbs=100 (grams) if userinput (NaN) {write red error message next to input field}
-// &minProtein=10 (grams) include above 'if' statement for all intiger text returns from user ^^^^^
-// &maxCalories=800 (grams)
-// &maxFat=100 (grams)
-// &maxSaturatedFat=100 (grams)
-// &minFiber=0 (grams)
-// &maxSugar=100 (grams)
-// &maxSodium=100 (milligrams)
-///////////////////////////////////////////HOW TO ACCESS RESULTS, WHICH TO USE//////////////////////////////////////////////////////////////////
-//// title: data.results[i].title
-//// Cook + Prep Time: data.results[i].readyInMinutes
-///  Source URL: data.results[i].sourceUrl  (need to create in shortened hyperlink like make title clickable)
-///  Picture of FOOD: data.results[i].image
-///  Servings: data.results[i].servings
-///  Healthscore: data.results[i].healthScore  (results are /100[outof 100])
-///////////////////////////////////////NUTRITION INFO BELOW (DV = Daily Value %/////////////////////////////////////////////
-
-////  -ALL NUTRIENTS: data.results[i].nutrition.nutrients[j].amount
-//                    data.results[i].nutrition.nutrients[j].name    (cycle through all) (DV%: data.bad[0].percentOfDailyNeeds [follows same format for every ingredient daily value %])
 
 ////////////////////////////////////////////////////////////////////////////////below is healthy quotes! not free, use sparingly///////////////////////////////////////////////////////////////////////////////
 var displayQuote = $("#quote");
@@ -298,8 +271,8 @@ var displayRecipeCards = function (data) {
     cardNutritionBullet7.addClass("proteinCard");
     cardNutritionBullet8.addClass("fiberCard");
     cardSave.addClass("waves-effect green waves-light btn-small");
-    
-    
+
+
 
     recipeTitle.text(foodTitle);
     linkFont.text("Recipe Source Link");
@@ -354,7 +327,7 @@ var displayRecipeCards = function (data) {
   }
 };
 let userQuery = []
-let finalQuery = ["https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?query="+userQuery+"&instructionsRequired=true&addRecipeInformation=true&sort=calories&sortDirection=asc"]
+let finalQuery = ["https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?query=" + userQuery + "&instructionsRequired=true&addRecipeInformation=true&sort=calories&sortDirection=asc"]
 
 
 var searchButton = $("#searchButtonLeft");
@@ -363,168 +336,151 @@ searchButton.on("click", function (event) {
 
   console.log("button pressed");
   let userQuery = []
- 
 
-let recipeName = $("#foodName").val()
-if (recipeName) {
-  userQuery += recipeName
-}
 
- let cuisine =  $("#cuisine-dropdown").val();
- if(cuisine) {
-  userQuery += ("&cuisine="+ cuisine)
-  console.log(userQuery)
- } 
+  let recipeName = $("#foodName").val()
+  if (recipeName) {
+    userQuery += recipeName
+  }
 
- let diet =  $("#diet-dropdown").val();
- if(diet) {
-  userQuery += ("&diet="+diet)
-  console.log(userQuery)
- }
+  let cuisine = $("#cuisine-dropdown").val();
+  if (cuisine) {
+    userQuery += ("&cuisine=" + cuisine)
+    console.log(userQuery)
+  }
 
- let intolerances =  $("#allergy-dropdown").val();
- if(intolerances) {
-  userQuery += ("&intolerances="+intolerances)
-  console.log(userQuery)
- }
+  let diet = $("#diet-dropdown").val();
+  if (diet) {
+    userQuery += ("&diet=" + diet)
+    console.log(userQuery)
+  }
 
- let carbs =  $("#maxCarbsInput").val();
- if(carbs && !NaN) {
-  userQuery += ("&maxCarbs="+carbs)
-  console.log(userQuery)
- } else (userQuery += "&maxCarbs=9999")
+  let intolerances = $("#allergy-dropdown").val();
+  if (intolerances) {
+    userQuery += ("&intolerances=" + intolerances)
+    console.log(userQuery)
+  }
 
- let protein =  $("#minProteinInput").val();
- if(protein && !NaN) {
-  userQuery += ("&minProtein="+protein)
-  console.log(userQuery)
- } else (userQuery += "&minProtein=0")
+  let carbs = $("#maxCarbsInput").val();
+  if (carbs && !NaN) {
+    userQuery += ("&maxCarbs=" + carbs)
+    console.log(userQuery)
+  } else (userQuery += "&maxCarbs=9999")
 
- let cal =  $("#maxCaloriesInput").val();
- if(cal && !NaN) {
-  userQuery += ("&maxCalories="+cal)
-  console.log(userQuery)
- } else (userQuery += "&maxCalories=9999")
+  let protein = $("#minProteinInput").val();
+  if (protein && !NaN) {
+    userQuery += ("&minProtein=" + protein)
+    console.log(userQuery)
+  } else (userQuery += "&minProtein=0")
 
- let fat =  $("#maxFatInput").val();
- if(fat && !NaN) {
-  userQuery += ("&maxFat="+fat)
-  console.log(userQuery)
- } else (userQuery += "&maxFat=9999")
+  let cal = $("#maxCaloriesInput").val();
+  if (cal && !NaN) {
+    userQuery += ("&maxCalories=" + cal)
+    console.log(userQuery)
+  } else (userQuery += "&maxCalories=9999")
 
- let satFat =  $("#maxSatFatInput").val();
- if(satFat && !NaN) {
-  userQuery += ("&maxSaturedFat="+satFat)
-  console.log(userQuery)
- } else (userQuery += "&maxSaturatedFat=9999")
+  let fat = $("#maxFatInput").val();
+  if (fat && !NaN) {
+    userQuery += ("&maxFat=" + fat)
+    console.log(userQuery)
+  } else (userQuery += "&maxFat=9999")
 
- let fiber =  $("#minFiberInput").val();
- if(fiber && !NaN) {
-  userQuery += ("&minFiber="+fiber)
-  console.log(userQuery)
- } else (userQuery += "&minFiber=0")
+  let satFat = $("#maxSatFatInput").val();
+  if (satFat && !NaN) {
+    userQuery += ("&maxSaturedFat=" + satFat)
+    console.log(userQuery)
+  } else (userQuery += "&maxSaturatedFat=9999")
 
- let sodium =  $("#maxSodiumInput").val();
- if(sodium && !NaN) {
-  userQuery += ("&maxSodium="+sodium)
-  console.log(userQuery)
- } else (userQuery += "&maxSodium=9999")
+  let fiber = $("#minFiberInput").val();
+  if (fiber && !NaN) {
+    userQuery += ("&minFiber=" + fiber)
+    console.log(userQuery)
+  } else (userQuery += "&minFiber=0")
 
- let sugar =  $("#maxSugarInput").val();
- if(sugar && !NaN) {
-  userQuery += ("&maxSugar="+sugar)
-  console.log(userQuery)
- } else (userQuery += "&maxSugar=400")
+  let sodium = $("#maxSodiumInput").val();
+  if (sodium && !NaN) {
+    userQuery += ("&maxSodium=" + sodium)
+    console.log(userQuery)
+  } else (userQuery += "&maxSodium=9999")
 
- let resultNumber =  $("#resultsNumber").val();
- if(resultNumber < 50 && !NaN) {
-  userQuery += ("&number="+resultNumber)
-  console.log(userQuery)
- } else (userQuery += "&number=50")
+  let sugar = $("#maxSugarInput").val();
+  if (sugar && !NaN) {
+    userQuery += ("&maxSugar=" + sugar)
+    console.log(userQuery)
+  } else (userQuery += "&maxSugar=400")
 
- let finalQuery = ["https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?query="+userQuery+"&instructionsRequired=true&addRecipeInformation=true&sort=calories&sortDirection=asc"]
+  let resultNumber = $("#resultsNumber").val();
+  if (resultNumber < 50 && !NaN) {
+    userQuery += ("&number=" + resultNumber)
+    console.log(userQuery)
+  } else (userQuery += "&number=50")
 
- getRecipeAPI(finalQuery)
-  // ///extraction users diet selection and putting it into the diet variable
-  // var dietInput = $("#diet-dropdown");
-  // diet = dietInput.find(":selected").text();
-  // console.log(diet);
-  // ///extraction users diet selection and putting it into the diet variable
-  // var intolerancesInput = $("#allergy-dropdown");
-  // intolerances = intolerancesInput.find(":selected").text();
-  // console.log(intolerances);
+  let finalQuery = ["https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?query=" + userQuery + "&instructionsRequired=true&addRecipeInformation=true&sort=calories&sortDirection=asc"]
 
-  // ///extraction users carb selection and putting it into the maxCarbs variable
-  // var carbsInput = $("#maxCarbsInput");
-  // maxCarbs = carbsInput.val();
-  // console.log(maxCarbs);
-  // ///extraction users protien selection and putting it into the minprotein variable
-  // var proteinInput = $("#minProteinInput");
-  // minProtein = proteinInput.val();
-  // console.log(minProtein);
-
-  // ///extraction users protien selection and putting it into the minprotein variable
-  // var calorieInput = $("#maxCaloriesInput");
-  // maxCalories = calorieInput.val();
-  // console.log(maxCalories);
-
-  // ///extraction users maxFatInput selection and putting it into the maxFat variable
-  // var maxFatInput = $("#maxFatInput");
-  // maxFat = maxFatInput.val();
-  // console.log(maxFat);
-  // ///extraction users satfat selection and putting it into the satfat variable
-  // var satFatInput = $("#maxSatFatInput");
-  // maxSatFat = satFatInput.val();
-  // console.log(maxSatFat);
-  // ///extraction users fiber selection and putting it into the minfiber variable
-  // var fiberInput = $("#minFiberInput");
-  // MinFiber = fiberInput.val();
-  // console.log(MinFiber);
-  // ///extraction users sodium selection and putting it into the sodium variable
-  // var sodiumInput = $("#maxSodiumInput");
-  // maxSodium = sodiumInput.val();
-  // console.log(maxSodium);
-  // ///extraction users sugar selection and putting it into the maxsugar variable
-  // var sugarInput = $("#maxSugarInput");
-  // maxSugar = sugarInput.val();
-  // console.log(maxSugar);
-  // getRecipeAPI(
-  //   cuisine,
-  //   diet,
-  //   intolerances,
-  //   maxCarbs,
-  //   minProtein,
-  //   maxCalories,
-  //   maxFat,
-  //   maxSatFat,
-  //   MinFiber,
-  //   maxSodium,
-  //   maxSugar
-  // );
+  getRecipeAPI(finalQuery)
+  
 });
 
 $("#food-search-results").on("click", ".btn-small", function (event) {
   event.preventDefault();
   let clickedButton = $(event.target)
-  let savedRecipe = {
-      img: clickedButton.closest(".col").children().eq(0).children().eq(0)[0].firstElementChild.currentSrc,
-      title: clickedButton.closest(".col").children().eq(1).children().eq(0).text(),
-      recipeLink: clickedButton.closest(".col").children().eq(1).children().eq(1).children().eq(0)[0].href,
-      servings: clickedButton.parents().eq(1).children().eq(0).text().replace(/[^0-9]/g, ""),
-      healthScore: clickedButton.parents().eq(1).children().eq(1).text().replace(/[^0-9]/g, ""),
-      calories: parseInt(clickedButton.parents().eq(1).children().eq(3).text()),
-      fat: parseInt(clickedButton.parents().eq(1).children().eq(4).text()),
-      satFat: parseInt(clickedButton.parents().eq(1).children().eq(5).text()),
-      carbs: parseInt(clickedButton.parents().eq(1).children().eq(6).text()),
-      sugar: parseInt(clickedButton.parents().eq(1).children().eq(7).text()),
-      sodium: parseInt(clickedButton.parents().eq(1).children().eq(8).text()),
-      protein: parseInt(clickedButton.parents().eq(1).children().eq(9).text()),
-      fiber: parseInt(clickedButton.parents().eq(1).children().eq(10).text()),
+  let savedRecipe = JSON.parse(localStorage.getItem("favoritedRecipe")) || [];
+  let storedRecipe = {
+    id: clickedButton.closest(".col").attr("id"),
+    img: clickedButton.closest(".col").children().eq(0).children().eq(0)[0].firstElementChild.currentSrc,
+    title: clickedButton.closest(".col").children().eq(1).children().eq(0).text(),
+    recipeLink: clickedButton.closest(".col").children().eq(1).children().eq(1).children().eq(0)[0].href,
+    servings: clickedButton.parents().eq(1).children().eq(0).text().replace(/[^0-9]/g, ""),
+    healthScore: clickedButton.parents().eq(1).children().eq(1).text().replace(/[^0-9]/g, ""),
+    calories: parseInt(clickedButton.parents().eq(1).children().eq(3).text()),
+    fat: parseInt(clickedButton.parents().eq(1).children().eq(4).text()),
+    satFat: parseInt(clickedButton.parents().eq(1).children().eq(5).text()),
+    carbs: parseInt(clickedButton.parents().eq(1).children().eq(6).text()),
+    sugar: parseInt(clickedButton.parents().eq(1).children().eq(7).text()),
+    sodium: parseInt(clickedButton.parents().eq(1).children().eq(8).text()),
+    protein: parseInt(clickedButton.parents().eq(1).children().eq(9).text()),
+    fiber: parseInt(clickedButton.parents().eq(1).children().eq(10).text()),
   }
-  localStorage.setItem("" + clickedButton.closest(".col").attr("id"), JSON.stringify(savedRecipe))
+  window.localStorage.clear(savedRecipe);
+  savedRecipe.push(storedRecipe)
+  localStorage.setItem("favoritedRecipe", JSON.stringify(savedRecipe))
   let favFoodBtn = $("<li></li>")
   favFoodBtn.text(clickedButton.closest(".col").children().eq(1).children().eq(0).text())
   favFoodBtn.attr("id", clickedButton.closest(".col").attr("id"))
   favFoodBtn.addClass("waves-effect waves-light green btn-large")
   $("#fav-food-btns").append(favFoodBtn)
 });
+
+$(document).ready(function () {
+  
+  let savedRecipe = JSON.parse(localStorage.getItem("favoritedRecipe")) || [];
+  savedRecipe.forEach(function(food){
+    localStorage.setItem(""+ food.id, JSON.stringify(food))
+    let favFoodBtn = $("<li></li>")
+    favFoodBtn.addClass("waves-effect waves-light green btn-large")
+    favFoodBtn.attr("id", food.id)
+    favFoodBtn.text(food.title)
+    homeFoodList.append(favFoodBtn);
+  })
+})
+
+$("#fav-food-btns-wrapper").on("click", ".btn-large", function(event){
+  event.preventDefault();
+  $("#homeFoodShowcase").show()
+  let frisbee = $(event.target)
+  console.log(frisbee.attr("id"))
+    let pulledRecipe = JSON.parse(localStorage.getItem(""+frisbee.attr("id")))
+      homeFoodImg.attr("src", pulledRecipe.img)
+      $("#homeFoodTitle1").text(pulledRecipe.title)
+      $("#homeFoodTitle2").text(pulledRecipe.title)
+      $("#homeFoodLink").attr("href", pulledRecipe.recipeLink)
+      $("#homeHealthScore").text("Healthscore: " + pulledRecipe.healthScore)
+      $("#homeServings").text(pulledRecipe.servings + " Servings")
+      $("#homeCaloriesLi").text(pulledRecipe.calories + " Calories")
+      $("#homeFatLi").text(pulledRecipe.fat + "g Fat")
+      $("#homeSatFatLi").text(pulledRecipe.satFat + "g Saturated Fat")
+      $("#homeCarbsLi").text(pulledRecipe.carbs + " Carbohydrates")
+      $("#homeSugarLi").text(pulledRecipe.sugar + "g Sugar")
+      $("#homeSodiumLi").text(pulledRecipe.sodium + "mg Sodium")
+      $("#homeProteinLi").text(pulledRecipe.protein + "g Protein")
+})
