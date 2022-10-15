@@ -7,37 +7,37 @@ $(document).ready(function () {
 // $("#myChart").hide();
 
 //----Show-Hide-Sections----
-
+//----jQuery changes display to block which wipes out Materialize format
 //----Home Tag----
-$("#homeTag").on("click", function () {
-  $("#homePage").show();
-  $("#foodPage-wrapper").hide();
-  $("#exercisePage").hide();
-  $("#chartPage").hide();
-});
+// $("#homeTag").on("click", function () {
+//   $("#homePage").show();
+//   $("#foodPage-wrapper").hide();
+//   $("#exercisePage").hide();
+//   $("#chartPage").hide();
+// });
 
-$("#headerLogo").on("click", function () {
-  $("#homePage").show();
-  $("#foodPage-wrapper").hide();
-  $("#exercisePage").hide();
-  $("#chartPage").hide();
-});
+// $("#headerLogo").on("click", function () {
+//   $("#homePage").show();
+//   $("#foodPage-wrapper").hide();
+//   $("#exercisePage").hide();
+//   $("#chartPage").hide();
+// });
 
-//----Recipe Section----
-$("#recipes").on("click", function () {
-  $("#foodPage-wrapper").show();
-  $("#homePage").hide();
-  $("#exercisePage").hide();
-  $("#chartPage").hide();
-});
+// //----Recipe Section----
+// $("#recipes").on("click", function () {
+//   $("#foodPage-wrapper").show();
+//   $("#homePage").hide();
+//   $("#exercisePage").hide();
+//   $("#chartPage").hide();
+// });
 
-//----Exercise Section----
-$("#exercises").on("click", function () {
-  $("#exercisePage").show();
-  $("#foodPage-wrapper").hide();
-  $("#homePage").hide();
-  $("#chartPage").hide();
-});
+// //----Exercise Section----
+// $("#exercises").on("click", function () {
+//   $("#exercisePage").show();
+//   $("#foodPage-wrapper").hide();
+//   $("#homePage").hide();
+//   $("#chartPage").hide();
+// });
 
 //----End Show-Hide----
 

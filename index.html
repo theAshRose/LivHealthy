@@ -20,22 +20,26 @@
 </head>
 
 <body style='background-color:#00204329; color:#002043;'>
-  <header class="row">
-    <div class="col s2" id="quote-wrapper">
-      <H1 id="quote"></H1>
-      <H4 id="author"> </H4>
-    </div>
-    <nav style="background-color:#d3af4d9b">
-      <div id="nav-wrapper">
-        <a id="headerLogo" href="#" class="brand-logo"><img height=64px, src="./assets/Images/LogoB.png"></a>
-        <!--Logo header-->
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li id="homeTag" style="background-color:#002043; margin: 2px; padding: 0px 15px;"><a>Home</a></li>
-          <li id="recipes" style="background-color:#002043; margin: 2px; padding: 0px 15px;"><a>Recipes</a></li>
-          <li id="exercises" style="background-color:#002043; margin: 2px; padding: 0px 15px;"><a>Exercises</a></li>
-        </ul>
+  <header>
+    <div class="row">
+      <div class="col s12" id="quote-wrapper">
+        <H1 id="quote"></H1>
+        <H4 id="author"> </H4>
       </div>
-    </nav>
+    </div>
+    <div class="row">
+      <nav style="background-color:#d3af4d9b">
+        <div id="nav-wrapper">
+          <a id="headerLogo" href="#" class="left hide-on-med-and-down"><img height=64px, src="./assets/Images/LogoB.png"></a>
+          <!--Logo header-->
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li id="homeTag" style="background-color:#002043; margin: 2px; padding: 0px 15px;"><a>Home</a></li>
+            <li id="recipes" style="background-color:#002043; margin: 2px; padding: 0px 15px;"><a>Recipes</a></li>
+            <li id="exercises" style="background-color:#002043; margin: 2px; padding: 0px 15px;"><a>Exercises</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
   </header>
 
   <!------------------------------START OF HOMEPAGE-------------------------->
@@ -64,7 +68,7 @@
       </div>
 
     </aside>
-    <div class="col s9"><!--Right Column-->
+    <div class="col s6"><!--Right Column-->
 
       <div class="row"><!--Recipe-->
         <div id="homeFavDisplayWrapper" class="col s6" ><!--Card Section-->
@@ -129,24 +133,12 @@
   <!------------------------------END OF HOMEPAGE-------------------------->
  
   <!------------------------------START OF FOODPAGE-------------------------->
-  <div id="foodPage-wrapper" class="row;">
-    <div class="row">
-      <div class="col s12">
-        <section id="food-search-results" class="row">
-          <!--dynamically generated recipe cards to be generated within this section teg-->
-        </section>
-      </div>  
-
-      <aside id="food-temp-btn-container">
-        <ul id="food-temp-btns">
-        </ul>
-      </aside>
-    </div>
-    <form id="food-form" class="col s6">
-      <form class="col s6">
-        <div class="row">
-          <div class="input-field col s6">
-            <input placeholder="chicken fabioli" id="foodName" type="text" class="validate">
+  <div id="foodPage-wrapper" class="row;" style="display:contents;">
+    <div class="col s3">
+      <form id="food-form" class="col s3">
+        <form class="col s3"> 
+          <div class="input-field col s3">
+            <input placeholder="Fav Food" id="foodName" type="text" class="validate">
             <label for="title" style="font-size:20px; color:#002043" ><b>Search Recipe:</b></label>
           </div>   
           <div class="col s6 input-field ">
@@ -188,56 +180,68 @@
             </select>
             <label>Allergy</label>
           </div>
-        </div>  
-        <div class="row">
-          <div class = "col s6">
-              <p><em>nutrition values returned in grams</em></p>
+           
+          <div class="row">
+            <div class = "col s6">
+                <p><em>nutrition values returned in grams</em></p>
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col s2 input-field inline">
-            Max Carbs?
-            <input id="maxCarbsInput" type="number" class="validate" placeholder="Max Carbs?">
-          </div>
-          <div class="col s2 input-field inline">
-            Min Protein?
-            <input id="minProteinInput" type="number" class="validate">
-          </div>
-          <div class="col s2 input-field inline">
-            Max Calories?
-            <input id="maxCaloriesInput" type="number" class="validate">
-          </div>
-          <div class="col s2 input-field inline">
-            Max Fat?
-            <input id="maxFatInput" type="number" class="validate">
-          </div>
-          <div class="col s2 input-field inline">
-            Max SatFat?
-            <input id="maxSatFatInput" type="number" class="validate">
-          </div>
-          <div class="col s2 input-field inline">
-            Min Fiber?
-            <input id="minFiberInput" type="number" class="validate">
-          </div>
-          <div class="col s2 input-field inline">
-            Max Sodium?
-            <input id="maxSodiumInput" type="number" class="validate">
-          </div>
-          <div class="col s2 input-field inline">
-            Max Sugar?
-            <input id="maxSugarInput" type="number" class="validate">
-          </div>
-          <div class="col s2 input-field inline">
-            How many results would you like (less than 50)?
-            <input id="resultsNumber" type="number" class="validate">
-          </div>
-          <button class="btn waves-effect waves-light" type="submit" name="action" id="searchButtonLeft">Submit <i
-            class="material-icons right">send</i> 
-          </button>
-        </div>  
+          <div class="row">
+            <div class="col s2 input-field inline">
+              Max Carbs?
+              <input id="maxCarbsInput" type="number" class="validate" placeholder="Max Carbs?">
+            </div>
+            <div class="col s2 input-field inline">
+              Min Protein?
+              <input id="minProteinInput" type="number" class="validate">
+            </div>
+            <div class="col s2 input-field inline">
+              Max Calories?
+              <input id="maxCaloriesInput" type="number" class="validate">
+            </div>
+            <div class="col s2 input-field inline">
+              Max Fat?
+              <input id="maxFatInput" type="number" class="validate">
+            </div>
+            <div class="col s2 input-field inline">
+              Max SatFat?
+              <input id="maxSatFatInput" type="number" class="validate">
+            </div>
+            <div class="col s2 input-field inline">
+              Min Fiber?
+              <input id="minFiberInput" type="number" class="validate">
+            </div>
+            <div class="col s2 input-field inline">
+              Max Sodium?
+              <input id="maxSodiumInput" type="number" class="validate">
+            </div>
+            <div class="col s2 input-field inline">
+              Max Sugar?
+              <input id="maxSugarInput" type="number" class="validate">
+            </div>
+            <div class="col s2 input-field inline">
+              How many results would you like (less than 50)?
+              <input id="resultsNumber" type="number" class="validate">
+            </div>
+            <button class="btn waves-effect waves-light" type="submit" name="action" id="searchButtonLeft">Submit <i
+              class="material-icons right">send</i> 
+            </button>
+          </div>  
+        </form>
       </form>
-    </form>
+    </div>
+    
+    <div class="col s6" style="background-color:rgb(255, 255, 255);">Results
+      <section id="food-search-results" class="row">
+        <!--dynamically generated recipe cards to be generated within this section teg-->
+      </section>
+     
 
+      <aside id="food-temp-btn-container">
+        <ul id="food-temp-btns">
+        </ul>
+      </aside>
+    </div> 
 
   </div>
   <!------------------------------END OF FOODPAGE-------------------------->
