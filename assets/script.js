@@ -296,6 +296,7 @@ var displayRecipeCards = function (data) {
     cardReveal.addClass("card-reveal");
     cardRevealTitle.addClass("card-title grey-text text-darken-4");
     cardRevealTitle.attr("id", "foodCardTitle2-0", foodRevealTitle);
+    cardRevealTitle.attr("style", "display:none");
     cardRevealIcon.addClass("material-icons right");
     cardRevealList.attr("id", "internalCard0");
     cardRevealBullet.addClass("servingsCard");
