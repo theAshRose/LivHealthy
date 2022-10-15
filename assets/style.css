@@ -27,3 +27,22 @@ p {
   width: 700px;
   padding: 20px;
 }
+
+
+
+ 
+
+#exercise-search-result .exerciseLi{
+
+  text-align: center;
+  font-weight: bold;
+  font-size: 125%;
+}
+
+#instructionCard  {
+ font-size:20px
+}
+
+#difficultyType,#equipmentType{
+  font-size:30px;
+}

@@ -103,10 +103,11 @@ function getExerciseApi(muscle, difficulty, type) {
     .then(function (data) {
       // console.log(data[0].instructions);
       displayExerciseCards(data);
-      console.log(data);
+
     });
 
-  function displayExerciseCards(data) {
+  function displayExerciseCards(data)
+   {  
     if (exerciseSelection.html) {
       exerciseSelection.empty();
 
@@ -136,6 +137,8 @@ function getExerciseApi(muscle, difficulty, type) {
         exerciseInstruction.attr("id", "instructionCard");
         exerciseListParent.attr("id", "exrCardList");
         exerciseListChildren.addClass("exerciseLi");
+        children1.attr("id","difficultyType")
+        children2.attr("id","equipmentType")
         exerciseCardSave.addClass("waves-effect green waves-light btn-small");
 
         exerciseSelection.append(exerciseCol);
