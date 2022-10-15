@@ -32,7 +32,6 @@
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li id="homeTag" style="background-color:#002043; margin: 2px; padding: 0px 15px;"><a>Home</a></li>
           <li id="recipes" style="background-color:#002043; margin: 2px; padding: 0px 15px;"><a>Recipes</a></li>
-          <li id="recipesChart" style="background-color:#002043; margin: 2px; padding: 0px 15px;"><a>Food Chart</a></li>
           <li id="exercises" style="background-color:#002043; margin: 2px; padding: 0px 15px;"><a>Exercises</a></li>
         </ul>
       </div>
@@ -41,13 +40,14 @@
 
   <!------------------------------START OF HOMEPAGE-------------------------->
   <div style="display:contents;" class="row" id="homePage"><!--Whole Page Box-->
-
+     
+  
     <aside class="col s3" id="aside-wrapper"><!--Left Column-->
       <div id="button-header">
       </div>
 
       <div id="fav-btn-wrapper">
-        <div class="col s6" id="fav-excr-btns-wrapper"><!--Row One-->
+        <div class="row s6" id="fav-excr-btns-wrapper"><!--Row One-->
           <ul id="fav-excr-btns">
             <li class="waves-effect waves-light pink btn-large">Run Around</li>
             <li class="waves-effect waves-light pink btn-large">Run Around</li>
@@ -57,14 +57,8 @@
             <li class="waves-effect waves-light pink btn-large">Run Around</li>
           </ul>
         </div>
-        <div class="col s6" id="fav-food-btns-wrapper">
+        <div class="row 6" id="fav-food-btns-wrapper">
           <ul id="fav-food-btns">
-            <li class="waves-effect waves-light green btn-large">Chicken Fabioli</li>
-            <li class="waves-effect waves-light green btn-large">Chicken Fabioli</li>
-            <li class="waves-effect waves-light green btn-large">Chicken Fabioli</li>
-            <li class="waves-effect waves-light green btn-large">Chicken Fabioli</li>
-            <li class="waves-effect waves-light green btn-large">Chicken Fabioli</li>
-            <li class="waves-effect waves-light green btn-large">Chicken Fabioli</li>
           </ul>
         </div>
       </div>
@@ -72,43 +66,56 @@
     </aside>
     <div class="col s9"><!--Right Column-->
       <div class="row"><!--Calorie Counter-->
+        <div id="chartWrapper" class="col s9" >
+          
+          <div class="chartBox">
+            <canvas id="myChart"></canvas>
+            </div>
+            <div class="selectBox">
+            <select onchange="updateChart(this)" id="nutritional-tracker">
+              <option value="calories">Calories (KCal)</option>
+              <option value="Fat">Fat (grams)</option>
+              <option value="SaturatedFat">Saturated Fat (grams)</option>
+              <option value="carbohydrates">Carbohydrates (grams)</option>
+              <option value="sugar">Sugar (grams)</option>
+              <option value="sodium">Sodium (mg)</option>
+              <option value="protein">Protein (grams)</option>
+            </select>
+            </div> */
+        </div>
       </div>
       <div class="row"><!--Recipe-->
         <div id="homeFavDisplayWrapper" class="col s8" ><!--Card Section-->
-          <section id="homeFood" >
-            <div id="homeFood" class="col s12" >
-              <div class="col s12" >
+              <div id = "homeFoodShowcase" class="col s12">
                 <h4 id=homeFoodTitle></h4>
+                
                 <div class="card"><!--Materialize Card-->
                   <div class="card-image waves-effect waves-block waves-light">
-                    <img id="homeFoodImg" class="activator" src="https://spoonacular.com/recipeImages/553758-312x231.jpg">
+                    <img id="homeFoodImg" class="activator" src="">
                   </div>
                   <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4">Chicken Fabioli<i class="material-icons right">more_vert</i></span> 
-                    <p><a id="homeFoodLink" href="#"><em>Recipe Source Link</em></a></p> 
+                    <span id = "homeFoodTitle1" class="card-title activator grey-text text-darken-4"><i class="material-icons right">more_vert</i></span> 
+                    <p><a id="homeFoodLink" href="#"><em></em></a></p> 
                   </div> 
                   <div class="card-reveal">
-                    <span class="card-title grey-text text-darken-4">Chicken Fabioli<i class="material-icons right">close</i></span>
+                    <span id = "homeFoodTitle2" class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
                     <ul id="homeNutrients">
-                      <li class="homeHealthscore">Healthscore: 69</li>
-                      <li class="homeServings">Servings: 4</li>
-                      <li class="homeCard-nutrients"><sm><em>per serving:</em></sm></li>
-                      <li class="homeCaloriesLi">Calories: 900</li>
-                      <li class="homeFatLi">Fat: 200g</li>
-                      <li class="homeSatFatLi">Saturated Fat: 500g</li>
-                      <li class="homeCarbsLi">Carbohydrates: 600</li>
-                      <li class="homeSugarLi">Sugar: 50g</li>
-                      <li class="homeCholesterolLi">Cholesterol: 5g</li>
-                      <li class="homeSodiumLi">Sodium: 500mg</li>
-                      <li class="homeProteinLi">Protein: 20g</li>
-                      <li a class="waves-effect blue waves-light btn-large">Eat Me</a></li>
-                      <li a class="waves-effect red waves-light btn-large">Delete Me</a></li>
+                      <li id="homeHealthScore"></li>
+                      <li id="homeServings"></li>
+                      <li id="homeCard-nutrients"><sm><em></em></sm></li>
+                      <li id="homeCaloriesLi"></li>
+                      <li id="homeFatLi"></li>
+                      <li id="homeSatFatLi"></li>
+                      <li id="homeCarbsLi"></li>
+                      <li id="homeSugarLi"></li>
+                      <li id="homeSodiumLi"></li>
+                      <li id="homeProteinLi"></li>
+                      <li class="waves-effect blue waves-light btn-large">Eat Me</a></li>
+                      <li class="waves-effect red waves-light btn-large">Delete Me</a></li>
                   </ul>
                   </div> 
                 </div><!--End Materialize Card-->  
               </div>
-            </div>  
-          </section>
           <section id="home-excr-content">
           </section>
         </div>
@@ -116,6 +123,7 @@
         </div>
       </div> 
     </div>
+    
   </div>
   <!------------------------------END OF HOMEPAGE-------------------------->
  
@@ -125,9 +133,17 @@
     <form id="food-form" class="col s12">
 
       <!-- <div class="formWrapper col s12"> -->
+        <form class="col s2">
+          <div class="row">
+            <div class="input-field col s6">
+              <input placeholder="chicken fabioli" id="foodName" type="text" class="validate">
+              <label for="title">Search recipe:</label>
+            </div>
 
+            <div>
+            </form>
         <div class="input-field col s2">
-          <select id="#cuisine-dropdown">
+          <select id="cuisine-dropdown">
             <option value="" disabled selected>Choose your option</option>
             <option value="American">American</option>
             <option value="Italian">Italian</option>
@@ -141,7 +157,7 @@
         </div>
 
         <div class="input-field col s2">
-          <select id="#diet-dropdown">
+          <select id="diet-dropdown">
             <option value="" disabled selected>Choose your option</option>
             <option value="Pescetarian">Pescetarian</option>
             <option value="Vegan">Vegan</option>
@@ -153,7 +169,7 @@
         </div>
 
         <div class="input-field col s2">
-          <select id="#allergy-dropdown">
+          <select id="allergy-dropdown">
             <option value="" disabled selected>Choose your option</option>
             <option value="Dairy">Dairy</option>
             <option value="Eggs">Eggs</option>
@@ -169,6 +185,10 @@
         </div>
 
         <!-- <div class="row"> -->
+          <div class = "col s2">
+              <p><em>nutrition values returned in grams</em></p>
+          </div>
+        
           <div class="col s2">
             Max Carbs?
             <div class="input-field inline">
@@ -240,6 +260,13 @@
           </div>
         <!-- </div> -->
 
+        <div class="col s2">
+          How many results would you like (less than 50)?
+          <div class="input-field inline">
+            <input id="resultsNumber" type="number" class="validate">
+          </div>
+        </div>
+
         <button class="btn waves-effect waves-light" type="submit" name="action" id="searchButtonLeft">Submit <i
             class="material-icons right">send</i> </button>
       
@@ -248,22 +275,26 @@
     <div class="col s9">
       <section id="food-search-results">
         <!--dynamically generated recipe cards to be generatered within this section teg-->
-
       </section>
-      <aside id="food-temp-btn-container">
-        <ul id="food-temp-btns">
-        </ul>
-      </aside>
-    </div>
-  </div>  
-  
+    </div>  
+    <section id="food-search-results" class="row 9">
+      <!--dynamically generated recipe cards to be generatered within this section teg-->
+
+    </section>
+    <aside id="food-temp-btn-container">
+      <ul id="food-temp-btns">
+      </ul>
+    </aside>
+
+  </div>
   <!------------------------------END OF FOODPAGE-------------------------->
   <!------------------------------START OF EXCRPAGE-------------------------->
-  <div id="exercisePage" class="row 12" style="display:none">
+  <div id="exercisePage" class="row 12" >
+    
     <form id="exercise-form" class="col 6">
-      <div class="chartWrapper col s9">
+     
 
-    <div id="chartWrapper">
+    
       <!--we may put the chart(with chartwrapper around it in one of the other pages)-->
       <div class="input-field col s7">
         <select id="#muscle-dropdown">
@@ -310,15 +341,23 @@
         <label>Type Group</label>
       </div>
   
-      <!-- <canvas id="myChart">10</canvas> -->
-    </div>
+      
+  
     
+      <button class="btn waves-effect waves-light" type="submit" name="action" id="searchButton">Submit <i
+        class="material-icons right">send</i> </button>
 
-      </div>
-    </form>
-      <!-- <canvas id="myChart">10</canvas> -->
+        <!-- <button class="btn waves-effect waves-light" type="submit" name="action" id="searchButtonLeft">Submit <i
+          class="material-icons right">send</i> </button> -->
+
+     </form>
+
+     <section id="exercise-search-result" class="row 9">
+
+     </section>
+      
     </div>
-  </div>
+
   <!------------------------------END OF EXCRPAGE-------------------------->
   <!-------------------------------CHART SECTION--------------------------->
   <div class="col s6"id="chartPage" style="display:none">
@@ -337,3 +376,5 @@
 </body>
 
 </html>
+
+
