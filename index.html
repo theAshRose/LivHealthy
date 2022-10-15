@@ -20,8 +20,8 @@
 </head>
 
 <body style='background-color:#00204329; color:#002043;'>
-  <header class="row 12">
-    <div class="col-2" id="quote-wrapper">
+  <header class="row">
+    <div class="col s2" id="quote-wrapper">
       <H1 id="quote"></H1>
       <H4 id="author"> </H4>
     </div>
@@ -39,7 +39,7 @@
   </header>
 
   <!------------------------------START OF HOMEPAGE-------------------------->
-  <div style="display:contents;" class="row" id="homePage"><!--Whole Page Box-->
+  <div class="row" id="homePage"><!--Whole Page Box-->
      
   
     <aside class="col s3" id="aside-wrapper"><!--Left Column-->
@@ -129,7 +129,7 @@
   <!------------------------------END OF HOMEPAGE-------------------------->
  
   <!------------------------------START OF FOODPAGE-------------------------->
-  <div id="foodPage-wrapper" class="row;" style="display:none">
+  <div id="foodPage-wrapper" class="row;">
     <div class="row">
       <div class="col s12">
         <section id="food-search-results" class="row">
@@ -242,79 +242,73 @@
   </div>
   <!------------------------------END OF FOODPAGE-------------------------->
   <!------------------------------START OF EXCRPAGE-------------------------->
-  <div id="exercisePage" class="row" style="display:none">
-    <section id="exercise-search-result" class="row">
-    </section>
+  <div id="exercisePage">
+    <div class="row">
+      <section id="exercise-search-result" class="col s12">
+      </section>
+    </div>
+    <div class="row">
+      <form id="exercise-form">
+        <!--we may put the chart(with chartwrapper around it in one of the other pages)-->
+        <div class="input-field col s3">
+          <select id="muscle-dropdown">
+            <option value="" disabled selected>Choose your option</option>
+            <option value="abdominals">abdominals</option>
+            <option value="abductors">abductors</option>
+            <option value="biceps">biceps</option>
+            <option value="calves">calves</option>
+            <option value="chest">chest</option>
+            <option value="forearms">forearms</option>
+            <option value="glutes">glutes</option>
+            <option value="hamstrings">hamstrings</option>
+            <option value="lats">lats</option>
+            <option value="lowerback">lowerback</option>
+            <option value="neck">neck</option>
+            <option value="quadriceps">quadriceps</option>
+            <option value="traps">traps</option>
+            <option value="triceps">triceps</option>
+          </select>
+          <label>Muscle Group</label>
+        </div>
     
-    <form id="exercise-form" class="col 6">
-     
-
+        <div class="input-field col s3">
+          <select id="difficulty-dropdown">
+            <option value="" disabled selected>Choose your option</option>
+            <option value="beginner">beginner</option>
+            <option value="intermediate">intermediate</option>
+            <option value="expert">expert</option>
+          </select>
+          <label>Difficulty Group</label>
+        </div>
     
-      <!--we may put the chart(with chartwrapper around it in one of the other pages)-->
-      <div class="input-field col s7">
-        <select id="muscle-dropdown">
-          <option value="" disabled selected>Choose your option</option>
-          <option value="abdominals">abdominals</option>
-          <option value="abductors">abductors</option>
-          <option value="biceps">biceps</option>
-          <option value="calves">calves</option>
-          <option value="chest">chest</option>
-          <option value="forearms">forearms</option>
-          <option value="glutes">glutes</option>
-          <option value="hamstrings">hamstrings</option>
-          <option value="lats">lats</option>
-          <option value="lowerback">lowerback</option>
-          <option value="neck">neck</option>
-          <option value="quadriceps">quadriceps</option>
-          <option value="traps">traps</option>
-          <option value="triceps">triceps</option>
-        </select>
-        <label>Muscle Group</label>
-      </div>
-  
-      <div class="input-field col s7">
-        <select id="difficulty-dropdown">
-          <option value="" disabled selected>Choose your option</option>
-          <option value="beginner">beginner</option>
-          <option value="intermediate">intermediate</option>
-          <option value="expert">expert</option>
-        </select>
-        <label>Difficulty Group</label>
-      </div>
-  
-      <div class="input-field col s7">
-        <select id="type-dropdown">
-          <option value="" disabled selected>Choose your option</option>
-          <option value="strength">strength</option>
-          <option value="cardio">cardio</option>
-          <option value="olympic weightlifting">olympic weightlifting</option>
-          <option value="plyometrics">plyometrics</option>
-          <option value="powerlifting">powerlifting</option>
-          <option value="stretching">stretching</option>
-          <option value="strongman">strongman</option>
-        </select>
-        <label>Type Group</label>
-      </div>
-  
-      
-  
-    
-      <button class="btn waves-effect waves-light" type="submit" name="action" id="searchButton">Submit <i
-        class="material-icons right">send</i> 
-      </button>
+        <div class="input-field col s3">
+          <select id="type-dropdown">
+            <option value="" disabled selected>Choose your option</option>
+            <option value="strength">strength</option>
+            <option value="cardio">cardio</option>
+            <option value="olympic weightlifting">olympic weightlifting</option>
+            <option value="plyometrics">plyometrics</option>
+            <option value="powerlifting">powerlifting</option>
+            <option value="stretching">stretching</option>
+            <option value="strongman">strongman</option>
+          </select>
+          <label>Type Group</label>
+        </div>
+        <div class="col s3">
+          <button class="btn waves-effect waves-light" type="submit" name="action" id="searchButton">Submit <i
+            class="material-icons right">send</i> 
+          </button>
+        </div>
+          <!-- <button class="btn waves-effect waves-light" type="submit" name="action" id="searchButtonLeft">Submit <i
+            class="material-icons right">send</i> </button> -->
 
-        <!-- <button class="btn waves-effect waves-light" type="submit" name="action" id="searchButtonLeft">Submit <i
-          class="material-icons right">send</i> </button> -->
-
-    </form>
-
-
-      
+      </form>
+    </div>     
   </div>
 
   <!------------------------------END OF EXCRPAGE-------------------------->
   <!-------------------------------CHART SECTION--------------------------->
-  <div class="col s6"id="chartPage" style="display:none">
+  <div class="col s6"id="chartPage">
     <canvas id="myChart" width="200" height="200">10</canvas>
     Chart
   </div>

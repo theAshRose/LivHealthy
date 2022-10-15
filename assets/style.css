@@ -27,3 +27,19 @@ p {
   width: 700px;
   padding: 20px;
 }
+/* Page load Display */
+#homePage {
+  display: contents;
+}
+#foodPage-wrapper {
+  display:none
+}
+#exercisePage {
+  display:none
+}
+#chartPage {
+  display:none
+}
+#foodPage-wrapper {
+  margin: 10px;
+}
