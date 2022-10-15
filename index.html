@@ -40,7 +40,8 @@
 
   <!------------------------------START OF HOMEPAGE-------------------------->
   <div style="display:contents;" class="row" id="homePage"><!--Whole Page Box-->
-
+     
+  
     <aside class="col s3" id="aside-wrapper"><!--Left Column-->
       <div id="button-header">
       </div>
@@ -66,7 +67,21 @@
     <div class="col s9"><!--Right Column-->
       <div class="row"><!--Calorie Counter-->
         <div id="chartWrapper" class="col s12" >
-          <canvas id="myChart">10</canvas>
+          
+          <div class="chartBox">
+            <canvas id="myChart"></canvas>
+            </div>
+            <div class="selectBox">
+            <select onchange="updateChart(this)" id="nutritional-tracker">
+              <option value="calories">Calories (KCal)</option>
+              <option value="Fat">Fat (grams)</option>
+              <option value="SaturatedFat">Saturated Fat (grams)</option>
+              <option value="carbohydrates">Carbohydrates (grams)</option>
+              <option value="sugar">Sugar (grams)</option>
+              <option value="sodium">Sodium (mg)</option>
+              <option value="protein">Protein (grams)</option>
+            </select>
+            </div> */
         </div>
       </div>
       <div class="row"><!--Recipe-->
@@ -107,6 +122,7 @@
         </div>
       </div> 
     </div>
+    
   </div>
   <!------------------------------END OF HOMEPAGE-------------------------->
  
@@ -268,6 +284,7 @@
   <!------------------------------END OF FOODPAGE-------------------------->
   <!------------------------------START OF EXCRPAGE-------------------------->
   <div id="exercisePage" class="row 12" style="display:none">
+    
     <form id="exercise-form" class="col 6">
       <div class="chartWrapper col s9">
 
@@ -318,13 +335,13 @@
         <label>Type Group</label>
       </div>
   
-      <canvas id="myChart">10</canvas>
+      
     </div>
     
 
       </div>
     </form>
-      <canvas id="myChart">10</canvas>
+      
     </div>
   </div>
   <!------------------------------END OF EXCRPAGE-------------------------->
@@ -338,3 +355,5 @@
 </body>
 
 </html>
+
+
