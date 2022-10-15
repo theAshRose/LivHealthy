@@ -32,6 +32,7 @@
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li id="homeTag" style="background-color:#002043; margin: 2px; padding: 0px 15px;"><a>Home</a></li>
           <li id="recipes" style="background-color:#002043; margin: 2px; padding: 0px 15px;"><a>Recipes</a></li>
+          <li id="recipesChart" style="background-color:#002043; margin: 2px; padding: 0px 15px;"><a>Food Chart</a></li>
           <li id="exercises" style="background-color:#002043; margin: 2px; padding: 0px 15px;"><a>Exercises</a></li>
         </ul>
       </div>
@@ -39,7 +40,7 @@
   </header>
 
   <!------------------------------START OF HOMEPAGE-------------------------->
-  <div style="display:none;" class="row" id="homePage"><!--Whole Page Box-->
+  <div style="display:contents;" class="row" id="homePage"><!--Whole Page Box-->
 
     <aside class="col s3" id="aside-wrapper"><!--Left Column-->
       <div id="button-header">
@@ -71,9 +72,6 @@
     </aside>
     <div class="col s9"><!--Right Column-->
       <div class="row"><!--Calorie Counter-->
-        <div id="chartWrapper" class="col s12" >
-          <canvas id="myChart">10</canvas>
-        </div>
       </div>
       <div class="row"><!--Recipe-->
         <div id="homeFavDisplayWrapper" class="col s8" ><!--Card Section-->
@@ -122,7 +120,7 @@
   <!------------------------------END OF HOMEPAGE-------------------------->
  
   <!------------------------------START OF FOODPAGE-------------------------->
-  <div id="foodPage-wrapper" class="row;" style="display:contents">
+  <div id="foodPage-wrapper" class="row;" style="display:none">
 
     <form id="food-form" class="col s12">
 
@@ -312,20 +310,27 @@
         <label>Type Group</label>
       </div>
   
-      <canvas id="myChart">10</canvas>
+      <!-- <canvas id="myChart">10</canvas> -->
     </div>
     
 
       </div>
     </form>
-      <canvas id="myChart">10</canvas>
+      <!-- <canvas id="myChart">10</canvas> -->
     </div>
   </div>
   <!------------------------------END OF EXCRPAGE-------------------------->
+  <!-------------------------------CHART SECTION--------------------------->
+  <div class="col s6"id="chartPage" style="display:none">
+    <canvas id="myChart" width="200" height="200">10</canvas>
+    Chart
+  </div>
+  <!------------------------------END CHART SECTION------------------------>
   <!--jquery connection-->
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <!--JavaScript link for materilaize-->
   <script type="text/javascript" src="./assets/materialize/js/materialize.min.js"></script>
+  <!--Chart.js-->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script href="script" src="./assets/script.js"></script>
   <script href="script" src="./assets/dcscript.js"></script>

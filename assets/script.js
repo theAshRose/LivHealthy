@@ -1,7 +1,7 @@
 $(document).ready(function () {
   $("select").formSelect();
 }); //to get dropdowns working for food selection
-$("#myChart").hide();
+// $("#myChart").hide();
 
 //----Show-Hide-Sections----
 
@@ -10,12 +10,14 @@ $("#homeTag").on("click", function () {
   $("#homePage").show();
   $("#foodPage-wrapper").hide();
   $("#exercisePage").hide();
+  $("#chartPage").hide();
 });
 
 $("#headerLogo").on("click", function () {
   $("#homePage").show();
   $("#foodPage-wrapper").hide();
   $("#exercisePage").hide();
+  $("#chartPage").hide();
 });
 
 //----Recipe Section----
@@ -23,6 +25,7 @@ $("#recipes").on("click", function () {
   $("#foodPage-wrapper").show();
   $("#homePage").hide();
   $("#exercisePage").hide();
+  $("#chartPage").hide();
 });
 
 //----Exercise Section----
@@ -30,8 +33,17 @@ $("#exercises").on("click", function () {
   $("#exercisePage").show();
   $("#foodPage-wrapper").hide();
   $("#homePage").hide();
+  $("#chartPage").hide();
 });
 
+//----Chart Section----
+$("#recipesChart").on("click", function () {
+  $("#chartPage").show();
+  $("#exercisePage").hide();
+  $("#foodPage-wrapper").hide();
+  $("#homePage").hide();
+  $("#myChart").show();
+});
 //----End Show-Hide----
 
 // $("#foodResult") card id to be modified upon population of data
@@ -167,27 +179,7 @@ fetch("https://pquotes.p.rapidapi.com/api/quote", optionsQ)
 
 /////////////////////////////////////chart skeleton just an example:
 
-const labels = ["January", "February", "March", "April", "May", "June"];
 
-const data = {
-  labels: labels,
-  datasets: [
-    {
-      label: "My First dataset",
-      backgroundColor: "rgb(255, 99, 132)",
-      borderColor: "rgb(255, 99, 132)",
-      data: [0, 10, 5, 2, 20, 30, 45],
-    },
-  ],
-};
-
-const config = {
-  type: "line",
-  data: data,
-  options: {},
-};
-
-const myChart = new Chart(document.getElementById("myChart"), config);
 
 ///////////FEATURES TO ADD AFTER MVP
 // save buttons on search page that delete after pressed
@@ -515,3 +507,36 @@ $("#food-search-results").on("click", ".btn-small", function (event) {
   favFoodBtn.addClass("waves-effect waves-light green btn-large")
   $("#fav-food-btns").append(favFoodBtn)
 });
+
+//------------------Chart Section----------------------
+
+
+
+  const labels = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+  ];
+
+  const data = {
+    labels: labels,
+    datasets: [{
+      label: 'My First dataset',
+      backgroundColor: 'rgb(255, 99, 132)',
+      borderColor: 'rgb(255, 99, 132)',
+      data: [0, 10, 5, 2, 20, 30, 45],
+    }]
+  };
+
+  const config = {
+    type: 'line',
+    data: data,
+    options: {}
+  };
+  const myChart = new Chart(
+    document.getElementById('myChart'),
+    config
+  );
