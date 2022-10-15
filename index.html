@@ -88,8 +88,8 @@
         <div id="homeFavDisplayWrapper" class="col s8" ><!--Card Section-->
               <div id = "homeFoodShowcase" class="col s12">
                 <h4 id=homeFoodTitle></h4>
-                
-                <div class="card"><!--Materialize Card-->
+                <!--Materialize Card-->
+                <div class="card">
                   <div class="card-image waves-effect waves-block waves-light">
                     <img id="homeFoodImg" class="activator" src="">
                   </div>
@@ -130,166 +130,121 @@
   <!------------------------------START OF FOODPAGE-------------------------->
   <div id="foodPage-wrapper" class="row;" style="display:none">
 
-    <form id="food-form" class="col s12">
-
-      <!-- <div class="formWrapper col s12"> -->
-        <form class="col s2">
-          <div class="row">
-            <div class="input-field col s6">
-              <input placeholder="chicken fabioli" id="foodName" type="text" class="validate">
-              <label for="title">Search recipe:</label>
-            </div>
-
-            <div>
-            </form>
-        <div class="input-field col s2">
-          <select id="cuisine-dropdown">
-            <option value="" disabled selected>Choose your option</option>
-            <option value="American">American</option>
-            <option value="Italian">Italian</option>
-            <option value="Mexican">Mexican</option>
-            <option value="Chinese">Chinese</option>
-            <option value="Korean">Korean</option>
-            <option value="French">French</option>
-            <option value="Thai">Thai</option>
-          </select>
-          <label>Cuisine</label>
-        </div>
-
-        <div class="input-field col s2">
-          <select id="diet-dropdown">
-            <option value="" disabled selected>Choose your option</option>
-            <option value="Pescetarian">Pescetarian</option>
-            <option value="Vegan">Vegan</option>
-            <option value="Paleo">Paleo</option>
-            <option value="Vegetarian">Vegetarian</option>
-            <option value="Primal">Primal</option>
-          </select>
-          <label>Materialize Select</label>
-        </div>
-
-        <div class="input-field col s2">
-          <select id="allergy-dropdown">
-            <option value="" disabled selected>Choose your option</option>
-            <option value="Dairy">Dairy</option>
-            <option value="Eggs">Eggs</option>
-            <option value="Gluten">Gluten</option>
-            <option value="Peanut">Peanut</option>
-            <option value="Sesame">Sesame</option>
-            <option value="Shellfish">Shellfish</option>
-            <option value="Soy">Soy</option>
-            <option value="Sulfite">Sulfite</option>
-            <option value="Tree">Tree Nut</option>
-          </select>
-          <label>Allergy</label>
-        </div>
-
-        <!-- <div class="row"> -->
-          <div class = "col s2">
+    <form id="food-form" class="col s6">
+      <form class="col s6">
+        <div class="row">
+          <div class="input-field col s6">
+            <input placeholder="chicken fabioli" id="foodName" type="text" class="validate">
+            <label for="title" style="font-size:20px; color:#002043" ><b>Search Recipe:</b></label>
+          </div>   
+          <div class="col s6 input-field ">
+            <select id="cuisine-dropdown">
+              <option value="" disabled selected>Choose your option</option>
+              <option value="American">American</option>
+              <option value="Italian">Italian</option>
+              <option value="Mexican">Mexican</option>
+              <option value="Chinese">Chinese</option>
+              <option value="Korean">Korean</option>
+              <option value="French">French</option>
+              <option value="Thai">Thai</option>
+            </select>
+            <label>Cuisine</label>
+          </div>
+          <div class="input-field col s6">
+            <select id="diet-dropdown">
+              <option value="" disabled selected>Choose your option</option>
+              <option value="Pescetarian">Pescetarian</option>
+              <option value="Vegan">Vegan</option>
+              <option value="Paleo">Paleo</option>
+              <option value="Vegetarian">Vegetarian</option>
+              <option value="Primal">Primal</option>
+            </select>
+            <label>Materialize Select</label>
+          </div>
+          <div class="input-field col s6">
+            <select id="allergy-dropdown">
+              <option value="" disabled selected>Choose your option</option>
+              <option value="Dairy">Dairy</option>
+              <option value="Eggs">Eggs</option>
+              <option value="Gluten">Gluten</option>
+              <option value="Peanut">Peanut</option>
+              <option value="Sesame">Sesame</option>
+              <option value="Shellfish">Shellfish</option>
+              <option value="Soy">Soy</option>
+              <option value="Sulfite">Sulfite</option>
+              <option value="Tree">Tree Nut</option>
+            </select>
+            <label>Allergy</label>
+          </div>
+        </div>  
+        <div class="row">
+          <div class = "col s6">
               <p><em>nutrition values returned in grams</em></p>
           </div>
-        
-          <div class="col s2">
+        </div>
+        <div class="row">
+          <div class="col s2 input-field inline">
             Max Carbs?
-            <div class="input-field inline">
-              <input id="maxCarbsInput" type="number" class="validate">
-            </div>
+            <input id="maxCarbsInput" type="number" class="validate" placeholder="Max Carbs?">
           </div>
-        <!-- </div> -->
-
-        <!-- <div class="row"> -->
-          <div class="col s2">
+          <div class="col s2 input-field inline">
             Min Protein?
-            <div class="input-field inline">
-              <input id="minProteinInput" type="number" class="validate">
-            </div>
+            <input id="minProteinInput" type="number" class="validate">
           </div>
-        <!-- </div> -->
-
-        <!-- <div class="row"> -->
-          <div class="col s2">
+          <div class="col s2 input-field inline">
             Max Calories?
-            <div class="input-field inline">
-              <input id="maxCaloriesInput" type="number" class="validate">
-            </div>
+            <input id="maxCaloriesInput" type="number" class="validate">
           </div>
-        <!-- </div> -->
-
-        <!-- <div class="row"> -->
-          <div class="col s2">
+          <div class="col s2 input-field inline">
             Max Fat?
-            <div class="input-field inline">
-              <input id="maxFatInput" type="number" class="validate">
-            </div>
+            <input id="maxFatInput" type="number" class="validate">
           </div>
-        <!-- </div> -->
-
-        <!-- <div class="row"> -->
-          <div class="col s2">
+          <div class="col s2 input-field inline">
             Max SatFat?
-            <div class="input-field inline">
-              <input id="maxSatFatInput" type="number" class="validate">
-            </div>
+            <input id="maxSatFatInput" type="number" class="validate">
           </div>
-        <!-- </div> -->
-
-        <!-- <div class="row"> -->
-          <div class="col s2">
+          <div class="col s2 input-field inline">
             Min Fiber?
-            <div class="input-field inline">
-              <input id="minFiberInput" type="number" class="validate">
-            </div>
+            <input id="minFiberInput" type="number" class="validate">
           </div>
-        <!-- </div> -->
-
-        <!-- <div class="row"> -->
-          <div class="col s2">
+          <div class="col s2 input-field inline">
             Max Sodium?
-            <div class="input-field inline">
-              <input id="maxSodiumInput" type="number" class="validate">
-            </div>
+            <input id="maxSodiumInput" type="number" class="validate">
           </div>
-        <!-- </div> -->
-
-        <!-- <div class="row"> -->
-          <div class="col s2">
+          <div class="col s2 input-field inline">
             Max Sugar?
-            <div class="input-field inline">
-              <input id="maxSugarInput" type="number" class="validate">
-            </div>
+            <input id="maxSugarInput" type="number" class="validate">
           </div>
-        <!-- </div> -->
-
-        <div class="col s2">
-          How many results would you like (less than 50)?
-          <div class="input-field inline">
+          <div class="col s2 input-field inline">
+            How many results would you like (less than 50)?
             <input id="resultsNumber" type="number" class="validate">
           </div>
-        </div>
-
-        <button class="btn waves-effect waves-light" type="submit" name="action" id="searchButtonLeft">Submit <i
-            class="material-icons right">send</i> </button>
-      
+          <button class="btn waves-effect waves-light" type="submit" name="action" id="searchButtonLeft">Submit <i
+            class="material-icons right">send</i> 
+          </button>
+        </div>  
+      </form>
     </form>
-  
-    <div class="col s9">
-      <section id="food-search-results">
+    <div class="row">
+      <div class="col s12">
+        <section id="food-search-results">
+          <!--dynamically generated recipe cards to be generatered within this section teg-->
+        </section>
+      </div>  
+      <section id="food-search-results" class="row 9">
         <!--dynamically generated recipe cards to be generatered within this section teg-->
-      </section>
-    </div>  
-    <section id="food-search-results" class="row 9">
-      <!--dynamically generated recipe cards to be generatered within this section teg-->
 
-    </section>
-    <aside id="food-temp-btn-container">
-      <ul id="food-temp-btns">
-      </ul>
-    </aside>
+      </section>
+      <aside id="food-temp-btn-container">
+        <ul id="food-temp-btns">
+        </ul>
+      </aside>
+    </div>
 
   </div>
   <!------------------------------END OF FOODPAGE-------------------------->
   <!------------------------------START OF EXCRPAGE-------------------------->
-  <div id="exercisePage" class="row 12" >
+  <div id="exercisePage" class="row" style="display:none">
     
     <form id="exercise-form" class="col 6">
      
@@ -345,18 +300,19 @@
   
     
       <button class="btn waves-effect waves-light" type="submit" name="action" id="searchButton">Submit <i
-        class="material-icons right">send</i> </button>
+        class="material-icons right">send</i> 
+      </button>
 
         <!-- <button class="btn waves-effect waves-light" type="submit" name="action" id="searchButtonLeft">Submit <i
           class="material-icons right">send</i> </button> -->
 
-     </form>
+    </form>
 
-     <section id="exercise-search-result" class="row 9">
+    <section id="exercise-search-result" class="row 9">
 
-     </section>
+    </section>
       
-    </div>
+  </div>
 
   <!------------------------------END OF EXCRPAGE-------------------------->
   <!-------------------------------CHART SECTION--------------------------->
