@@ -104,6 +104,7 @@ function getExerciseApi(muscle, difficulty, type) {
     .then(function (data) {
       // console.log(data[0].instructions);
       displayExerciseCards(data);
+      errorCard(data);
     });
 
   function displayExerciseCards(data) {
@@ -165,6 +166,13 @@ function getExerciseApi(muscle, difficulty, type) {
         exerciseInstruction.text(exerciseInstructions);
         exerciseCardSave.text("save");
       }
+    }
+  }
+  function errorCard(data){
+    console.log(data)
+    if(data !==null && data !== ''){
+    console.log("select a real exercise")
+    exerciseSelection
     }
   }
 }
