@@ -2,6 +2,7 @@ let homeFoodList = $("#fav-food-btns");
 let homeFoodImg = $("#homeFoodImg");
 $(document).ready(function () {
   $("#homeFoodShowcase").hide();
+  $("#home-excr-content").hide();
   $("select").formSelect();
 }); //to get dropdowns working for food selection
 // $("#myChart").hide();
@@ -134,7 +135,7 @@ function getExerciseApi(muscle, difficulty, type) {
         exerciseBackground.addClass("card blue-grey darken-1");
         exerciseTextColor.addClass("card-content white-text");
         exerciseTitle.addClass("card-title");
-        exerciseInstruction.attr("id", "instructionCard");
+        exerciseInstruction.addClass("instructionCard");
         exerciseListParent.attr("id", "exrCardList");
         exerciseListChildren.addClass("exerciseLi");
         children1.attr("id","difficultyType")
@@ -615,37 +616,60 @@ function updateChart(option) {
   myChart.update();
 }
 
-// //function to save history buttin for exercise
+//function to save history buttin for exercise
 
-// // function makeExercisebuttons
-// function makeExercisebuttons() {
-//   // if (historyButtons.innerHTML) {
-//   //   historyButtons.innerHTML = "";
-// }
-// for (var i = 0; i < exerNoDuplicates.length; i++) {
-//   window.searchHistoryBtn = $("<button>");
-//   window.searchHistoryBtn.setAttribute("type", "button");
-//   window.searchHistoryBtn.setAttribute("aria-controls", "exercise saved");
-//   window.searchHistoryBtn.addClass(
-//     "Exercise-history-btn",
-//     "btn-history",
-//     "waves-effect waves-light pink btn-large"
-//   );
-//   window.searchHistoryBtn.attr("data-search", exerNoDuplicates[i]);
+// function makeExercisebuttons
 
-//   searchHistoryBtn.text(exerNoDuplicates[i]);
-//   $("#fav-excr-btns").append(searchHistoryBtn);
-//   searchHistoryBtn.on("click", searchHistoryClick);
-// }
+var exerciseCardList = $("#fav-excr-btns");
+exerciseSelection.on("click", ".btn-small", function (event) {
+  event.preventDefault();
+  var clickedExerciseButton = $(event.target);
+  var savedExercise = JSON.parse(localStorage.getItem("savedExercise")) || [];
+  var storedExercise = {
+    name: clickedExerciseButton.prev().prev().prev().prev().text(),
+    difficulty: clickedExerciseButton.prev().prev().prev().text(),
 
-// //function to link the history button to the event that triggered it(ie the exercise value)
-// function exerciseHistoryClick(e) {
-//   if (!e.target.matches(".btn-history")) {
-//     return;
-//   }
-//   var btn = e.target;
-//   var search = btn.getAttribute("data-search");
-//   console.log(search);
-//   getWeatherApi(search);
-//   console.log("button pressed");
-// }
+    equipment: clickedExerciseButton.prev().prev().text(),
+    instruction: clickedExerciseButton.prev(".instructionCard").text(),
+  };
+
+  window.localStorage.clear(savedExercise);
+  savedExercise.push(storedExercise);
+  console.log(savedExercise);
+  localStorage.setItem("savedExercise", JSON.stringify(savedExercise));
+  console.log(savedExercise);
+  var favExerciseBtn = $("<li></li>");
+  favExerciseBtn.text();
+
+  favExerciseBtn.attr("id", $(".exerciseLi").text());
+  favExerciseBtn.addClass("waves-effect waves-light red btn-large");
+  $("#fav-excr-btns").append(favExerciseBtn);
+});
+
+$(document).ready(function () {
+  $("#exerHomeShowcase").hide();
+  let savedExercise = JSON.parse(localStorage.getItem("savedExercise")) || [];
+  savedExercise.forEach(function (exercise) {
+    localStorage.setItem("" + exercise.name, JSON.stringify(exercise));
+    let favExerciseBtn = $("<li></li>");
+    favExerciseBtn.addClass("waves-effect waves-light red btn-large");
+    favExerciseBtn.attr("id", exercise.name);
+    favExerciseBtn.text(exercise.name);
+    exerciseCardList.append(favExerciseBtn);
+  });
+});
+
+$("#fav-excr-btns-wrapper").on("click", ".btn-large", function (event) {
+  event.preventDefault();
+  $("#home-excr-content").show();
+  var getExercise = $(event.target);
+  console.log(getExercise.attr("id"));
+  var pulledExercise = JSON.parse(
+    localStorage.getItem("" + getExercise.attr("id"))
+  );
+
+  $(".homeExerciseTitle").text(pulledExercise.name);
+  $(".homeExerciseDiff").text(pulledExercise.difficulty);
+  $(".homeExerciseEquip").text(pulledExercise.equipment);
+  $("#exercise-instruction").text(pulledExercise.instruction);
+});
