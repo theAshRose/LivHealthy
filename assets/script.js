@@ -727,3 +727,153 @@ $("#fav-excr-btns-wrapper").on("click", ".btn-large", function (event) {
 //     deleteAllButtons[i].style.display = "none";
 //   }
 // });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$("#homeFoodShowcase").on("click", "#delete-me-food", function(event){
+  event.preventDefault();
+  let favFoodBtns = $("#fav-food-btns").children()
+  let targetFood = $("#homeFoodTitle1").text()
+  console.log("ok")
+  for (x=0; x<favFoodBtns.length; x++){
+    if (targetFood === $("#fav-food-btns").children("li").eq(x).text()){
+      localStorage.removeItem(""+$("#fav-food-btns").children("li").eq(x).attr("id"))
+      let savedRecipe = JSON.parse(localStorage.getItem("favoritedRecipe")) || [];
+      savedRecipe.splice(x, 1)
+      localStorage.setItem("favoritedRecipe", JSON.stringify(savedRecipe))
+      $("#fav-food-btns").children("li").eq(x).hide()
+      $("#fav-food-btns").children("li").eq(x).remove()
+    }
+  }
+  $("#homeFoodShowcase").hide()
+})
