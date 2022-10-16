@@ -557,13 +557,7 @@ $("#fav-food-btns-wrapper").on("click", ".btn-large", function (event) {
 
 ////end of food recipe localstorage///////
 ///start of chart data modification and localstorage///////
-// console.log(nutritionalValuesObject[0].nutritionalValues.calories + 10)
-// console.log(nutritionalValuesObject[0].nutritionalValues.fat + 10)
-// console.log(nutritionalValuesObject[0].nutritionalValues.saturatedFat + 10)
-// console.log(nutritionalValuesObject[0].nutritionalValues.carbohydrates + 10)
-// console.log(nutritionalValuesObject[0].nutritionalValues.sugar + 10)
-// console.log(nutritionalValuesObject[0].nutritionalValues.sodium + 10)
-// console.log(nutritionalValuesObject[0].nutritionalValues.protein + 10)
+
 
 
 
@@ -702,17 +696,6 @@ let eatenValue = {}
 
 $("#homeNutrients").on("click", "#eat-me", function (event) {
   event.preventDefault();
-  let clickedEatMe = $(event.target)
-  let eatenValue = {
-    // calories: nutritionalValuesObject[0].nutritionalValues.calories + 25,
-    // fat: nutritionalValuesObject[0].nutritionalValues.fat + 10,
-    // saturatedFat: nutritionalValuesObject[0].nutritionalValues.saturatedFat + 10,
-    // carbohydrates: nutritionalValuesObject[0].nutritionalValues.carbohydrates + 10,
-    // sugar: nutritionalValuesObject[0].nutritionalValues.sugar + 10,
-    // sodium: nutritionalValuesObject[0].nutritionalValues.sodium + 10,
-    // protein: nutritionalValuesObject[0].nutritionalValues.protein + 10,
-    
-  }
   updateChartData(event)
 })
 
@@ -734,71 +717,14 @@ function removeData(chart) {
 }
 
 
+let calories = 0
+let fat = 0
+let saturatedFat = 0
+let carbohydrates = 0
+let sugar = 0
+let sodium = 0
+let protein = 0
 
-
-
-
-
-
-
-
-
-
-
-
-
-//////chart code////
-
-var nutritionalValuesObject = [
-  {
-    calories: "Calories",
-    nutritionalValues: {
-      calories: 1,
-      fat: 200,
-      saturatedFat: 543,
-      carbohydrates: 34,
-      sugar: 234,
-      sodium: 5555,
-      protein: 4534,
-    },
-  },
-  {
-    calories: "Fat",
-    nutritionalValues: {
-      fat: 5,
-    },
-  },
-  {
-    saturatedFat: "Saturated Fat",
-    nutritionalValues: {
-      saturatedFat: 543,
-    },
-  },
-  {
-    nutrients: "Carbohydrates",
-    nutritionalValues: {
-      carbohydrates: 34,
-    },
-  },
-  {
-    nutrients: "Sugar",
-    nutritionalValues: {
-      sugar: 234,
-    },
-  },
-  {
-    nutrients: "Sodium",
-    nutritionalValues: {
-      sodium: 5555,
-    },
-  },
-  {
-    nutrients: "Protein",
-    nutritionalValues: {
-      protein: 4534,
-    },
-  },
-];
 
 var data = {
   labels: [
@@ -812,13 +738,13 @@ var data = {
   ],
   datasets: [
     {
-      label: "Kcal",
-      backgroundColor: "green",
-      borderColor: "green",
-      data: nutritionalValuesObject,
+      label: ":)",
+      backgroundColor: ["green", "blue", "yellow", "red", "orange", "pink", "purple"],
+      borderColor: "black",
+      data: [0, 0, 0, 0, 0, 0, 0],
       parsing: {
         xAxisKey: "calories",
-        yAxisKey: "nutritionalValues.total",
+        yAxisKey: "nutritionalValues",
       },
     },
   ],
@@ -839,45 +765,19 @@ const config = {
 
 console.log($("#homeHealthScore"))
 const myChart = new Chart(document.getElementById("myChart"), config);
-///localstorage function below here///////////////////
 
-/////localstorage above here////////
-// let chartCalories= $(myChart.data.datasets[0].data[0].nutritionalValues.calories)
-// let chartFat= $(myChart.data.datasets[0].data[0].nutritionalValues.fat)
-// let chartSatFat= $(myChart.data.datasets[0].data[0].nutritionalValues.saturatedFat)
-// let chartCarbohydrates= $(myChart.data.datasets[0].data[0].nutritionalValues.carbohydrates)
-// let chartSugar= $(myChart.data.datasets[0].data[0].nutritionalValues.sugar)
-// let chartSodium= $(myChart.data.datasets[0].data[0].nutritionalValues.sodium)
-// let chartProtein= $(myChart.data.datasets[0].data[0].nutritionalValues.protein)
-// console.log(chartCalories)
-function updateChart(allclick) {
-  console.log(allclick.value);
-  myChart.data.datasets[0].parsing.yAxisKey = `nutritionalValues.${allclick.value}`;
-  // myChart.data.datasets[0].label = `nutritionalValues.${option.value}`;
-  myChart.update();
-}
 function updateChartData(){
-  //  console.log(myChart.data.datasets[0].data[0].nutritionalValues.calories += parseInt($("#homeCaloriesLi").text()))
-   myChart.data.datasets[0].data[0].nutritionalValues.calories = myChart.data.datasets[0].data[0].nutritionalValues.calories += parseInt($("#homeCaloriesLi").text())
-   myChart.data.datasets[0].data[0].nutritionalValues.fat = myChart.data.datasets[0].data[0].nutritionalValues.fat += parseInt($("#homeFatLi").text())
-   myChart.data.datasets[0].data[0].nutritionalValues.saturatedFat = myChart.data.datasets[0].data[0].nutritionalValues.saturatedFat += parseInt($("#homeSatFatLi").text())
-   myChart.data.datasets[0].data[0].nutritionalValues.carbohydrates = myChart.data.datasets[0].data[0].nutritionalValues.carbohydrates += parseInt($("#homeCarbsLi").text())
-   myChart.data.datasets[0].data[0].nutritionalValues.sugar = myChart.data.datasets[0].data[0].nutritionalValues.sugar += parseInt($("#homeSugarLi").text())
-   myChart.data.datasets[0].data[0].nutritionalValues.sodium = myChart.data.datasets[0].data[0].nutritionalValues.sodium += parseInt($("#homeSodiumLi").text())
-   myChart.data.datasets[0].data[0].nutritionalValues.protein = myChart.data.datasets[0].data[0].nutritionalValues.protein += parseInt($("#homeProteinLi").text())
-  console.log()
-   // console.log(parseInt($("#homeCaloriesLi").text()))
-  // let calAddition = myChart.data.datasets[0].data[0].nutritionalValues.calories += parseInt($("#homeCaloriesLi").text())
   
-  // myChart.data.datasets[0].data[0].nutritionalValues.calories += parseInt($("#homeCaloriesLi").text())
+   myChart.data.datasets[0].data[0] = calories += parseInt($("#homeCaloriesLi").text())
+   myChart.data.datasets[0].data[1] = fat += parseInt($("#homeFatLi").text())
+   myChart.data.datasets[0].data[2] = saturatedFat += parseInt($("#homeSatFatLi").text())
+   myChart.data.datasets[0].data[3] = carbohydrates += parseInt($("#homeCarbsLi").text())
+   myChart.data.datasets[0].data[4] = sugar += parseInt($("#homeSugarLi").text())
+   myChart.data.datasets[0].data[5] = sodium += parseInt($("#homeSodiumLi").text())
+   myChart.data.datasets[0].data[6] = protein += parseInt($("#homeProteinLi").text())
+ 
   myChart.update();
 }
-
-
-
-//function to save history buttin for exercise
-
-// function makeExercisebuttons
 
 var exerciseCardList = $("#fav-excr-btns");
 exerciseSelection.on("click", ".btn-small", function (event) {
