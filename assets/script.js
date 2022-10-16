@@ -714,166 +714,63 @@ $("#fav-excr-btns-wrapper").on("click", ".btn-large", function (event) {
   $("#exercise-instruction").text(pulledExercise.instruction);
 });
 
-// $("#delete-me").on("click", ".red btn-large", function () {
-//   localStorage.removeItem("savedExercise");
-//   localStorage.removeItem("savedRecipe");
-
-//   var deleteAllButtons = document.querySelectorAll(
-//     ".orange btn-large",
-//     ".green btn-large"
-//   );
-//   console.log(deleteAllButtons);
-//   for (var i = 0; i < deleteAllButtons.length; i++) {
-//     deleteAllButtons[i].style.display = "none";
-//   }
-// });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-$("#homeFoodShowcase").on("click", "#delete-me-food", function(event){
+$("#homeFoodShowcase").on("click", "#delete-me-food", function (event) {
   event.preventDefault();
-  let favFoodBtns = $("#fav-food-btns").children()
-  let targetFood = $("#homeFoodTitle1").text()
-  console.log("ok")
-  for (x=0; x<favFoodBtns.length; x++){
-    if (targetFood === $("#fav-food-btns").children("li").eq(x).text()){
-      localStorage.removeItem(""+$("#fav-food-btns").children("li").eq(x).attr("id"))
-      let savedRecipe = JSON.parse(localStorage.getItem("favoritedRecipe")) || [];
-      savedRecipe.splice(x, 1)
-      localStorage.setItem("favoritedRecipe", JSON.stringify(savedRecipe))
-      $("#fav-food-btns").children("li").eq(x).hide()
-      $("#fav-food-btns").children("li").eq(x).remove()
+  let favFoodBtns = $("#fav-food-btns").children();
+  let targetFood = $("#homeFoodTitle1").text();
+  console.log("ok");
+  for (x = 0; x < favFoodBtns.length; x++) {
+    if (targetFood === $("#fav-food-btns").children("li").eq(x).text()) {
+      localStorage.removeItem(
+        "" + $("#fav-food-btns").children("li").eq(x).attr("id")
+      );
+      let savedRecipe =
+        JSON.parse(localStorage.getItem("favoritedRecipe")) || [];
+      savedRecipe.splice(x, 1);
+      localStorage.setItem("favoritedRecipe", JSON.stringify(savedRecipe));
+      $("#fav-food-btns").children("li").eq(x).hide();
+      $("#fav-food-btns").children("li").eq(x).remove();
     }
   }
-  $("#homeFoodShowcase").hide()
-})
+  $("#homeFoodShowcase").hide();
+});
+
+var exerciseDeleteButton = $("#delete-me-excr");
+exerciseDeleteButton.on("click", function (event) {
+  event.preventDefault();
+  console.log("pressed");
+  var favExerciseButtons = $("#fav-excr-btns").children();
+  var targetExercise = $(".homeExerciseTitle").text();
+  console.log(targetExercise);
+  console.log("ok");
+  for (var i = 0; i < favExerciseButtons.length; i++) {
+    if ($("#fav-excr-btns").children("li").eq(i).text() == targetExercise) {
+      localStorage.removeItem(
+        "" + $("#fav-excr-btns").children("li").eq(i).text()
+      );
+
+      var savedExercise =
+        JSON.parse(localStorage.getItem("savedExercise")) || [];
+      savedExercise.splice(i, 1);
+      localStorage.setItem("savedExercise", JSON.stringify(savedExercise));
+      $("#fav-excr-btns").children("li").eq(i).hide();
+      $("#fav-excr-btns").children("li").eq(i).remove();
+    }
+  }
+  $("#exerciseHomeShowcase").hide();
+  $("#fav-excr-btns").children("li").eq(i).hide();
+});
+
+//   console.log(btnClicked.prev().prev().prev().prev().text());
+//   var titleClick = btnClicked.prev().prev().prev().prev().text();
+//   titleClick;
+//   console.log(titleClick);
+//   console.log(favExerciseButtons);
+//   console.log(targetExcercisebtns);
+
+//   for (var i = 0; i < favExerciseButtons.length; i++) {
+//     if ($("fav-excr-btns").children("li").eq(i).text() == titleClick) {
+//       $("fav-excr-btns").children("li").eq(i).empty();
+//     }
+//   }
+// });
