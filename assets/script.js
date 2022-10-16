@@ -90,12 +90,12 @@ function getExerciseApi(muscle, difficulty, type) {
   //fetching exercise API
   fetch(
     "https://exercises-by-api-ninjas.p.rapidapi.com/v1/exercises?muscle=" +
-    muscle +
-    "&difficulty=" +
-    difficulty +
-    "&type=" +
-    type +
-    "",
+      muscle +
+      "&difficulty=" +
+      difficulty +
+      "&type=" +
+      type +
+      "",
     exerciseOptions
   )
     .then(function (response) {
@@ -104,11 +104,9 @@ function getExerciseApi(muscle, difficulty, type) {
     .then(function (data) {
       // console.log(data[0].instructions);
       displayExerciseCards(data);
-
     });
 
-  function displayExerciseCards(data)
-   {  
+  function displayExerciseCards(data) {
     if (exerciseSelection.html) {
       exerciseSelection.empty();
 
@@ -138,8 +136,8 @@ function getExerciseApi(muscle, difficulty, type) {
         exerciseInstruction.addClass("instructionCard");
         exerciseListParent.attr("id", "exrCardList");
         exerciseListChildren.addClass("exerciseLi");
-        children1.attr("id","difficultyType")
-        children2.attr("id","equipmentType")
+        children1.attr("id", "difficultyType");
+        children2.attr("id", "equipmentType");
         exerciseCardSave.addClass("waves-effect green waves-light btn-small");
 
         exerciseSelection.append(exerciseCol);
@@ -367,8 +365,8 @@ var displayRecipeCards = function (data) {
 let userQuery = [];
 let finalQuery = [
   "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?query=" +
-  userQuery +
-  "&instructionsRequired=true&addRecipeInformation=true&sort=calories&sortDirection=asc",
+    userQuery +
+    "&instructionsRequired=true&addRecipeInformation=true&sort=calories&sortDirection=asc",
 ];
 
 var searchButton = $("#searchButtonLeft");
@@ -457,8 +455,8 @@ searchButton.on("click", function (event) {
 
   let finalQuery = [
     "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?query=" +
-    userQuery +
-    "&instructionsRequired=true&addRecipeInformation=true&sort=calories&sortDirection=asc",
+      userQuery +
+      "&instructionsRequired=true&addRecipeInformation=true&sort=calories&sortDirection=asc",
   ];
 
   getRecipeAPI(finalQuery);
@@ -510,7 +508,7 @@ $("#food-search-results").on("click", ".btn-small", function (event) {
     protein: parseInt(clickedButton.parents().eq(1).children().eq(9).text()),
     fiber: parseInt(clickedButton.parents().eq(1).children().eq(10).text()),
   };
-  window.localStorage.clear(savedRecipe);
+  // window.localStorage.clear(savedRecipe);
   savedRecipe.push(storedRecipe);
   localStorage.setItem("favoritedRecipe", JSON.stringify(savedRecipe));
   let favFoodBtn = $("<li></li>");
@@ -558,152 +556,18 @@ $("#fav-food-btns-wrapper").on("click", ".btn-large", function (event) {
 ////end of food recipe localstorage///////
 ///start of chart data modification and localstorage///////
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-let eatenValue = {}
+let eatenValue = {};
 
 $("#homeNutrients").on("click", "#eat-me", function (event) {
   event.preventDefault();
-  updateChartData(event)
-})
+  updateChartData(event);
+});
 
 function addData(chart, label, data) {
-  console.log(data.datasets)
+  console.log(data.datasets);
   chart.data.labels.push(label);
   chart.data.datasets.forEach((dataset) => {
-      dataset.data.push(data);
+    dataset.data.push(data);
   });
   chart.update();
 }
@@ -711,20 +575,18 @@ function addData(chart, label, data) {
 function removeData(chart) {
   chart.data.labels.pop();
   chart.data.datasets.forEach((dataset) => {
-      dataset.data.pop();
+    dataset.data.pop();
   });
   chart.update();
 }
 
-
-let calories = 0
-let fat = 0
-let saturatedFat = 0
-let carbohydrates = 0
-let sugar = 0
-let sodium = 0
-let protein = 0
-
+let calories = 0;
+let fat = 0;
+let saturatedFat = 0;
+let carbohydrates = 0;
+let sugar = 0;
+let sodium = 0;
+let protein = 0;
 
 var data = {
   labels: [
@@ -739,7 +601,15 @@ var data = {
   datasets: [
     {
       label: ":)",
-      backgroundColor: ["green", "blue", "yellow", "red", "orange", "pink", "purple"],
+      backgroundColor: [
+        "green",
+        "blue",
+        "yellow",
+        "red",
+        "orange",
+        "pink",
+        "purple",
+      ],
       borderColor: "black",
       data: [0, 0, 0, 0, 0, 0, 0],
       parsing: {
@@ -762,20 +632,30 @@ const config = {
   },
 };
 
-
-console.log($("#homeHealthScore"))
+console.log($("#homeHealthScore"));
 const myChart = new Chart(document.getElementById("myChart"), config);
 
-function updateChartData(){
-  
-   myChart.data.datasets[0].data[0] = calories += parseInt($("#homeCaloriesLi").text())
-   myChart.data.datasets[0].data[1] = fat += parseInt($("#homeFatLi").text())
-   myChart.data.datasets[0].data[2] = saturatedFat += parseInt($("#homeSatFatLi").text())
-   myChart.data.datasets[0].data[3] = carbohydrates += parseInt($("#homeCarbsLi").text())
-   myChart.data.datasets[0].data[4] = sugar += parseInt($("#homeSugarLi").text())
-   myChart.data.datasets[0].data[5] = sodium += parseInt($("#homeSodiumLi").text())
-   myChart.data.datasets[0].data[6] = protein += parseInt($("#homeProteinLi").text())
- 
+function updateChartData() {
+  myChart.data.datasets[0].data[0] = calories += parseInt(
+    $("#homeCaloriesLi").text()
+  );
+  myChart.data.datasets[0].data[1] = fat += parseInt($("#homeFatLi").text());
+  myChart.data.datasets[0].data[2] = saturatedFat += parseInt(
+    $("#homeSatFatLi").text()
+  );
+  myChart.data.datasets[0].data[3] = carbohydrates += parseInt(
+    $("#homeCarbsLi").text()
+  );
+  myChart.data.datasets[0].data[4] = sugar += parseInt(
+    $("#homeSugarLi").text()
+  );
+  myChart.data.datasets[0].data[5] = sodium += parseInt(
+    $("#homeSodiumLi").text()
+  );
+  myChart.data.datasets[0].data[6] = protein += parseInt(
+    $("#homeProteinLi").text()
+  );
+
   myChart.update();
 }
 
@@ -792,26 +672,27 @@ exerciseSelection.on("click", ".btn-small", function (event) {
     instruction: clickedExerciseButton.prev(".instructionCard").text(),
   };
 
-  window.localStorage.clear(savedExercise);
+  // window.localStorage.clear(savedExercise);
   savedExercise.push(storedExercise);
   console.log(savedExercise);
+  console.log(storedExercise);
   localStorage.setItem("savedExercise", JSON.stringify(savedExercise));
   console.log(savedExercise);
   var favExerciseBtn = $("<li></li>");
-  favExerciseBtn.text();
-
+  favExerciseBtn.text(storedExercise.name);
   favExerciseBtn.attr("id", $(".exerciseLi").text());
-  favExerciseBtn.addClass("waves-effect waves-light red btn-large");
+  favExerciseBtn.addClass("waves-effect waves-light orange btn-large");
   $("#fav-excr-btns").append(favExerciseBtn);
 });
 
 $(document).ready(function () {
   $("#exerHomeShowcase").hide();
+
   let savedExercise = JSON.parse(localStorage.getItem("savedExercise")) || [];
   savedExercise.forEach(function (exercise) {
     localStorage.setItem("" + exercise.name, JSON.stringify(exercise));
     let favExerciseBtn = $("<li></li>");
-    favExerciseBtn.addClass("waves-effect waves-light red btn-large");
+    favExerciseBtn.addClass("waves-effect waves-light orange btn-large");
     favExerciseBtn.attr("id", exercise.name);
     favExerciseBtn.text(exercise.name);
     exerciseCardList.append(favExerciseBtn);
@@ -826,9 +707,23 @@ $("#fav-excr-btns-wrapper").on("click", ".btn-large", function (event) {
   var pulledExercise = JSON.parse(
     localStorage.getItem("" + getExercise.attr("id"))
   );
-
+  console.log(pulledExercise.name);
   $(".homeExerciseTitle").text(pulledExercise.name);
   $(".homeExerciseDiff").text(pulledExercise.difficulty);
   $(".homeExerciseEquip").text(pulledExercise.equipment);
   $("#exercise-instruction").text(pulledExercise.instruction);
 });
+
+// $("#delete-me").on("click", ".red btn-large", function () {
+//   localStorage.removeItem("savedExercise");
+//   localStorage.removeItem("savedRecipe");
+
+//   var deleteAllButtons = document.querySelectorAll(
+//     ".orange btn-large",
+//     ".green btn-large"
+//   );
+//   console.log(deleteAllButtons);
+//   for (var i = 0; i < deleteAllButtons.length; i++) {
+//     deleteAllButtons[i].style.display = "none";
+//   }
+// });
