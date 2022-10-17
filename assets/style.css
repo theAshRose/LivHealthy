@@ -20,10 +20,11 @@ body {
 }
 #recipes,
 #exercises,
-#homeTag,
-#headerLogo {
+#homeTag {
   border-radius: 10px;
   box-shadow: 6px 0px 17px 10px;
+  margin-left:12px;
+  padding: 10px;
 }
 #quote {
   text-align: center;
