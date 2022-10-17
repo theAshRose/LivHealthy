@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -18,14 +17,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LivHealthy</title>
 </head>
-
 <body style='background-color:#00204329; color:#002043;'>
-  <header class="row 12">
+  <header class="row 12" >
     <div class="col-2" id="quote-wrapper">
       <H1 id="quote"></H1>
       <H4 id="author"> </H4>
     </div>
-    <nav style="background-color:#d3af4d9b">
+    <nav style="background-color:#e9e1ca00">
       <div id="nav-wrapper">
         <a id="headerLogo" href="#" class="brand-logo"><img height=64px, src="./assets/Images/LogoB.png"></a>
         <!--Logo header-->
@@ -67,17 +65,6 @@
           <div class="chartBox">
             <canvas id="myChart"></canvas>
             </div>
-            <div class="selectBox">
-            <select onchange="updateChart(this)" id="nutritional-tracker">
-              <option value="calories">Calories (KCal)</option>
-              <option value="fat">Fat (grams)</option>
-              <option value="saturatedFat">Saturated Fat (grams)</option>
-              <option value="carbohydrates">Carbohydrates (grams)</option>
-              <option value="sugar">Sugar (grams)</option>
-              <option value="sodium">Sodium (mg)</option>
-              <option value="protein">Protein (grams)</option>
-            </select>
-            </div> 
         </div>
       </div>
       <div class="row"><!--Recipe-->
@@ -285,7 +272,7 @@
           </div>
         </div>
 
-        <button class="btn waves-effect waves-light" type="submit" name="action" id="searchButtonLeft">Submit <i
+        <button class="btn waves-effect waves-light" type="submit" name="action" id="searchButtonLeft">Search <i
             class="material-icons right">send</i> </button>
       </div>
     </form>
@@ -357,7 +344,7 @@
       
   
     
-      <button class="btn waves-effect waves-light" type="submit" name="action" id="searchButton">Submit <i
+      <button class="btn waves-effect waves-light" type="submit" name="action" id="searchButton">Search <i
         class="material-icons right">send</i> </button>
 
         <!-- <button class="btn waves-effect waves-light" type="submit" name="action" id="searchButtonLeft">Submit <i

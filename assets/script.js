@@ -585,7 +585,6 @@ let fat = 0;
 let saturatedFat = 0;
 let carbohydrates = 0;
 let sugar = 0;
-let sodium = 0;
 let protein = 0;
 
 var data = {
@@ -595,23 +594,14 @@ var data = {
     "Saturated Fat",
     "Carbohydrates",
     "Sugar",
-    "Sodium",
     "Protein",
   ],
   datasets: [
     {
       label: ":)",
-      backgroundColor: [
-        "green",
-        "blue",
-        "yellow",
-        "red",
-        "orange",
-        "pink",
-        "purple",
-      ],
+      backgroundColor: ["green", "blue", "yellow", "red", "orange", "pink"],
       borderColor: "black",
-      data: [0, 0, 0, 0, 0, 0, 0],
+      data: [0, 0, 0, 0, 0, 0],
       parsing: {
         xAxisKey: "calories",
         yAxisKey: "nutritionalValues",
@@ -648,9 +638,6 @@ function updateChartData() {
   );
   myChart.data.datasets[0].data[4] = sugar += parseInt(
     $("#homeSugarLi").text()
-  );
-  myChart.data.datasets[0].data[5] = sodium += parseInt(
-    $("#homeSodiumLi").text()
   );
   myChart.data.datasets[0].data[6] = protein += parseInt(
     $("#homeProteinLi").text()
