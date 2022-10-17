@@ -4,41 +4,7 @@ $(document).ready(function () {
   $("#homeFoodShowcase").hide();
   $("#home-excr-content").hide();
   $("select").formSelect();
-}); //to get dropdowns working for food selection
-// $("#myChart").hide();
-
-//----Show-Hide-Sections----
-
-//----Home Tag----
-// $("#homeTag").on("click", function () {
-//   $("#homePage").show();
-//   $("#foodPage-wrapper").hide();
-//   $("#exercisePage").hide();
-// });
-
-// $("#headerLogo").on("click", function () {
-//   $("#homePage").show();
-//   $("#foodPage-wrapper").hide();
-//   $("#exercisePage").hide();
-// });
-
-// //----Recipe Section----
-// $("#recipes").on("click", function () {
-//   $("#foodPage-wrapper").show();
-//   $("#homePage").hide();
-//   $("#exercisePage").hide();
-// });
-
-// //----Exercise Section----
-// $("#exercises").on("click", function () {
-//   $("#exercisePage").show();
-//   $("#foodPage-wrapper").hide();
-//   $("#homePage").hide();
-// });
-
-//----End Show-Hide----
-
-// $("#foodResult") card id to be modified upon population of data
+}); 
 
 ////////////////////////////////////////////////////////////////////////////////below is healthy quotes! not free, use sparingly///////////////////////////////////////////////////////////////////////////////
 var displayQuote = $("#quote");
@@ -66,10 +32,6 @@ fetch("https://pquotes.p.rapidapi.com/api/quote", optionsQ)
     displayAuthor.text("-" + data.by);
   });
 
-// fetch('https://pquotes.p.rapidapi.com/api/quote', options)
-// 	.then(response => response.json())
-// 	.then(response => console.log(response.quote +" by " +response.by)) //response.quote is the quote, response.by is the author
-// 	.catch(err => console.error(err));
 
 //////////////////////////////////////////////////////////below is excercise///////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -90,12 +52,12 @@ function getExerciseApi(muscle, difficulty, type) {
   //fetching exercise API
   fetch(
     "https://exercises-by-api-ninjas.p.rapidapi.com/v1/exercises?muscle=" +
-      muscle +
-      "&difficulty=" +
-      difficulty +
-      "&type=" +
-      type +
-      "",
+    muscle +
+    "&difficulty=" +
+    difficulty +
+    "&type=" +
+    type +
+    "",
     exerciseOptions
   )
     .then(function (response) {
@@ -131,7 +93,7 @@ function getExerciseApi(muscle, difficulty, type) {
 
         exerciseCol.addClass("row");
         exerciseCard.addClass("col s12");
-        exerciseBackground.addClass("card blue-grey darken-1");
+        exerciseBackground.addClass("card instructionResult");
         exerciseTextColor.addClass("card-content darkblue-text");
         exerciseTitle.addClass("card-title");
         exerciseInstruction.addClass("instructionCard");
@@ -173,9 +135,9 @@ function getExerciseApi(muscle, difficulty, type) {
     if (data.length == 0) {
       $("#searchButton").addClass("btn red waves-effect waves-light")
       exerciseSelection;
-    }  $("#searchButton").addClass("btn green waves-effect waves-light")
+    } $("#searchButton").addClass("btn green waves-effect waves-light")
 
-    
+
   }
 }
 
@@ -227,11 +189,11 @@ function getRecipeAPI(userFinalInput) {
     })
     .then(function (data) {
       console.log(data);
-      if (data.length === 0){
-      searchButton.children("i").text("error")
-      searchButton.removeClass("grey")
-      searchButton.addClass("red")
-      } 
+      if (data.length === 0) {
+        searchButton.children("i").text("error")
+        searchButton.removeClass("grey")
+        searchButton.addClass("red")
+      }
       searchButton.children("i").text("check")
       searchButton.removeClass("grey")
       searchButton.addClass("green")
@@ -385,8 +347,8 @@ var displayRecipeCards = function (data) {
 let userQuery = [];
 let finalQuery = [
   "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?query=" +
-    userQuery +
-    "&instructionsRequired=true&addRecipeInformation=true",
+  userQuery +
+  "&instructionsRequired=true&addRecipeInformation=true",
 ];
 
 
@@ -475,12 +437,12 @@ searchButton.on("click", function (event) {
     userQuery += "&number=" + resultNumber;
     console.log(userQuery);
   } else userQuery += "&number=50";
-    
+
 
   let finalQuery = [
     "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?query=" +
-      userQuery +
-      "&instructionsRequired=true&addRecipeInformation=true&sort=calories&sortDirection=asc",
+    userQuery +
+    "&instructionsRequired=true&addRecipeInformation=true&sort=calories&sortDirection=asc",
   ];
 
   getRecipeAPI(finalQuery);
@@ -531,7 +493,7 @@ $("#food-search-results").on("click", ".btn-small", function (event) {
     sodium: parseInt(clickedButton.parents().eq(1).children().eq(8).text()),
     protein: parseInt(clickedButton.parents().eq(1).children().eq(9).text()),
     fiber: parseInt(clickedButton.parents().eq(1).children().eq(10).text()),
-    
+
   };
   // window.localStorage.clear(savedRecipe);
   savedRecipe.push(storedRecipe);
@@ -586,34 +548,11 @@ $("#fav-food-btns-wrapper").on("click", ".btn-large", function (event) {
 
 let eatenValue = {};
 
+
 $("#homeNutrients").on("click", "#eat-me", function (event) {
   event.preventDefault();
   updateChartData(event);
 });
-
-function addData(chart, label, data) {
-  console.log(data.datasets);
-  chart.data.labels.push(label);
-  chart.data.datasets.forEach((dataset) => {
-    dataset.data.push(data);
-  });
-  chart.update();
-}
-
-function removeData(chart) {
-  chart.data.labels.pop();
-  chart.data.datasets.forEach((dataset) => {
-    dataset.data.pop();
-  });
-  chart.update();
-}
-
-let calories = 0;
-let fat = 0;
-let saturatedFat = 0;
-let carbohydrates = 0;
-let sugar = 0;
-let protein = 0;
 
 var data = {
   labels: [
@@ -626,7 +565,7 @@ var data = {
   ],
   datasets: [
     {
-      label: ":)",
+      label: "yummy!",
       backgroundColor: ["green", "blue", "yellow", "red", "orange", "pink"],
       borderColor: "black",
       data: [0, 0, 0, 0, 0, 0],
@@ -654,6 +593,15 @@ console.log($("#homeHealthScore"));
 const myChart = new Chart(document.getElementById("myChart"), config);
 
 function updateChartData() {
+  let storedChart = JSON.parse(localStorage.getItem("storedChart")) || [0 ,0, 0, 0, 0, 0];
+  
+  let calories = storedChart[0];
+  let fat = storedChart[1];
+  let saturatedFat = storedChart[2];
+  let carbohydrates = storedChart[3];
+  let sugar = storedChart[4];
+  let protein = storedChart[5];
+
   myChart.data.datasets[0].data[0] = calories += parseInt(
     $("#homeCaloriesLi").text()
   );
@@ -671,12 +619,28 @@ function updateChartData() {
     $("#homeProteinLi").text()
   );
 
+
+
+  storedChart = myChart.data.datasets[0].data
+  localStorage.setItem("storedChart", JSON.stringify(storedChart))
   myChart.update();
 }
 
+$(document).ready(function () {
+  let storedChart = JSON.parse(localStorage.getItem("storedChart")) || [0, 0, 0, 0, 0, 0];
+  myChart.data.datasets[0].data = storedChart;
+  myChart.update();
+})
+
+$("#delete-me-chart").on("click", function (event) {
+  event.preventDefault()
+  let storedChart = [0, 0, 0, 0 ,0 ,0]
+  myChart.data.datasets[0].data = storedChart
+  localStorage.removeItem("storedChart")
+  myChart.update()
+})
+
 var exerciseCardList = $("#fav-excr-btns");
-
-
 exerciseSelection.on("click", ".btn-small", function (event) {
   event.preventDefault();
   var clickedExerciseButton = $(event.target);
@@ -688,8 +652,6 @@ exerciseSelection.on("click", ".btn-small", function (event) {
     equipment: clickedExerciseButton.prev().prev().text(),
     instruction: clickedExerciseButton.prev(".instructionCard").text(),
   };
-
-  // window.localStorage.clear(savedExercise);
   savedExercise.push(storedExercise);
   console.log(savedExercise);
   console.log(storedExercise);

@@ -1,15 +1,4 @@
-/* div.input-field.inline {
-    margin: 0px;
-}
 
-div.row {
-    margin: 0px;
-    max-height: 30px;
-}
-
-header {
-    background-color: green;
-} */
 
 body {
   background: url(./Images/vegetable-lanscape.png) no-repeat center center fixed;
@@ -23,24 +12,17 @@ body {
 #exerciseHomeShowcase{
   color: darkblue;
 }
-.formWrapper {
-  background-color: white;
-}
 
 .genCard {
   padding: 5px;
-  
+  background-color: rgba(255, 255, 255, 0.808);
+  backdrop-filter: blur(6px);
 }
 .genCard ul{
   margin-left: 10px;
   
 }
-.card-content {
-  background-color: white;
-}
-.card-reveal {
-  background-color: white;
-}
+
 #recipes,
 #exercises,
 #homeTag {
@@ -50,7 +32,7 @@ body {
   padding: 10px;
 }
 #exercise-form {
-  background-color: white;
+  background-color:  rgba(255, 255, 255, 0.904);
 }
 #quote {
   text-align: center;
@@ -73,6 +55,9 @@ p {
   margin: 0px;
 }
 
+#food-form{
+  background-color:  rgba(255, 255, 255, 0.904);
+}
 .chartBox {
   width: 700px;
   padding: 20px;
@@ -89,8 +74,15 @@ p {
   font-size: 125%;
 }
 
+.homeExrCard {
+  background-color: rgba(255, 255, 255, 0.904);
+}
 #instructionCard {
   font-size: 20px;
+}
+
+.instructionResult {
+  background-color: rgba(255, 255, 255, 0.904);
 }
 
 #difficultyType,
@@ -109,11 +101,11 @@ nav {
   backdrop-filter: blur(6px);
 }
 
-#chartwrapper {
+/* #chartwrapper {
   margin-left: 200px;
-}
+} */
 #myChart {
-  background-color: white;
+ background-color: rgba(255, 255, 255, 0.904);
 }
 #homeFavDisplayWrapper {
   height: 35%;
@@ -157,7 +149,7 @@ nav {
 }
 
 #food-form{
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.904);
 }
 @-webkit-keyframes load1 {
   0%,
