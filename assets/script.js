@@ -170,8 +170,8 @@ function getExerciseApi(muscle, difficulty, type) {
   }
   function errorCard(data){
     console.log(data)
-    if(data !==null && data !== ''){
-    console.log("select a real exercise")
+    if(data.length === 0){
+    alert("select a real exercise")
     exerciseSelection
     }
   }
