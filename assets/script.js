@@ -168,11 +168,11 @@ function getExerciseApi(muscle, difficulty, type) {
       }
     }
   }
-  function errorCard(data){
-    console.log(data)
-    if(data.length === 0){
-    alert("select a real exercise")
-    exerciseSelection
+  function errorCard(data) {
+    console.log(data);
+    if (data.length === 0) {
+      alert("select a real exercise");
+      exerciseSelection;
     }
   }
 }
@@ -769,42 +769,47 @@ exerciseDeleteButton.on("click", function (event) {
 //     }
 //   }
 // });
-let homePageGo = function() {
-  console.log("done1")
-  homePage.show()
-  foodPage.hide()
-   exrPage.hide()
+let homePageGo = function () {
+  console.log("done1");
+  homePage.show();
+  foodPage.hide();
+  exrPage.hide();
   window.location.reload();
-}
+};
 function pageLoad() {
-  console.log("donedone")
-  homePage.show()
-  foodPage.hide()
-  exrPage.hide()
+  console.log("donedone");
+  homePage.show();
+  foodPage.hide();
+  exrPage.hide();
 }
-function foodPageGo(){
-  console.log("done2")
-  homePage.hide()
-  foodPage.show()
-   exrPage.hide()
+function foodPageGo() {
+  console.log("done2");
+  homePage.hide();
+  foodPage.show();
+  exrPage.hide();
 }
-function exrPageGo(){
-  console.log("done3")
-   exrPage.show()
-  homePage.hide()
-  foodPage.hide()
+function exrPageGo() {
+  console.log("done3");
+  exrPage.show();
+  homePage.hide();
+  foodPage.hide();
 }
-let homePage = $("#homePage")
-let foodPage = $("#foodPage-wrapper")
-let exrPage = $("#exercisePage")
-$("#homeTag").on("click", function(){
-  homePageGo()
-})
-$("#recipes").on("click", function(){
-  foodPageGo()
-})
-$("#exercises").on("click", function(){
-  exrPageGo()
-})
+let homePage = $("#homePage");
+let foodPage = $("#foodPage-wrapper");
+let exrPage = $("#exercisePage");
+$("#homeTag").on("click", function () {
+  homePageGo();
+});
+$("#recipes").on("click", function () {
+  foodPageGo();
+});
+$("#exercises").on("click", function () {
+  exrPageGo();
+});
 
 pageLoad();
+
+$(".loader").hide();
+$("#searchButtonLeft").on("click", function () {
+  $(".loader").show();
+});
