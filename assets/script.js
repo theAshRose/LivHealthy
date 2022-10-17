@@ -130,9 +130,9 @@ function getExerciseApi(muscle, difficulty, type) {
         var exerciseEquipment = data[i].equipment;
 
         exerciseCol.addClass("row");
-        exerciseCard.addClass("col s12 m6");
+        exerciseCard.addClass("col s12");
         exerciseBackground.addClass("card blue-grey darken-1");
-        exerciseTextColor.addClass("card-content white-text");
+        exerciseTextColor.addClass("card-content darkblue-text");
         exerciseTitle.addClass("card-title");
         exerciseInstruction.addClass("instructionCard");
         exerciseListParent.attr("id", "exrCardList");
@@ -170,10 +170,12 @@ function getExerciseApi(muscle, difficulty, type) {
   }
   function errorCard(data) {
     console.log(data);
-    if (data.length === 0) {
-      alert("select a real exercise");
+    if (data.length == 0) {
+      $("#searchButton").addClass("btn red waves-effect waves-light")
       exerciseSelection;
-    }
+    }  $("#searchButton").addClass("btn green waves-effect waves-light")
+
+    
   }
 }
 
@@ -209,6 +211,7 @@ $("#searchButton").on("click", function (event) {
 //
 
 //////////////////////////////////////////////////////////fetch seperated by long lines like this, below is recipe API(use sparingly, its not free)
+var searchButton = $("#searchButtonLeft");
 
 function getRecipeAPI(userFinalInput) {
   const options = {
@@ -224,6 +227,14 @@ function getRecipeAPI(userFinalInput) {
     })
     .then(function (data) {
       console.log(data);
+      if (data.length === 0){
+      searchButton.children("i").text("error")
+      searchButton.removeClass("grey")
+      searchButton.addClass("red")
+      } 
+      searchButton.children("i").text("check")
+      searchButton.removeClass("grey")
+      searchButton.addClass("green")
       displayRecipeCards(data);
     });
 }
@@ -283,7 +294,7 @@ var displayRecipeCards = function (data) {
     var sodium = data.results[i].nutrition.nutrients[6].amount + " g Sodium";
     var sugar = data.results[i].nutrition.nutrients[7].amount + " g Sugar";
 
-    recipeCol.addClass("col 3");
+    recipeCol.addClass("genCard col 3");
     recipeCol.attr("id", UniqueCardId);
     recipeCard.addClass("card");
     recipeCard.attr("id", "foodResult0");
@@ -299,6 +310,7 @@ var displayRecipeCards = function (data) {
     cardArrow.addClass("material-icons right");
     anchorLink.attr("id", "foodCardLink0");
     anchorLink.attr("href", recipeLink);
+    anchorLink.attr("target", "_blank")
     cardReveal.addClass("card-reveal");
     cardRevealTitle.addClass("card-title grey-text text-darken-4");
     cardRevealTitle.attr("id", "foodCardTitle2-0", foodRevealTitle);
@@ -316,7 +328,7 @@ var displayRecipeCards = function (data) {
     cardNutritionBullet6.addClass("sodiumCard");
     cardNutritionBullet7.addClass("proteinCard");
     cardNutritionBullet8.addClass("fiberCard");
-    cardSave.addClass("waves-effect green waves-light btn-small");
+    cardSave.addClass("btn waves-effect green waves-light btn-small");
 
     recipeTitle.text(foodTitle);
     linkFont.text("Recipe Source Link");
@@ -374,12 +386,15 @@ let userQuery = [];
 let finalQuery = [
   "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?query=" +
     userQuery +
-    "&instructionsRequired=true&addRecipeInformation=true&sort=calories&sortDirection=asc",
+    "&instructionsRequired=true&addRecipeInformation=true",
 ];
 
-var searchButton = $("#searchButtonLeft");
+
 searchButton.on("click", function (event) {
   event.preventDefault();
+  searchButton.children("i").text("access_time")
+  searchButton.removeClass("green")
+  searchButton.addClass("btn grey waves-effect waves-light")
 
   console.log("button pressed");
   let userQuery = [];
@@ -460,6 +475,7 @@ searchButton.on("click", function (event) {
     userQuery += "&number=" + resultNumber;
     console.log(userQuery);
   } else userQuery += "&number=50";
+    
 
   let finalQuery = [
     "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?query=" +
@@ -515,6 +531,7 @@ $("#food-search-results").on("click", ".btn-small", function (event) {
     sodium: parseInt(clickedButton.parents().eq(1).children().eq(8).text()),
     protein: parseInt(clickedButton.parents().eq(1).children().eq(9).text()),
     fiber: parseInt(clickedButton.parents().eq(1).children().eq(10).text()),
+    
   };
   // window.localStorage.clear(savedRecipe);
   savedRecipe.push(storedRecipe);
@@ -526,6 +543,7 @@ $("#food-search-results").on("click", ".btn-small", function (event) {
   favFoodBtn.attr("id", clickedButton.closest(".col").attr("id"));
   favFoodBtn.addClass("waves-effect waves-light green btn-large");
   $("#fav-food-btns").append(favFoodBtn);
+  clickedButton.remove()
 });
 
 $(document).ready(function () {
@@ -546,10 +564,12 @@ $("#fav-food-btns-wrapper").on("click", ".btn-large", function (event) {
   let frisbee = $(event.target);
   console.log(frisbee.attr("id"));
   let pulledRecipe = JSON.parse(localStorage.getItem("" + frisbee.attr("id")));
+  console.log(pulledRecipe)
   homeFoodImg.attr("src", pulledRecipe.img);
   $("#homeFoodTitle1").text(pulledRecipe.title);
   $("#homeFoodTitle2").text(pulledRecipe.title);
-  $("#homeFoodLink").attr("href", pulledRecipe.recipeLink);
+  $("#homeFoodLink1").attr("href", pulledRecipe.recipeLink);
+  $("#homeFoodLink2").attr("href", pulledRecipe.recipeLink);
   $("#homeHealthScore").text("Healthscore: " + pulledRecipe.healthScore);
   $("#homeServings").text(pulledRecipe.servings + " Servings");
   $("#homeCaloriesLi").text(pulledRecipe.calories + " Calories");
@@ -655,6 +675,8 @@ function updateChartData() {
 }
 
 var exerciseCardList = $("#fav-excr-btns");
+
+
 exerciseSelection.on("click", ".btn-small", function (event) {
   event.preventDefault();
   var clickedExerciseButton = $(event.target);
@@ -678,6 +700,7 @@ exerciseSelection.on("click", ".btn-small", function (event) {
   favExerciseBtn.attr("id", $(".exerciseLi").text());
   favExerciseBtn.addClass("waves-effect waves-light orange btn-large");
   $("#fav-excr-btns").append(favExerciseBtn);
+  clickedExerciseButton.remove();
 });
 
 $(document).ready(function () {
@@ -695,10 +718,10 @@ $(document).ready(function () {
 });
 
 $("#fav-excr-btns-wrapper").on("click", ".btn-large", function (event) {
-  event.preventDefault();
-  $("#home-excr-content").show();
-  var getExercise = $(event.target);
-  console.log(getExercise.attr("id"));
+  event.preventDefault()
+  $("#home-excr-content").show()
+  var getExercise = $(event.target)
+  console.log(getExercise.attr("id"))
   var pulledExercise = JSON.parse(
     localStorage.getItem("" + getExercise.attr("id"))
   );
@@ -752,23 +775,11 @@ exerciseDeleteButton.on("click", function (event) {
       $("#fav-excr-btns").children("li").eq(i).remove();
     }
   }
-  $("#exerciseHomeShowcase").hide();
+  $("#home-excr-content").hide();
   $("#fav-excr-btns").children("li").eq(i).hide();
 });
 
-//   console.log(btnClicked.prev().prev().prev().prev().text());
-//   var titleClick = btnClicked.prev().prev().prev().prev().text();
-//   titleClick;
-//   console.log(titleClick);
-//   console.log(favExerciseButtons);
-//   console.log(targetExcercisebtns);
-
-//   for (var i = 0; i < favExerciseButtons.length; i++) {
-//     if ($("fav-excr-btns").children("li").eq(i).text() == titleClick) {
-//       $("fav-excr-btns").children("li").eq(i).empty();
-//     }
-//   }
-// });
+////////////////////////////////////////////show-hide functionality///////////////
 let homePageGo = function () {
   console.log("done1");
   homePage.show();
@@ -807,9 +818,10 @@ $("#exercises").on("click", function () {
   exrPageGo();
 });
 
-pageLoad();
 
+pageLoad();
 $(".loader").hide();
 $("#searchButtonLeft").on("click", function () {
   $(".loader").show();
 });
+////////////////////////////////////////////show-hide functionality///////////////
