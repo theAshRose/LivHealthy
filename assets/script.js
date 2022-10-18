@@ -543,16 +543,6 @@ $("#fav-food-btns-wrapper").on("click", ".btn-large", function (event) {
   $("#homeProteinLi").text(pulledRecipe.protein + "g Protein");
 });
 
-////end of food recipe localstorage///////
-///start of chart data modification and localstorage///////
-
-let eatenValue = {};
-
-
-$("#homeNutrients").on("click", "#eat-me", function (event) {
-  event.preventDefault();
-  updateChartData(event);
-});
 
 var data = {
   labels: [
@@ -589,6 +579,11 @@ const config = {
   },
 };
 
+$("#homeNutrients").on("click", "#eat-me", function (event) {
+  event.preventDefault();
+  updateChartData(event);
+});
+
 console.log($("#homeHealthScore"));
 const myChart = new Chart(document.getElementById("myChart"), config);
 
@@ -605,7 +600,9 @@ function updateChartData() {
   myChart.data.datasets[0].data[0] = calories += parseInt(
     $("#homeCaloriesLi").text()
   );
-  myChart.data.datasets[0].data[1] = fat += parseInt($("#homeFatLi").text());
+  myChart.data.datasets[0].data[1] = fat += parseInt(
+    $("#homeFatLi").text()
+    );
   myChart.data.datasets[0].data[2] = saturatedFat += parseInt(
     $("#homeSatFatLi").text()
   );
@@ -618,8 +615,6 @@ function updateChartData() {
   myChart.data.datasets[0].data[6] = protein += parseInt(
     $("#homeProteinLi").text()
   );
-
-
 
   storedChart = myChart.data.datasets[0].data
   localStorage.setItem("storedChart", JSON.stringify(storedChart))
@@ -646,7 +641,7 @@ exerciseSelection.on("click", ".btn-small", function (event) {
   var clickedExerciseButton = $(event.target);
   var savedExercise = JSON.parse(localStorage.getItem("savedExercise")) || [];
   var storedExercise = {
-    name: clickedExerciseButton.prev().prev().prev().prev().text(),
+    name: clickedExerciseButton.prev().prev().prev().prev().text(), //traversing the DOM
     difficulty: clickedExerciseButton.prev().prev().prev().text(),
 
     equipment: clickedExerciseButton.prev().prev().text(),
@@ -781,7 +776,7 @@ $("#exercises").on("click", function () {
 });
 
 
-pageLoad();
+pageLoad(); //called on to properly load the page
 $(".loader").hide();
 $("#searchButtonLeft").on("click", function () {
   $(".loader").show();
