@@ -1,15 +1,4 @@
-/* div.input-field.inline {
-    margin: 0px;
-}
 
-div.row {
-    margin: 0px;
-    max-height: 30px;
-}
-
-header {
-    background-color: green;
-} */
 
 body {
   background: url(./Images/vegetable-lanscape.png) no-repeat center center fixed;
@@ -17,7 +6,23 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  min-height: 100vh;
 }
+
+#exerciseHomeShowcase{
+  color: darkblue;
+}
+
+.genCard {
+  padding: 5px;
+  background-color: rgba(255, 255, 255, 0.808);
+  backdrop-filter: blur(6px);
+}
+.genCard ul{
+  margin-left: 10px;
+  
+}
+
 #recipes,
 #exercises,
 #homeTag {
@@ -26,12 +31,18 @@ body {
   margin-left: 12px;
   padding: 10px;
 }
+#exercise-form {
+  background-color:  rgba(255, 255, 255, 0.904);
+}
 #quote {
   text-align: center;
   font-size: 30px;
-  color: white;
+  color: black;
+  text-shadow: 3px -2px 18px #FFFFFF;
 }
-
+col.s12.m6 {
+  color: darkblue;
+}
 #author {
   text-align: center;
   font-size: 20px;
@@ -44,19 +55,34 @@ p {
   margin: 0px;
 }
 
+#food-form{
+  background-color:  rgba(255, 255, 255, 0.904);
+}
 .chartBox {
   width: 700px;
   padding: 20px;
 }
-
+#homeFootShowcase{
+  padding-top: 0px;
+}
+#homeFootTitle{
+  margin-top: 2px;
+}
 #exercise-search-result .exerciseLi {
   text-align: center;
   font-weight: bold;
   font-size: 125%;
 }
 
+.homeExrCard {
+  background-color: rgba(255, 255, 255, 0.904);
+}
 #instructionCard {
   font-size: 20px;
+}
+
+.instructionResult {
+  background-color: rgba(255, 255, 255, 0.904);
 }
 
 #difficultyType,
@@ -67,13 +93,19 @@ nav {
   box-shadow: none;
 }
 
+#homeFoodShowcase {
+  max-width: 500px;
+}
 #quote-wrapper {
   background-color: rgba(225, 177, 104, 0.465);
   backdrop-filter: blur(6px);
 }
 
+/* #chartwrapper {
+  margin-left: 200px;
+} */
 #myChart {
-  background-color: white;
+ background-color: rgba(255, 255, 255, 0.904);
 }
 #homeFavDisplayWrapper {
   height: 35%;
@@ -114,6 +146,10 @@ nav {
 }
 .loader:after {
   left: 1.5em;
+}
+
+#food-form{
+  background-color: rgba(255, 255, 255, 0.904);
 }
 @-webkit-keyframes load1 {
   0%,
