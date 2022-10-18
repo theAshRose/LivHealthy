@@ -1,19 +1,36 @@
 # Liv-Healthy app
 
+    (https://thedomconrad.github.io/LivHealthy/)
+
+![](assets/Images/search-recipe.gif)
+
 ## Description
 
-Here we have a wonderful, wonderful weather app. This app delivers weather data to the user for a selected city. [Here is a link to the application](https://thedomconrad.github.io/weather-reader1/)
-A user may view todays weather along with a 5 day forecast.
+This is the Liv-Healthy interactive web site build as a collaboration between four web developers to act as a guide to develop a better nutrition and fitness regimen. This is accomplished by providing inspirational quotes with search capabilities for recipes and fitness routines with a current emphasis on the former search functions.
 
-## How to use
+When a user saves a recipe it is populated to a chart. Each subsequent recipe information is added to a chart until the user decides to reset the information.
 
-Simply enter the name of the city and click "submit". The current weather along with a 5 day forecast will be displayed! You may keep entering cities and a list of clickable buttons will aggregate on the left. You may revisit selected cities' weather at any time and if you refresh the page your list will persist! Enjoy :)
+The main function of the site is a web based third party APIs, parse the data and use it the page. We designed the search using the APIs to give the user parameters to narrow down the results and filter out unwanted results. 
 
-## Screenshot of app
+## Technologies and Tools
 
-![screenshot](./assets/screenshot/ss.png)
+    To build this site we used the following technologies 
+
+        Html
+        Javascript
+        Materialize 1.0.0 CSS Framework and CSS 
+        Chart.js
+        jQuery
+        Google Fonts
+
+    Third Party APIs
+
+        Exercises API by API Ninjas: (https://api-ninjas.com/api/exercises)
+        Spoonacular API: (https://spoonacular.com/food-api)
+        pquotes rapid API: (https://rapidapi.com/primisign-pBrt_l-Weeu/api/pquotes/details)
 
 ## the Code!
+
 The most challenging part of LivHealthy for the team was learning and implimenting new technology on the fly. 
 Below is an prime example of that: Chart.js implementation. We not only managed to sucessfully impliment Chart.js according 
 to our project goals, but managed to add functionality above and beyond what was required. This, we are proud of, so enjoy our code snippet of Chart.js updating AND saving data for the user -while allowing user input only to clear said data.
@@ -75,12 +92,8 @@ to our project goals, but managed to add functionality above and beyond what was
     myChart.update()
 })
 
-```
+```        
 
-## Author Links
----[Linkedin](https://www.linkedin.com/in/dominic-conradson-76638b172/)---
-[GitHub](https://github.com/theDomConrad/)---
-[Portfolio](https://thedomconrad.github.io/Dominic-Conradson-Portfolio/)---
 ## User Stories
         
     AS A parent
@@ -103,8 +116,12 @@ to our project goals, but managed to add functionality above and beyond what was
     I WANT To be given suggestions if I can’t choose.
     SO THAT I may find guidance towards healthy activities and nutrition options
 
-## The Journey:
+## Authors
 
-Learning new skills is a part of any development. Here are links to our blog posts regarding skills learned for LivHealthy:
+    -Dominic Conradson GitHub: (https://github.com/theDomConrad)
+    -Chris Gibson GitHub: (https://github.com/chrischarlesgibson)
+    -Aaron Socher GitHub: (https://github.com/AMESocker)
+    -Angel Matias GitHub: (https://github.com/robogf)
 
-[How to use Chart.js by Dominic Conradson](https://medium.com/@them.and.us.2013/bb5a0d9ff750)
+
+
