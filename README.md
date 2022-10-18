@@ -1,6 +1,8 @@
 # Liv-Healthy app
 
-    https://thedomconrad.github.io/LivHealthy/
+    (https://thedomconrad.github.io/LivHealthy/)
+
+![](assets/Images/search-recipe.gif)
 
 ## Description
 
@@ -8,22 +10,24 @@
 
     When a user saves a recipe it is populated to a chart. Each subsequent recipe information is added to a chart until the user decides to reset the information.
 
+    The main function of the site is a web based third party APIs, parse the data and use it the page. We designed the search using the APIs to give the user parameters to narrow down the results and filter out unwanted results. 
+
 ## Technologies and Tools
 
     To build this site we used the following technologies 
 
         Html
         Javascript
-        Materialize CSS Framework and CSS 
+        Materialize 1.0.0 CSS Framework and CSS 
         Chart.js
         jQuery
         Google Fonts
 
     Third Party APIs
 
-        Exercises API by API Ninjas: https://api-ninjas.com/api/exercises
-        Spoonacular API: https://spoonacular.com/food-api
-        pquotes rapid API: https://rapidapi.com/primisign-pBrt_l-Weeu/api/pquotes/details
+        Exercises API by API Ninjas: (https://api-ninjas.com/api/exercises)
+        Spoonacular API: (https://spoonacular.com/food-api)
+        pquotes rapid API: (https://rapidapi.com/primisign-pBrt_l-Weeu/api/pquotes/details)
 
 ## User Stories
         
@@ -49,14 +53,10 @@
 
 ## Authors
 
-   Dominic Conradson GitHub: https://github.com/theDomConrad
-   Chris Gibson GitHub: https://github.com/chrischarlesgibson
-   Aaron Socher GitHub: https://github.com/AMESocker
-   Angel Matias GitHub: https://github.com/robogf
+    -Dominic Conradson GitHub: (https://github.com/theDomConrad)
+    -Chris Gibson GitHub: (https://github.com/chrischarlesgibson)
+    -Aaron Socher GitHub: (https://github.com/AMESocker)
+    -Angel Matias GitHub: (https://github.com/robogf)
 
 
-## The Journey:
 
-Learning new skills is a part of any development. Here are links to our blog posts regarding skills learned for LivHealthy:
-
-[How to use Chart.js by Dominic Conradson](https://medium.com/@them.and.us.2013/bb5a0d9ff750)
