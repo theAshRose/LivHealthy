@@ -1,5 +1,7 @@
 # Liv-Healthy app
 
+[link to deployed app](https://thedomconrad.github.io/LivHealthy/)
+
 ## About
 This is an app for guidance on living healthy(or, LivHealthy). Here is a place for any individual to visit - searching for detailed recipes and exercises to fit their lifestyle needs and capacity while guided by inspirational, motivating quotes. 
 
@@ -7,7 +9,8 @@ This is an app for guidance on living healthy(or, LivHealthy). Here is a place f
 
 Since Covid-19 our world has been more isolated than ever. Isolation can lead to unhealthy habits, ways of thinking and lower quality of life as such. LivHealthy seeks to mitigate the negative health effects of isolation and lack of direction. If you cant make up your mind as to whats for dinner - dont order out: LivHealthy. 
 
-[a sample](assets/Images/search-recipe.gif)
+
+![sample:](./assets/Images/search-recipe.gif)/![](./assets/Images/search-recipe.gif)
 
 ## User Stories
 Painting the picture of purpouse for our direction:
@@ -39,7 +42,8 @@ requested parameters a list of recipes appear. Livhealthy dynamically generates 
 
 A user may hit the "save" button attatched to a recipe, that recipe is saved into their local storage within a specific array and then saved into its own unique slot - which gets written into a button on their "home" page(click "home" to view home page). The user may return home to revisit their saved recipes and exercises, view their nutrition facts or instructions and have the option to delete their item. If the user deletes a recipe or exercise their button associated with it dissapears until they search and select it again. 
 
-[in action](./assets/images/button-save.gif)
+![Button save feature](./assets/images/button-save.gif)/![](./assets/images/button-save.gif)
+
 
 Just as one navigates recipes they navigate exercises, simple as that. Albeit short of nutrient values, exercises function in the same way as recipes - except they cant be eaten.
 
@@ -111,9 +115,9 @@ to project goals, but managed to add functionality above and beyond what was req
     myChart.update()
 })
 
-```        
+```
 
-[chart-in-action](./assets/gifs/chart-livHealthy.gif)
+ ![Chart in action](./assets/gifs/chart-livHealthy)/![](./assets/gifs/chart-livHealthy)
 
 ## Technologies and Tools/Credits
 
