@@ -43,15 +43,14 @@ requested parameters a list of recipes appear. Livhealthy dynamically generates 
 
 A user may hit the "save" button attatched to a recipe, that recipe is saved into their local storage within a specific array and then saved into its own unique slot - which gets written into a button on their "home" page(click "home" to view home page). The user may return home to revisit their saved recipes and exercises, view their nutrition facts or instructions and have the option to delete their item. If the user deletes a recipe or exercise their button associated with it dissapears until they search and select it again.
 
-![Button save feature](./assets/images/button-save.gif)
+![Button save feature](./assets/Images/button-save.gif)
 
 Just as one navigates recipes they navigate exercises, simple as that. Albeit short of nutrient values, exercises function in the same way as recipes - except they cant be eaten.
 
 That gets us to our next point; Chart.js:
+Below in the Code you will see our explaination of chart.js as well as a code snippet, but lets talk about how it interacted with our saved recipes: we didnt pull recipe data from the web to populate and save chart.js - we pulled it from the saved recipes of the users themselves. That make a fun juggle of information using localstorage and the user for us developers of LivHealthy.
 
-    Below in "## the Code!" you will see our explaination of chart.js as well as a code snippet, but lets talk about how it interacted with our saved recipes: we didnt pull recipe data from the web to populate and save chart.js - we pulled it from the saved recipes of the users themselves. That make a fun juggle of information using localstorage and the user for us developers of LivHealthy.
-
-## the Code!
+## The Code
 
 The most challenging part of LivHealthy for the team was learning and implimenting new technology on the fly.
 Below is an prime example of that: Chart.js implementation. We not only managed to sucessfully impliment Chart.js according
