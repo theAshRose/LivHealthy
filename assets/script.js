@@ -400,7 +400,7 @@ searchButton.on("click", function (event) {
   if (cal && !NaN) {
     userQuery += "&maxCalories=" + cal;
     console.log(userQuery);
-  } else userQuery += "&maxCalories=9999";
+  } else userQuery += "&maxCalories=100";
 
   let fat = $("#maxFatInput").val();
   if (fat && !NaN) {
