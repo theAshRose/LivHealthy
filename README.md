@@ -3,18 +3,19 @@
 [link to deployed app](https://thedomconrad.github.io/LivHealthy/)
 
 ## About
-This is an app for guidance on living healthy(or, LivHealthy). Here is a place for any individual to visit - searching for detailed recipes and exercises to fit their lifestyle needs and capacity while guided by inspirational, motivating quotes. 
+
+This is an app for guidance on living healthy(or, LivHealthy). Here is a place for any individual to visit - searching for detailed recipes and exercises to fit their lifestyle needs and capacity while guided by inspirational, motivating quotes.
 
 ## Why?
 
-Since Covid-19 our world has been more isolated than ever. Isolation can lead to unhealthy habits, ways of thinking and lower quality of life as such. LivHealthy seeks to mitigate the negative health effects of isolation and lack of direction. If you cant make up your mind as to whats for dinner - dont order out: LivHealthy. 
+Since Covid-19 our world has been more isolated than ever. Isolation can lead to unhealthy habits, ways of thinking and lower quality of life as such. LivHealthy seeks to mitigate the negative health effects of isolation and lack of direction. If you cant make up your mind as to whats for dinner - dont order out: LivHealthy.
 
-
-![sample:](./assets/images/search-recipe.gif)/![](./assets/images/search-recipe.gif)
+![how to use GIF](./assets/Images/search-recipe.gif)
 
 ## User Stories
+
 Painting the picture of purpouse for our direction:
-        
+
     AS A parent
     I WANT to adapt a positive mindset
     SO THAT I may live longer
@@ -37,13 +38,12 @@ Painting the picture of purpouse for our direction:
 
 ## How to use
 
-Simply nagivate to the "Recipes" tab to search for a tasty recipe based on something as simple as a keyword(salad, cake, pizza, potatoe, etc) and/or a specific dietary need such as dairy, gluten, vegan, vegetarian, nut allergy, etc. - one may even specify by amount of nutrients per serving with carbs, protein etc.. Once the user entered their 
+Simply nagivate to the "Recipes" tab to search for a tasty recipe based on something as simple as a keyword(salad, cake, pizza, potatoe, etc) and/or a specific dietary need such as dairy, gluten, vegan, vegetarian, nut allergy, etc. - one may even specify by amount of nutrients per serving with carbs, protein etc.. Once the user entered their
 requested parameters a list of recipes appear. Livhealthy dynamically generates a list of recipes with a, title, nutrients and a link to detailed instructions on how to cook it.
 
-A user may hit the "save" button attatched to a recipe, that recipe is saved into their local storage within a specific array and then saved into its own unique slot - which gets written into a button on their "home" page(click "home" to view home page). The user may return home to revisit their saved recipes and exercises, view their nutrition facts or instructions and have the option to delete their item. If the user deletes a recipe or exercise their button associated with it dissapears until they search and select it again. 
+A user may hit the "save" button attatched to a recipe, that recipe is saved into their local storage within a specific array and then saved into its own unique slot - which gets written into a button on their "home" page(click "home" to view home page). The user may return home to revisit their saved recipes and exercises, view their nutrition facts or instructions and have the option to delete their item. If the user deletes a recipe or exercise their button associated with it dissapears until they search and select it again.
 
-![Button save feature](./assets/images/button-save.gif)/![](./assets/images/button-save.gif)
-
+![Button save feature](./assets/images/button-save.gif)
 
 Just as one navigates recipes they navigate exercises, simple as that. Albeit short of nutrient values, exercises function in the same way as recipes - except they cant be eaten.
 
@@ -53,10 +53,9 @@ That gets us to our next point; Chart.js:
 
 ## the Code!
 
-The most challenging part of LivHealthy for the team was learning and implimenting new technology on the fly. 
+The most challenging part of LivHealthy for the team was learning and implimenting new technology on the fly.
 Below is an prime example of that: Chart.js implementation. We not only managed to sucessfully impliment Chart.js according
 to project goals, but managed to add functionality above and beyond what was required. This, we are proud of, so enjoy our code snippet of Chart.js updating AND saving data for the user - while allowing user input only to clear said data.
-
 
 ```
         $("#homeNutrients").on("click", "#eat-me", function (event) {
@@ -69,7 +68,7 @@ to project goals, but managed to add functionality above and beyond what was req
 
     updateChartData() {
         let storedChart = JSON.parse(localStorage.getItem("storedChart")) || [0 ,0, 0, 0, 0, 0];
-  
+
         let calories = storedChart[0];
         let fat = storedChart[1];
         saturatedFat = storedChart[2];
@@ -117,306 +116,49 @@ to project goals, but managed to add functionality above and beyond what was req
 
 ```
 
- ![Chart in action](./assets/images/chart-livHealthy)/![](./assets/images/chart-livHealthy)
+![Chart in action](./assets/images/chart-livHealthy)
 
 ## Technologies and Tools/Credits
 
-    To build this site we used the following technologies 
+    To build this site we used the following technologies
 
         Html
         Javascript
-        Materialize 1.0.0 CSS Framework and CSS 
+        Materialize 1.0.0 CSS Framework and CSS
         Chart.js
         jQuery
         Google Fonts
+        Screencastify
 
-    Third Party APIs
+[Luke Haas's css preloader database](https://github.com/lukehaas/css-loaders)
+
+    Third Party APIs used:
+
 [Exercises API by API Ninjas](https://api-ninjas.com/api/exercises)
 [Spoonacular API](https://spoonacular.com/food-api)
 [pquotes rapid API](https://rapidapi.com/primisign-pBrt_l-Weeu/api/pquotes/details)
 
-
 ## Authors
 
-    -Dominic Conradson GitHub: (https://github.com/theDomConrad)
-    -Chris Gibson GitHub: (https://github.com/chrischarlesgibson)
-    -Aaron Socher GitHub: (https://github.com/AMESocker)
-    -Angel Matias GitHub: (https://github.com/robogf)
-
+    -Dominic Conradson:[GitHub](https://github.com/theDomConrad)
+    -Chris Gibson: [GitHub](https://github.com/chrischarlesgibson), [Linkedin](https://www.linkedin.com/in/chris-gibson-415909250/), [Link to my Portfolio](https://chrischarlesgibson.github.io/Chris-Gibson-project-portfolio/)
+    -Aaron Socher: [GitHub](https://github.com/AMESocker)
+    -Angel Matias: [GitHub](https://github.com/robogf), [Linkedin](https://www.linkedin.com/in/angel-matias-01120b251/)
 
 ## Repo Owner Links
+
 ---[Linkedin](https://www.linkedin.com/in/dominic-conradson-76638b172/)---
 [GitHub](https://github.com/theDomConrad/)---
 [Portfolio](https://thedomconrad.github.io/Dominic-Conradson-Portfolio/)---
-
 
 ## The Journey:
 
 Learning new skills is a part of any development. Here are links to our blog posts regarding skills learned for LivHealthy:
 
 [How to use Chart.js by Dominic Conradson](https://medium.com/@them.and.us.2013/bb5a0d9ff750)
+[Beginners guide to Materialize CSS](https://medium.com/p/3e48247b322e/edit)
 
+---
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+This webpage is licensed under the MIT license.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
