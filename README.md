@@ -6,11 +6,11 @@
 
 ## Description
 
-    This is the Liv-Healthy interactive web site build as a collaboration between four web developers to act as a guide to develop a better nutrition and fitness regimen. This is accomplished by providing inspirational quotes with search capabilities for recipes and fitness routines with a current emphasis on the former search functions.
+This is the Liv-Healthy interactive web site build as a collaboration between four web developers to act as a guide to develop a better nutrition and fitness regimen. This is accomplished by providing inspirational quotes with search capabilities for recipes and fitness routines with a current emphasis on the former search functions.
 
-    When a user saves a recipe it is populated to a chart. Each subsequent recipe information is added to a chart until the user decides to reset the information.
+When a user saves a recipe it is populated to a chart. Each subsequent recipe information is added to a chart until the user decides to reset the information.
 
-    The main function of the site is a web based third party APIs, parse the data and use it the page. We designed the search using the APIs to give the user parameters to narrow down the results and filter out unwanted results. 
+The main function of the site is a web based third party APIs, parse the data and use it the page. We designed the search using the APIs to give the user parameters to narrow down the results and filter out unwanted results. 
 
 ## Technologies and Tools
 
