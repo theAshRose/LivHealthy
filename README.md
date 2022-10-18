@@ -113,10 +113,9 @@ to project goals, but managed to add functionality above and beyond what was req
     localStorage.removeItem("storedChart")
     myChart.update()
 })
-
 ```
 
-![Chart in action](./assets/images/chart-livHealthy)
+![Chart in action](./assets/Images/chart%20-livHealthy.gif)
 
 ## Technologies and Tools/Credits
 
@@ -130,20 +129,20 @@ to project goals, but managed to add functionality above and beyond what was req
         Google Fonts
         Screencastify
 
-[Luke Haas's css preloader database](https://github.com/lukehaas/css-loaders)
+- [Luke Haas's css preloader database](https://github.com/lukehaas/css-loaders)
 
-    Third Party APIs used:
+  Third Party APIs used:
 
-[Exercises API by API Ninjas](https://api-ninjas.com/api/exercises)
-[Spoonacular API](https://spoonacular.com/food-api)
-[pquotes rapid API](https://rapidapi.com/primisign-pBrt_l-Weeu/api/pquotes/details)
+- [Exercises API by API Ninjas](https://api-ninjas.com/api/exercises)
+- [Spoonacular API](https://spoonacular.com/food-api)
+- [pquotes rapid API](https://rapidapi.com/primisign-pBrt_l-Weeu/api/pquotes/details)
 
 ## Authors
 
-    -Dominic Conradson:[GitHub](https://github.com/theDomConrad)
-    -Chris Gibson: [GitHub](https://github.com/chrischarlesgibson), [Linkedin](https://www.linkedin.com/in/chris-gibson-415909250/), [Link to my Portfolio](https://chrischarlesgibson.github.io/Chris-Gibson-project-portfolio/)
-    -Aaron Socher: [GitHub](https://github.com/AMESocker)
-    -Angel Matias: [GitHub](https://github.com/robogf), [Linkedin](https://www.linkedin.com/in/angel-matias-01120b251/)
+- Dominic Conradson:[GitHub](https://github.com/theDomConrad)
+- Chris Gibson: [GitHub](https://github.com/chrischarlesgibson), [Linkedin](https://www.linkedin.com/in/chris-gibson-415909250/), [Portfolio](https://chrischarlesgibson.github.io/Chris-Gibson-project-portfolio/)
+- Aaron Socher: [GitHub](https://github.com/AMESocker)
+- Angel Matias: [GitHub](https://github.com/robogf), [Linkedin](https://www.linkedin.com/in/angel-matias-01120b251/)
 
 ## Repo Owner Links
 
@@ -155,8 +154,8 @@ to project goals, but managed to add functionality above and beyond what was req
 
 Learning new skills is a part of any development. Here are links to our blog posts regarding skills learned for LivHealthy:
 
-[How to use Chart.js by Dominic Conradson](https://medium.com/@them.and.us.2013/bb5a0d9ff750)
-[Beginners guide to Materialize CSS](https://medium.com/p/3e48247b322e/edit)
+- [How to use Chart.js by Dominic Conradson](https://medium.com/@them.and.us.2013/bb5a0d9ff750)
+- [Beginners guide to Materialize CSS](https://medium.com/p/3e48247b322e/edit)
 
 ---
 
