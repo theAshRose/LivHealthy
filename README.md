@@ -19,61 +19,62 @@ Below is an prime example of that: Chart.js implementation. We not only managed 
 to our project goals, but managed to add functionality above and beyond what was required. This, we are proud of, so enjoy our code snippet of Chart.js updating AND saving data for the user -while allowing user input only to clear said data.
 
 ```
-            $("#homeNutrients").on("click", "#eat-me", function (event) {
-            event.preventDefault();
-            updateChartData(event);
+        $("#homeNutrients").on("click", "#eat-me", function (event) {
+        event.preventDefault();
+        updateChartData(event);
 });
 
-console.log($("#homeHealthScore"));
-const myChart = new Chart(document.getElementById("myChart"), config);
+    console.log($("#homeHealthScore"));
+    const myChart = new Chart(document.getElementById("myChart"), config);
 
-function updateChartData() {
-  let storedChart = JSON.parse(localStorage.getItem("storedChart")) || [0 ,0, 0, 0, 0, 0];
+    updateChartData() {
+        let storedChart = JSON.parse(localStorage.getItem("storedChart")) || [0 ,0, 0, 0, 0, 0];
   
-  let calories = storedChart[0];
-  let fat = storedChart[1];
-  let saturatedFat = storedChart[2];
-  let carbohydrates = storedChart[3];
-  let sugar = storedChart[4];
-  let protein = storedChart[5];
+        let calories = storedChart[0];
+        let fat = storedChart[1];
+        saturatedFat = storedChart[2];
+        let carbohydrates = storedChart[3];
+        let sugar = storedChart[4];
+        let protein = storedChart[5];
 
-  myChart.data.datasets[0].data[0] = calories += parseInt(
-    $("#homeCaloriesLi").text()
-  );
-  myChart.data.datasets[0].data[1] = fat += parseInt(
-    $("#homeFatLi").text()
+    myChart.data.datasets[0].data[0] = calories += parseInt(
+        $("#homeCaloriesLi").text()
     );
-  myChart.data.datasets[0].data[2] = saturatedFat += parseInt(
-    $("#homeSatFatLi").text()
-  );
-  myChart.data.datasets[0].data[3] = carbohydrates += parseInt(
-    $("#homeCarbsLi").text()
-  );
-  myChart.data.datasets[0].data[4] = sugar += parseInt(
-    $("#homeSugarLi").text()
-  );
-  myChart.data.datasets[0].data[6] = protein += parseInt(
-    $("#homeProteinLi").text()
-  );
+    myChart.data.datasets[0].data[1] = fat += parseInt(
+        $("#homeFatLi").text()
+    );
+    myChart.data.datasets[0].data[2] = saturatedFat += parseInt(
+        $("#homeSatFatLi").text()
+    );
+    myChart.data.datasets[0].data[3] = carbohydrates += parseInt(
+        $("#homeCarbsLi").text()
+    );
+    myChart.data.datasets[0].data[4] = sugar += parseInt(
+        $("#homeSugarLi").text()
+    );
+    myChart.data.datasets[0].data[6] = protein += parseInt(
+        $("#homeProteinLi").text()
+    );
 
-  storedChart = myChart.data.datasets[0].data
-  localStorage.setItem("storedChart", JSON.stringify(storedChart))
-  myChart.update();
+    storedChart = myChart.data.datasets[0].data
+    localStorage.setItem("storedChart", JSON.stringify(storedChart))
+    myChart.update();
 }
 
-$(document).ready(function () {
-  let storedChart = JSON.parse(localStorage.getItem("storedChart")) || [0, 0, 0, 0, 0, 0];
-  myChart.data.datasets[0].data = storedChart;
-  myChart.update();
+    $(document).ready(function () {
+        let storedChart = JSON.parse(localStorage.getItem("storedChart")) || [0, 0, 0, 0, 0, 0];
+        myChart.data.datasets[0].data = storedChart;
+        myChart.update();
+    })
+
+    $("#delete-me-chart").on("click", function (event) {
+    event.preventDefault()
+    let storedChart = [0, 0, 0, 0 ,0 ,0]
+    myChart.data.datasets[0].data = storedChart
+    localStorage.removeItem("storedChart")
+    myChart.update()
 })
 
-$("#delete-me-chart").on("click", function (event) {
-  event.preventDefault()
-  let storedChart = [0, 0, 0, 0 ,0 ,0]
-  myChart.data.datasets[0].data = storedChart
-  localStorage.removeItem("storedChart")
-  myChart.update()
-})
 ```
 
 ## Author Links
