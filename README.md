@@ -1,5 +1,9 @@
 # Liv-Healthy app
 
+    https://thedomconrad.github.io/LivHealthy/
+
+
+
 ## User Stories
         
     AS A parent
@@ -21,6 +25,14 @@
     AS A User
     I WANT To be given suggestions if I can’t choose.
     SO THAT I may find guidance towards healthy activities and nutrition options
+
+## Authors
+
+   Dominic Conradson GitHub: https://github.com/theDomConrad
+   Chris Gibson GitHub: https://github.com/chrischarlesgibson
+   Aaron Socher GitHub: https://github.com/AMESocker
+   Angel Matias GitHub: https://github.com/robogf
+
 
 ## The Journey:
 
