@@ -10,7 +10,7 @@ This is an app for guidance on living healthy(or, LivHealthy). Here is a place f
 Since Covid-19 our world has been more isolated than ever. Isolation can lead to unhealthy habits, ways of thinking and lower quality of life as such. LivHealthy seeks to mitigate the negative health effects of isolation and lack of direction. If you cant make up your mind as to whats for dinner - dont order out: LivHealthy. 
 
 
-![sample:](./assets/Images/search-recipe.gif)/![](./assets/Images/search-recipe.gif)
+![sample:](./assets/images/search-recipe.gif)/![](./assets/images/search-recipe.gif)
 
 ## User Stories
 Painting the picture of purpouse for our direction:
@@ -117,7 +117,7 @@ to project goals, but managed to add functionality above and beyond what was req
 
 ```
 
- ![Chart in action](./assets/gifs/chart-livHealthy)/![](./assets/gifs/chart-livHealthy)
+ ![Chart in action](./assets/images/chart-livHealthy)/![](./assets/images/chart-livHealthy)
 
 ## Technologies and Tools/Credits
 
@@ -131,9 +131,9 @@ to project goals, but managed to add functionality above and beyond what was req
         Google Fonts
 
     Third Party APIs
-         Exercises API by API Ninjas: (https://api-ninjas.com/api/exercises)
-        Spoonacular API: (https://spoonacular.com/food-api)
-        pquotes rapid API: (https://rapidapi.com/primisign-pBrt_l-Weeu/api/pquotes/details)
+[Exercises API by API Ninjas](https://api-ninjas.com/api/exercises)
+[Spoonacular API](https://spoonacular.com/food-api)
+[pquotes rapid API](https://rapidapi.com/primisign-pBrt_l-Weeu/api/pquotes/details)
 
 
 ## Authors
