@@ -15,7 +15,7 @@ const optionsQ = {
   method: "POST",
   headers: {
     "content-type": "application/json",
-    "X-RapidAPI-Key": "6e62526b2bmsh6ea8d6b04968f6dp1bf673jsn462c96ed6e67",
+    "X-RapidAPI-Key": "f6140f9bd5mshf947ce29f8d6a4ap1406e5jsn9e459eb842b0",
     "X-RapidAPI-Host": "pquotes.p.rapidapi.com",
   },
   body: '{"topic":"health"}',
@@ -180,7 +180,7 @@ function getRecipeAPI(userFinalInput) {
   const options = {
     method: "GET",
     headers: {
-      "X-RapidAPI-Key": "6e62526b2bmsh6ea8d6b04968f6dp1bf673jsn462c96ed6e67",
+      "X-RapidAPI-Key": "f6140f9bd5mshf947ce29f8d6a4ap1406e5jsn9e459eb842b0",
       "X-RapidAPI-Host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
     },
   };
