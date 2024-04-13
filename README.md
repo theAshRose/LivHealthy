@@ -1,6 +1,6 @@
 # Liv-Healthy app
 
-[link to deployed app](https://thedomconrad.github.io/LivHealthy/)
+[link to deployed app](https://theashrose.github.io/LivHealthy/)
 
 ## About
 
